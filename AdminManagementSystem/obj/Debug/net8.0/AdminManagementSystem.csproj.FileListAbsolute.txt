@@ -140,3 +140,4 @@ F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem\bin\
 F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem\obj\Debug\net8.0\AdminManagementSystem.csproj.AssemblyReference.cache
 F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem\obj\Debug\net8.0\AdminMan.F1C877E4.Up2Date
+F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem\obj\Debug\net8.0\AdminManagementSystem.sourcelink.json
