@@ -1,0 +1,84 @@
+﻿
+
+@model Department
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/AdminManagementSystem.styles.css" asp-append-version="true" />
+
+<style>
+    .department-info {
+        font-family: Arial, sans-serif;
+        width: 100%;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        min-height:250px;
+    }
+
+        .department-info h3 {
+            background-color: #4a4a4a;
+            color: white;
+            margin: 0;
+            padding:15px;
+            font-size: 1.2em;
+        }
+
+        .department-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .department-info td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .department-info tr:last-child td {
+            border-bottom: none;
+        }
+
+        .department-info tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .department-info td:first-child {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .department-info td:last-child {
+            text-align: right;
+        }
+</style>
+
+<div class="department-info">
+    <h3>Department : @Model.DepartmentName</h3>
+    <table>
+        <tr>
+            <td>Manager</td>
+            <td>@Model.DepartmentManager</td>
+        </tr>
+        <tr>
+            <td>Number of Courses</td>
+            <td>@Model.Department_Course_ref.Count</td>
+        </tr>
+        <tr>
+            <td>Number of Students</td>
+            <td>@Model.Students_ref.Count</td>
+        </tr>
+        <tr>
+            <td>Male Students</td>
+            <td>@Model.Students_ref.Where(x => x.gender == 'M').Count()</td>
+        </tr>
+        <tr>
+            <td>Female Students</td>
+            <td>@Model.Students_ref.Where(x => x.gender == 'F').Count()</td>
+        </tr>
+    </table>
+</div>

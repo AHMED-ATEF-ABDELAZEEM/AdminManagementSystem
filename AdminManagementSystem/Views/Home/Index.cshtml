@@ -1,0 +1,116 @@
+﻿        
+<style>
+    .card-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+        .card-container a{
+            text-decoration:none;
+        }
+
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1rem;
+        width: 160px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+        .card h2 {
+            color: black;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+        }
+
+        .card button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+            .card button:hover {
+                background-color: #2980b9;
+            }
+
+</style>
+
+
+
+<div class="card-container">
+
+    <a href="/Department/Index?DeptId=1">
+        <div class="card">
+            <img src="/Images/Department.jpg" alt="Department">
+            <h2>Department</h2>
+        </div>
+    </a>
+
+    <a href="Student/getAllStudent">
+        <div class="card">
+            <img src="/Images/Courses.jpeg" alt="Courses">
+            <h2>Courses</h2>
+        </div>
+    </a>
+
+
+    <a href="Student/getAllStudent">
+        <div class="card">
+            <img src="/Images/Student.jpeg" alt="Student">
+            <h2>Student</h2>
+        </div>
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

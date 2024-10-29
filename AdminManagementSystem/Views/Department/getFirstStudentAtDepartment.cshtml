@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Student
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Info Card</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dynamic-space {
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top:0px;
+        }
+
+        .card {
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            margin-left:100px;
+        }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+        .card-header {
+            height: 20px;
+            background-color: #4a4a4a;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+
+        .card-body {
+            padding: 0.75rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+
+        .info-value {
+            color: #495057;
+            font-size: 0.8rem;
+        }
+
+        .card-img-top {
+            height: 170px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="dynamic-space">
+        <div class="card">
+            <div class="card-header"></div>
+            <img src="/Images/@Model.Image" class="card-img-top" alt="Profile image">
+            <div class="card-body">
+                <div class="row mb-1">
+                    <div class="col-5 info-label">Name:</div>
+                    <div class="col-7 info-value">@Model.StudentName</div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5 info-label">Age:</div>
+                    <div class="col-7 info-value">@Model.Age</div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5 info-label">Gender:</div>
+                    <div class="col-7 info-value">@Model.gender</div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5 info-label">City:</div>
+                    <div class="col-7 info-value">@Model.City</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

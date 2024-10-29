@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AdminManagementSystem.styles.css" asp-append-version="true" />
+    <title>Admin Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            nav ul li {
+                display: inline;
+                margin-right: 1rem;
+            }
+
+                nav ul li a {
+                    color: white;
+                    text-decoration: none;
+                    padding: 0.5rem;
+                    transition: background-color 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        background-color: #34495e;
+                        border-radius: 4px;
+                    }
+
+        main {
+            flex-grow: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 0.9rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Management System</h1>
+        <nav>
+            <ul>
+                <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                @*<li><a href="#department">Department</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#student">Student</a></li> *@
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>Created by Eng : AHMED ATEF</p>
+        <p>Contact : ahmedatefabdelazeem@gmail.com</p>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

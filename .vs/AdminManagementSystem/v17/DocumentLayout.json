@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\student\\addnewstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\student\\addnewstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\student\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\student\\getallstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddNewStudent.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T10:08:29.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "getAllStudent.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\getAllStudent.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Student\\getAllStudent.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\getAllStudent.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Student\\getAllStudent.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAqwHEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T09:51:33.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a5174402-226b-48da-aa5c-91376ed45871}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

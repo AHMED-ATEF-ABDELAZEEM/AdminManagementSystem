@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<StudentWithTotalMark>;
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/AdminManagementSystem.styles.css" asp-append-version="true" />
+
+
+<style>
+    .course-table-container {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .course-table th,
+        .course-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .course-table th {
+            background-color: #4a4a4a;
+            color: white;
+            font-weight: bold;
+        }
+
+        .course-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .course-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .course-table tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        .course-table td:first-child {
+            font-weight: bold;
+            color: #333;
+            width: 50px;
+        }
+
+        .course-table td:nth-child(4) {
+            text-align: right;
+        }
+</style>
+
+<div class="course-table-container">
+    <table class="course-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>gender</th>
+                <th>Age</th>
+                <th>Total Mark</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int start = 1;
+            }
+            @foreach (StudentWithTotalMark item in Model)
+            {
+                <tr>
+                    <td>@start</td>
+                    <td>@item.StudentName</td>
+                    <td>@item.gender</td>
+                    <td>@item.Age</td>
+                    <td>@item.TotalMark</td>
+                </tr>
+                start++;
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+

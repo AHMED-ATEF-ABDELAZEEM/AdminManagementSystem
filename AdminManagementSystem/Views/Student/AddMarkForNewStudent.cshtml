@@ -1,0 +1,33 @@
+﻿
+
+@model List<Student_Course>
+
+
+<form method="post" asp-action="SaveStudentMark" asp-controller="Student">
+
+    @for (int i = 0; i < ViewBag.Courses.Count; i++)
+    {
+        var course = ViewBag.Courses[i]; // Get the current course
+
+        <div>
+            <input type="number" name="[@i].Student_Id" value="@ViewBag.StudentId" hidden/>
+            <input type="number" name="[@i].Course_Id" value="@course.CourseId" hidden/>
+            <label>@course.CourseName</label>
+            <input type="number" asp-for="[@i].Mark" class="form-control"/>
+             @* <input type="number" asp-for="@Model[i].Mark" class="form-control"/> *@
+            <span asp-validation-for="[@i].Mark" class="text-danger"></span>
+        </div>
+    }
+    <input type="submit" value="Save" class="btn btn-success"/>
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
+
+

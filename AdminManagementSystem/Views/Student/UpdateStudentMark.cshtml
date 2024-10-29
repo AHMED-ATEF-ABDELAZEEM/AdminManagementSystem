@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Student_Course>
+
+<form method="post" asp-controller="Student" asp-action="SaveUpdatedMark">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div>
+            <input asp-for="@Model[i].Student_Id" hidden />
+            <input asp-for="@Model[i].Course_Id" hidden />
+            <label>@Model[i].Course_ref.CourseName</label>
+            <input asp-for="@Model[i].Mark" class="form-control" />
+            <span asp-validation-for="@Model[i].Mark" class="text-danger"></span>
+        </div>
+    }
+    <input type="submit" value="Save" class="btn btn-success" />
+</form>
+
+<a asp-controller="Student" asp-action="getAllStudent" class="btn btn-success style="text-decoration:none">Back</a>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+

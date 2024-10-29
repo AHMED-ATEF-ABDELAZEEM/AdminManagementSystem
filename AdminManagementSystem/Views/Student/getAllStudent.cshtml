@@ -1,0 +1,157 @@
+﻿
+@* @model List<Student>
+
+@{
+	Layout = "_MyLayout";
+}
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <td></td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>gender</td>
+        <td>City</td>
+        <td>Mark</td>
+        <td>Delete</td>
+    </tr>
+    @{
+        int start = 1;
+    }
+    @foreach (Student student in Model)
+    {
+        <tr>
+            <td>@start</td>
+            <td>@student.StudentName</td>
+            <td>@student.Age</td>
+            <td>@student.gender</td>
+            <td>@student.City</td>
+            <td><a asp-controller="Student" asp-action="UpdateStudentMark" asp-route-id="@student.StudentId" style="text-decoration:none">Update</a></td>
+            <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId" style="text-decoration:none">Delete</a></td>
+        </tr>
+        start++;
+    }
+</table>
+
+
+<a asp-action="AddNewStudent" asp-controller="Student" class="btn btn-success" style="text-decoration:none;display:block">Add New Student</a>
+ *@
+
+
+
+ @model List<Student>
+
+@{
+    Layout = "_MyLayout";
+}
+
+<style>
+    /* Style for the table */
+    .student-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+        .student-table th,
+        .student-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .student-table th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .student-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .student-table tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Style for action links in the table */
+        .student-table a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+            .student-table a:hover {
+                text-decoration: underline;
+            }
+
+    /* Style for the "Add New Student" button */
+    .add-student-btn {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+        float: right;
+    }
+
+        .add-student-btn:hover {
+            background-color: #218838;
+        }
+
+    /* Container for the table and button */
+    .student-container {
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="student-container">
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Mark</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int start = 1;
+            }
+            @foreach (Student student in Model)
+            {
+                <tr>
+                    <td>@start</td>
+                    <td>@student.StudentName</td>
+                    <td>@student.Age</td>
+                    <td>@student.gender</td>
+                    <td>@student.City</td>
+                    <td><a asp-controller="Student" asp-action="UpdateStudentMark" asp-route-id="@student.StudentId">Update</a></td>
+                    <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId">Delete</a></td>
+                </tr>
+                start++;
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="AddNewStudent" asp-controller="Student" class="add-student-btn">Add New Student</a>
+</div>
+
+
+
+
+
+

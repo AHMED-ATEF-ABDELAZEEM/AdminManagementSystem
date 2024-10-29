@@ -1,0 +1,133 @@
+﻿
+
+@model List<Department>
+
+@{
+    SelectList DepartmentList = new(Model, "DepartmentId", "DepartmentName");
+    Layout = "_MyLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Page Body</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+        .Parent {
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .Sidebar {
+            width:20%;
+            min-height:250px;
+        }
+
+        .Sidebar a{
+            text-decoration:none;
+            display:block;
+            padding:5px;
+            margin-top:7px;
+        }
+
+        .Content {
+            width:70%;
+            min-height:250px;
+            display:flex;
+        }
+
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var select = document.getElementById('departmentSelect');
+            var links = document.querySelectorAll('.Sidebar a');
+            var contentDiv = document.querySelector('.Content');
+
+            function updateLinks() {
+                var deptId = select.value;
+                links.forEach(function (link) {
+                    var baseUrl = link.getAttribute('data-base-url');
+                    link.href = baseUrl + '?DeptId=' + deptId;
+                });
+            }
+
+            function loadContent(url, event) {
+                event.preventDefault();
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function (result) {
+                        contentDiv.innerHTML = result;
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading content:', error);
+                        contentDiv.innerHTML = '<p>Error loading content. Please try again.</p>';
+                    }
+                });
+            }
+
+            // Update links when page loads
+            updateLinks();
+
+            // Update links when selection changes
+            select.addEventListener('change', updateLinks);
+
+            // Add click event listeners to links
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    loadContent(this.href, event);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="Parent">
+
+        <div class="Sidebar">
+            <select id="departmentSelect" asp-items="DepartmentList" class="form-control"></select>
+            <a id="aboutLink" data-base-url="/Department/InformationAboutDepartment" class="btn btn-success">Information</a>
+            <a id="studentLink" data-base-url="/Department/getStudentAtDepartment" class="btn btn-success">Students</a>
+            <a id="coursesLink" data-base-url="/Department/getCoursesAtDepartment" class="btn btn-success">Courses</a>
+            <a id="firstLink" data-base-url="/Department/getFirstStudentAtDepartment" class="btn btn-success">First</a>
+            <a id="MarksLink" data-base-url="/Department/getStudentMarkAtDepartment" class="btn btn-success">Marks</a>
+        </div>
+
+        <div class="Content">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#departmentSelect').change(function () {
+                var deptId = $(this).val();
+                $.ajax({
+                    url: '/Department/InformationAboutDepartment',
+                    type: 'GET',
+                    data: { deptId: deptId },
+                    success: function (result) {
+                        $('.Content').html(result);
+                    },
+                    error: function (error) {
+                        console.log('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

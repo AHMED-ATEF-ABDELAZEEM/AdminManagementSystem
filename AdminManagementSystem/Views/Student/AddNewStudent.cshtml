@@ -1,0 +1,70 @@
+﻿
+
+@model Student;
+
+@{
+	SelectList departments = new SelectList(ViewBag.Departments, "DepartmentId", "DepartmentName");
+}
+
+
+<form method="post" asp-controller="Student" asp-action="SaveNewStudent">
+	<div>
+	    <label asp-for="StudentName"></label>
+		<input asp-for="StudentName" class="form-control"/>
+		<span asp-validation-for="StudentName" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Age"></label>
+		<input asp-for="Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="gender"></label>
+		<input asp-for="gender" class="form-control" />
+		<span asp-validation-for="gender" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="City"></label>
+		<input asp-for="City" class="form-control" />
+		<span asp-validation-for="City" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Image"></label>
+		<input asp-for="Image" type="file" class="form-control" />
+		<span asp-validation-for="Image" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="DeptId"></label>
+		<select asp-for="DeptId" asp-items="departments" class="form-control"></select>
+		<span asp-validation-for="DeptId" class="text-danger"></span>
+	</div>
+	<br />
+	<input type="submit" value="Next" class="btn btn-success" />
+</form>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
