@@ -46,6 +46,8 @@
     Layout = "_MyLayout";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
     /* Style for the table */
     .student-table {
@@ -54,11 +56,12 @@
         margin-bottom: 20px;
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border-radius:50px;
     }
 
         .student-table th,
         .student-table td {
-            padding: 12px;
+            padding: 8px 12px;
             text-align: left;
             border: 1px solid #ddd;
         }
@@ -67,7 +70,7 @@
             background-color: #007bff;
             color: #fff;
             font-weight: bold;
-            text-transform: uppercase;
+            border:none;
         }
 
         .student-table tr:nth-child(even) {
@@ -81,7 +84,7 @@
         /* Style for action links in the table */
         .student-table a {
             text-decoration: none;
-            color: #007bff;
+            color: slateblue;           
             font-weight: bold;
         }
 
@@ -112,6 +115,10 @@
         background-color: #f8f9fa;
         border-radius: 5px;
     }
+
+    .student-table .DeleteIcon {
+        color:red;
+    }
 </style>
 
 <div class="student-container">
@@ -123,8 +130,9 @@
                 <th>Age</th>
                 <th>Gender</th>
                 <th>City</th>
-                <th>Mark</th>
-                <th>Delete</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -139,8 +147,9 @@
                     <td>@student.Age</td>
                     <td>@student.gender</td>
                     <td>@student.City</td>
-                    <td><a asp-controller="Student" asp-action="UpdateStudentMark" asp-route-id="@student.StudentId">Update</a></td>
-                    <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId">Delete</a></td>
+                    <td><a asp-controller="Student" asp-action="UpdateStudentMark" asp-route-id="@student.StudentId"><i class="fas fa-edit"></i></a></td>
+                    <td><a asp-controller="Student" asp-action="getInformationAboutStudent" asp-route-id="@student.StudentId"><i class="fas fa-info-circle fa-lg"></i></a></td>
+                    <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId" class="DeleteIcon"> <i class="fas fa-trash-alt fa-lg"></i></a></td>
                 </tr>
                 start++;
             }

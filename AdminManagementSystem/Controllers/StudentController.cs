@@ -1,7 +1,9 @@
 ﻿using AdminManagementSystem.BussinessLogic;
 using AdminManagementSystem.Models;
+using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace AdminManagementSystem.Controllers
 {
@@ -9,7 +11,7 @@ namespace AdminManagementSystem.Controllers
     {
         private AppDbContext context = new AppDbContext();
         private StudentBussinessLogic StudentLogic = new StudentBussinessLogic();
-        private DepartmentBussinessLogic BussinessLogic = new DepartmentBussinessLogic();
+        private DepartmentBussinessLogic DepartmentLogic = new DepartmentBussinessLogic();
 
         public IActionResult getAllStudent()
         {
@@ -38,7 +40,7 @@ namespace AdminManagementSystem.Controllers
 
         public IActionResult AddNewStudent()
         {
-            ViewBag.Departments = BussinessLogic.getAllDepartment();
+            ViewBag.Departments = DepartmentLogic.getAllDepartment();
 
             return View(new Student());
         }
@@ -51,7 +53,7 @@ namespace AdminManagementSystem.Controllers
                 MakeReferenceWithStudentAndCourse(student.StudentId, student.DeptId);
                 return RedirectToAction("UpdateStudentMark", new { id = student.StudentId});
             }
-            ViewBag.Departments = BussinessLogic.getAllDepartment();
+            ViewBag.Departments = DepartmentLogic.getAllDepartment();
             return View("AddNewStudent", student);
         }
 
@@ -100,12 +102,50 @@ namespace AdminManagementSystem.Controllers
         }
 
 
+       
         public IActionResult DeleteStudent(int id)
         {
-            var student = context.Students.FirstOrDefault(x => x.StudentId == id);
+            var DeleteStudent = context.Students
+                .Select(x => new DeleteStudentVM
+                {
+                    Id = x.StudentId,
+                    Name = x.StudentName,
+                })
+                .FirstOrDefault(x => x.Id == id);
+
+            return View(DeleteStudent);
+        }
+
+        public IActionResult ConfirmDelete (int StudentId)
+        {
+            // Delete Student
+            var student = context.Students.FirstOrDefault(x => x.StudentId == StudentId);
             context.Students.Remove(student);
+            // Delete Related Courses
+            var Courses = context.Students_Courses.Where(x => x.Student_Id == StudentId).ToList();
+            context.Students_Courses.RemoveRange(Courses);
+            // Save Change 
             context.SaveChanges();
             return RedirectToAction("getAllStudent");
+        }
+
+
+        public IActionResult getInformationAboutStudent (int id)
+        {
+            var student = context.Students.Include(x => x.Department_ref)
+                .Select(x => new StudentInformationVM
+                {
+                    Id = x.StudentId,
+                    Name = x.StudentName,
+                    Age = x.Age,
+                    gender = x.gender == 'M' ? "Male" : "Female",
+                    Image = x.Image != null ?x.Image : x.gender == 'M' ? "Male.jpeg" : "Female.jpeg",
+                    City = x.City,
+                    Department = x.Department_ref.DepartmentName,
+
+                })
+                .FirstOrDefault(x => x.Id == id);
+            return View(student);
         }
 
     }

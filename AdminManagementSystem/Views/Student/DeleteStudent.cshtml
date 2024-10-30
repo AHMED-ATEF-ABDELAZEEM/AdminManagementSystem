@@ -1,0 +1,95 @@
+﻿@model DeleteStudentVM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        .confirm-container {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .icon-warning {
+            color: #ff4444;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .confirm-text {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .name {
+            font-size:20px;
+            font-weight: bold;
+            color: #ff4444;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-confirm {
+            background-color: #ff4444;
+            color: white;
+        }
+
+            .btn-confirm:hover {
+                background-color: #cc0000;
+            }
+
+        .btn-cancel {
+            background-color: #e0e0e0;
+            color: #666;
+        }
+
+            .btn-cancel:hover {
+                background-color: #c0c0c0;
+            }
+
+        .btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirm-container">
+        <i class="fas fa-exclamation-circle icon-warning"></i>
+        <p class="confirm-text">
+            Are You Sure You Want To Delete  <p class="name">@Model.Name ?</p>
+        </p>
+        <div class="button-container">
+            <a asp-action="getAllStudent" class="btn btn-cancel" >
+                <i class="fas fa-times"></i>Cancel
+            </a>
+            <a asp-action="ConfirmDelete" asp-route-StudentId="@Model.Id" class="btn btn-confirm">
+                <i class="fas fa-check"></i>Confirm
+            </a>
+        </div>
+    </div>
+</body>
+</html>
