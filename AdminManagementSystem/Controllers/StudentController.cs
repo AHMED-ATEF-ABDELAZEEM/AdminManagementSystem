@@ -2,6 +2,7 @@
 using AdminManagementSystem.Models;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -146,6 +147,23 @@ namespace AdminManagementSystem.Controllers
                 })
                 .FirstOrDefault(x => x.Id == id);
             return View(student);
+        }
+
+        public IActionResult UpdateStudentData (int id)
+        {
+            var student = context.Students.FirstOrDefault(x => x.StudentId == id);
+            return View(student);
+        }
+
+        public IActionResult SaveUpdatedData(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Students.Update(student);
+                context.SaveChanges();
+                return RedirectToAction("getInformationAboutStudent",new {id = student.StudentId});
+            }
+            return View("UpdateStudentData", student);
         }
 
     }

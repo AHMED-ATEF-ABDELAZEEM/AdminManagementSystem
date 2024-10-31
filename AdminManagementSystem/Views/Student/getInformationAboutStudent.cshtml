@@ -142,8 +142,8 @@
 <body>
     <div class="profile-card">
         <div class="card-header">
-            <div class="profile-image">
-                <img src="/Images/@Model.Image" alt="Profile Picture">
+            <div class="profile-image">                             
+                    <img src="/Images/StudentImage/@Model.Image" alt="Profile Picture">            
             </div>
             <div class="department-badge">
                 <i class="fas fa-laptop-code me-2"></i><span class="department">@Model.Department</span>
@@ -193,7 +193,7 @@
 
             <div class="button">
                 <a asp-action="getAllStudent" asp-controller="Student">Back</a>
-                <a asp-action="" asp-controller="Student">Edit</a>
+                <a asp-action="UpdateStudentData" asp-route-id="@Model.Id" asp-controller="Student">Edit</a>
             </div>
 
         </div>

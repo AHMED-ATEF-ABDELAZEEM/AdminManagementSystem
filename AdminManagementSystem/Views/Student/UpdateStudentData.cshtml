@@ -1,0 +1,282 @@
+﻿
+
+@* @model Student
+
+<form  method="post" asp-action="SaveUpdatedData" asp-controller="Student">
+	<div>
+		<input asp-for="StudentId" class="form-control" hidden/>
+	</div>
+
+	<div>
+		<input asp-for="DeptId" class="form-control" hidden />
+	</div>
+
+	<div>
+		<label asp-for="StudentName"></label>
+		<input asp-for="StudentName" class="form-control" />
+		<span asp-validation-for="StudentName" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="Age"></label>
+		<input asp-for="Age" class="form-control" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="gender"></label>
+		<input asp-for="gender" class="form-control" />
+		<span asp-validation-for="gender" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="City"></label>
+		<input asp-for="City" class="form-control" />
+		<span asp-validation-for="City" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="Image"></label>
+		<input type="file" asp-for="Image" class="form-control" />
+		<span asp-validation-for="Image" class="text-danger"></span>
+	</div>
+
+	<div class="Parent">
+		<a asp-action="getInformationAboutStudent" asp-route-id="@Model.StudentId" asp-controller="Student" class="btn btn-success">Back</a>
+		<input type="submit" value="Save" class="btn btn-success" />
+	</div>
+
+</form>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+ *@
+
+
+
+ @model Student
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+ <style>
+    /* Main container */
+    .student-card {
+        max-width: 800px;
+        margin: 20px auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Gradient header */
+    .gradient-header {
+        height: 50px;
+        background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* Form styling */
+    .student-form {
+        padding: 20px;
+    }
+
+     /* Form group with icon and input */
+
+     .form-group {
+        display: flex;
+        align-items: center;
+        /* margin-bottom: 2px; */
+        padding: 5px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+     }  
+
+    /* Icon box */
+     .icon-box {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    } 
+
+    
+     .input-group {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+     }
+
+        .input-group input {
+            font-weight:bold;
+            padding:10px;
+            transition: all 0.3s ease;
+        }
+
+            .input-group input:hover {
+                background: rgba(26, 42, 108, 0.1);
+                transform: translateX(5px);
+            }
+
+        /* Labels */
+     label {
+        display: block;
+        color: #2b2d42;
+        font-weight: bold;
+        margin-bottom: 5px;
+        width:70px;
+        margin-left:5px;
+    }
+
+    .button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+        .button a,.button input {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            margin: 0px 40px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+            .button a:hover,.button input:hover {
+                background: linear-gradient(45deg, #2a4c8c, #d12e2e)
+            }
+
+
+    /* Validation messages */
+    .text-danger {
+        color: red;
+        font-size: 15px;
+        margin-left:120px;
+        display:block;
+        margin-bottom:5px;
+    }
+ </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="student-card">
+    <div class="gradient-header"></div>
+    <form method="post" asp-action="SaveUpdatedData" asp-controller="Student" class="student-form">
+        <div>
+            <input asp-for="StudentId" class="form-control" hidden />
+        </div>
+        <div>
+            <input asp-for="DeptId" class="form-control" hidden />
+        </div>
+
+        <div class="Name">
+            <div class="form-group">
+                <div class="icon-box">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-group">
+                    <label>Name</label>
+                    <input asp-for="StudentName" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="StudentName" class="text-danger"></span>
+        </div>
+
+
+        <div class="Age">
+            <div class="form-group">
+                <div class="icon-box">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                <div class="input-group">
+                    <label asp-for="Age"></label>
+                    <input asp-for="Age" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+
+        <div class="Gender">
+            <div class="form-group">
+                <div class="icon-box">
+                    <i class="fas fa-venus-mars"></i>
+                </div>
+                <div class="input-group">
+                    <label asp-for="gender"></label>
+                    <input asp-for="gender" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="gender" class="text-danger"></span>
+        </div>
+
+
+        <div class="City">
+            <div class="form-group">
+                <div class="icon-box">
+                    <i class="fas fa-map-marker"></i>
+                </div>
+                <div class="input-group">
+                    <label asp-for="City"></label>
+                    <input asp-for="City" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+
+        <div class="Image">
+            <div class="form-group">
+                <div class="icon-box">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="input-group">
+                    <label asp-for="Image"></label>
+                    <input type="file" value="@Model.Image" asp-for="Image" class="form-control" />
+                </div>
+            </div>
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="button">
+            <a asp-action="getInformationAboutStudent" asp-route-id="@Model.StudentId" asp-controller="Student">Back</a>
+            <input class="Send" type="submit" value="Save"/>
+        </div>
+
+    </form>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

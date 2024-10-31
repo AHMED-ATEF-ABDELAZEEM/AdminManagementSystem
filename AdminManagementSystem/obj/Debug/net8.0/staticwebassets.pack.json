@@ -13,16 +13,44 @@
       "PackagePath": "staticwebassets\\Images\\Department.jpg"
     },
     {
-      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\Female.jpeg",
-      "PackagePath": "staticwebassets\\Images\\Female.jpeg"
-    },
-    {
-      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\Male.jpeg",
-      "PackagePath": "staticwebassets\\Images\\Male.jpeg"
-    },
-    {
       "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\Student.jpeg",
       "PackagePath": "staticwebassets\\Images\\Student.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\Female.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\Female.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\Male.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\Male.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\boy1.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\boy1.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\boy2.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\boy2.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\boy3.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\boy3.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\girl1.jpg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\girl1.jpg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\girl2.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\girl2.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\girl3.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\girl3.jpeg"
+    },
+    {
+      "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\girl4.jpeg",
+      "PackagePath": "staticwebassets\\Images\\StudentImage\\girl4.jpeg"
     },
     {
       "Id": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\css\\site.css",

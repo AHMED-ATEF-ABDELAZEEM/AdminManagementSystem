@@ -1,3 +1,7 @@
+using AdminManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 namespace AdminManagementSystem
 {
     public class Program
@@ -5,6 +9,7 @@ namespace AdminManagementSystem
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
