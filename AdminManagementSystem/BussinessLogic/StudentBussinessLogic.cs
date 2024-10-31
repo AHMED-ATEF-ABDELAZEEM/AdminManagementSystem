@@ -21,5 +21,31 @@ namespace AdminManagementSystem.BussinessLogic
             context.Students.Add(student);
             context.SaveChanges();
         }
+
+        public bool IsNameExistAtAddNewStudent (string name)
+        {
+            var student = context.Students.FirstOrDefault(x => x.StudentName == name);
+            return student == null ? false : true;
+        }
+
+        public bool IsImageExistAtAddNewStudent (string Image)
+        {
+            var student = context.Students.FirstOrDefault(x => x.Image == Image);
+            return student == null ? false : true;
+        }
+
+        public bool IsNameExistAtUpdateStudent (int id,string name)
+        {
+            // Check If Name Exist But Not In Current Object
+            // return true If Name Exist In Two Element (Current Element,another)
+            return context.Students.Any(x => x.StudentName == name && x.StudentId != id);
+        }
+
+        public bool IsImageExistAtUpdateStudent (int id, string image)
+        {
+            // Check If Image Exist But Not In Current Object
+            // return true If Image Exist In Two Element (Current Element,another)
+            return context.Students.Any(x => x.Image == image && x.StudentId != id);
+        }
     }
 }

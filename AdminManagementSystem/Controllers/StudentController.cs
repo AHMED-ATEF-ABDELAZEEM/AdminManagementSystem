@@ -3,6 +3,7 @@ using AdminManagementSystem.Models;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
@@ -48,6 +49,15 @@ namespace AdminManagementSystem.Controllers
 
         public IActionResult SaveNewStudent(Student student)
         {
+            if (StudentLogic.IsNameExistAtAddNewStudent(student.StudentName))
+            {
+                ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
+            }
+
+            if (student.Image != null && StudentLogic.IsImageExistAtAddNewStudent(student.Image))
+            {
+                ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
+            }
             if (ModelState.IsValid)
             {
                 StudentLogic.SaveNewStudent(student);
@@ -157,6 +167,16 @@ namespace AdminManagementSystem.Controllers
 
         public IActionResult SaveUpdatedData(Student student)
         {
+            if (StudentLogic.IsNameExistAtUpdateStudent(student.StudentId,student.StudentName))
+            {
+                ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
+            }
+
+            if (student.Image != null && StudentLogic.IsImageExistAtUpdateStudent(student.StudentId,student.Image))
+            {
+                ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
+            }
+        
             if (ModelState.IsValid)
             {
                 context.Students.Update(student);
