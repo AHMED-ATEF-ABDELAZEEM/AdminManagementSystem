@@ -1,5 +1,6 @@
 ﻿
-@model List<Course>
+
+@model List<Department>
 
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -8,85 +9,92 @@
 
 
 <style>
-    .course-table-container {
+    .Department-table-container {
         font-family: Arial, sans-serif;
         max-width: 800px;
         background-color: #f9f9f9;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        min-height:100px;
     }
 
-    .course-table {
+    .Department-table {
         width: 100%;
         border-collapse: collapse;
     }
 
-        .course-table th,
-        .course-table td {
+        .Department-table th,
+        .Department-table td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
 
-        .course-table th {
-            border:none;
+        .Department-table th {
+            border: none;
             border-collapse: collapse;
             background: linear-gradient(45deg, #1a2a6c, #b21f1f);
             color: white;
             font-weight: bold;
         }
 
-        .course-table tr:last-child td {
+        .Department-table tr:last-child td {
             border-bottom: none;
         }
 
-        .course-table tr:nth-child(even) {
+        .Department-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        .course-table tr:hover {
+        .Department-table tr:hover {
             background-color: #e6e6e6;
         }
 
-        .course-table td:first-child {
+        .Department-table td:first-child {
             font-weight: bold;
             color: #333;
             width: 50px;
         }
 
-        .course-table td:nth-child(4) {
+        .Department-table td:nth-child(4) {
             text-align: right;
         }
 </style>
 
-<div class="course-table-container">
-    <table class="course-table">
+<div class="Department-table-container">
+    <table class="Department-table">
         <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Instructor</th>
-                <th>GPA</th>
+                <th>Department</th>
+                <th>Manager</th>
             </tr>
         </thead>
         <tbody>
             @{
                 int start = 1;
             }
-            @foreach (Course item in Model)
+            @foreach (Department item in Model)
             {
                 <tr>
                     <td>@start</td>
-                    <td>@item.CourseName</td>
-                    <td>@item.Instructor</td>
-                    <td>@item.Gpa</td>
+                    <td>@item.DepartmentName</td>
+                    <td>@item.DepartmentManager</td>
                 </tr>
                 start++;
             }
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
+
 
 
 

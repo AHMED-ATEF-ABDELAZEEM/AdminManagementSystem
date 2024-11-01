@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "42ld13NQRNjTiHvkJ7G5cQ4bmtf1lTqRdqKeFcI+vOs=",
+  "Hash": "n45s1+Kzc/gUNQ6p9AUTn5Wlrpw+e/5w9CLrWgvAoQE=",
   "Source": "AdminManagementSystem",
   "BasePath": "_content/AdminManagementSystem",
   "Mode": "Default",
@@ -243,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\StudentImage\\boy5.jpeg"
+    },
+    {
+      "Identity": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\boy6.jpeg",
+      "SourceId": "AdminManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\",
+      "BasePath": "_content/AdminManagementSystem",
+      "RelativePath": "Images/StudentImage/boy6.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\StudentImage\\boy6.jpeg"
     },
     {
       "Identity": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\wwwroot\\Images\\StudentImage\\boy7.jpeg",

@@ -67,8 +67,13 @@ namespace AdminManagementSystem.BussinessLogic
 			.Select(s => s.Student) // Select the student object
 			.FirstOrDefault(); // Get the first student or null if none exist
 
-			if (FirstStudent.gender == 'M') FirstStudent.Image = "Male.jpeg";
-			else FirstStudent.Image = "Female.jpeg";
+			// Add Defualt Image If It Null
+			if (FirstStudent.Image == null)
+			{
+				if (FirstStudent.gender == 'M') FirstStudent.Image = "Male.jpeg";
+				else FirstStudent.Image = "Female.jpeg";
+			}
+
 
 			return FirstStudent;
 		}

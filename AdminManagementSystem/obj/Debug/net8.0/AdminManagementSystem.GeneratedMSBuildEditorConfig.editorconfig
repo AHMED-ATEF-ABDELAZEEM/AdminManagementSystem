@@ -18,6 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/getDepartmentThatCourseExistInIt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldERlcGFydG1lbnRUaGF0Q291cnNlRXhpc3RJbkl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/getStudentAtCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldFN0dWRlbnRBdENvdXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/InformationAboutCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZm9ybWF0aW9uQWJvdXRDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Department/getCoursesAtDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxnZXRDb3Vyc2VzQXREZXBhcnRtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Shared/_CourseLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db3Vyc2VMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Shared/_DepartmentLayout.cshtml]

@@ -1,9 +1,7 @@
 ﻿
-@model List<Department>
 
-@{
-    Layout = "_DepartmentLayout";
-}
+@model Course
+
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -17,13 +15,14 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        min-height: 250px;
     }
 
         .department-info h3 {
             background: linear-gradient(45deg, #1a2a6c, #b21f1f);
             color: white;
             margin: 0;
-            padding:15px;
+            padding: 15px;
             font-size: 1.2em;
         }
 
@@ -56,27 +55,37 @@
 </style>
 
 <div class="department-info">
-    <h3>Department : @ViewBag.DepartmentInformation.DepartmentName</h3>
+    <h3>Course : @Model.CourseName</h3>
     <table>
         <tr>
-            <td>Manager</td>
-            <td>@ViewBag.DepartmentInformation.DepartmentManager</td>
+            <td>Instructor</td>
+            <td>@Model.Instructor</td>
         </tr>
         <tr>
-            <td>Number of Courses</td>
-            <td>@ViewBag.DepartmentInformation.Department_Course_ref.Count</td>
+            <td>Gpa</td>
+            <td>@Model.Gpa</td>
+        </tr>
+        <tr>
+            <td>Number of Department</td>
+            <td>@Model.Department_Course_ref.Count</td>
         </tr>
         <tr>
             <td>Number of Students</td>
-            <td>@ViewBag.DepartmentInformation.Students_ref.Count</td>
+            <td>@Model.Student_Course_ref.Count</td>
         </tr>
         <tr>
             <td>Male Students</td>
-            <td>@ViewBag.CountOfMaleStudent</td>
+            <td>@Model.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count()</td>
         </tr>
         <tr>
             <td>Female Students</td>
-            <td>@ViewBag.CountOfFemaleStudent</td>
+            <td>@Model.Student_Course_ref.Where(x => x.Student_ref.gender == 'F').Count()</td>
         </tr>
     </table>
 </div>
+
+
+
+
+
+

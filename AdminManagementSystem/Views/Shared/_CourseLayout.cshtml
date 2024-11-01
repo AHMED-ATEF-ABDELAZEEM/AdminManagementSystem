@@ -1,9 +1,10 @@
 ﻿
 
-@model List<Department>
+@model List<Course>
+
 
 @{
-    SelectList DepartmentList = new(Model, "DepartmentId", "DepartmentName");
+    SelectList CourseList = new(Model, "CourseId", "CourseName");
     Layout = "_MyLayout";
 }
 
@@ -40,6 +41,7 @@
             border:none;
             color:#fff;
             border-radius:5px;
+            min-width:140px;
         }
 
             .Sidebar a:hover {
@@ -49,9 +51,14 @@
             }
 
         .Content {
-            width:70%;
+            width:65%;
             min-height:250px;
             display:flex;
+        }
+
+        #departmentSelect {
+            min-width:140px;
+            padding:4px 2px;
         }
 
     </style>
@@ -64,10 +71,10 @@
             var contentDiv = document.querySelector('.Content');
 
             function updateLinks() {
-                var deptId = select.value;
+                var CourseId = select.value;
                 links.forEach(function (link) {
                     var baseUrl = link.getAttribute('data-base-url');
-                    link.href = baseUrl + '?DeptId=' + deptId;
+                    link.href = baseUrl + '?CourseId=' + CourseId;
                 });
             }
 
@@ -106,12 +113,12 @@
     <div class="Parent">
 
         <div class="Sidebar">
-            <select id="departmentSelect" asp-items="DepartmentList" class="form-control"></select>
-            <a id="aboutLink" data-base-url="/Department/InformationAboutDepartment">Information</a>
-            <a id="studentLink" data-base-url="/Department/getStudentAtDepartment">Students</a>
-            <a id="coursesLink" data-base-url="/Department/getCoursesAtDepartment">Courses</a>
-            <a id="firstLink" data-base-url="/Department/getFirstStudentAtDepartment">First</a>
-            <a id="MarksLink" data-base-url="/Department/getStudentMarkAtDepartment">Marks</a>
+            <select id="departmentSelect" asp-items="CourseList" class="form-control"></select>
+            <a id="aboutLink" data-base-url="/Course/InformationAboutCourse">Information</a>
+            <a id="studentLink" data-base-url="/Course/getStudentAtCourse">Students</a>
+            <a id="coursesLink" data-base-url="/Course/getDepartmentThatCourseExistInIt">Departments</a>
+            <a id="firstLink" data-base-url="/Course/getFirstStudentAtCourse">First</a>
+            <a id="MarksLink" data-base-url="/Course/getStudentMarkAtCourse">Marks</a>
         </div>
 
         <div class="Content">
@@ -123,11 +130,11 @@
     <script>
         $(document).ready(function () {
             $('#departmentSelect').change(function () {
-                var deptId = $(this).val();
+                var CourseId = $(this).val();
                 $.ajax({
-                    url: '/Department/InformationAboutDepartment',
+                    url: '/Course/InformationAboutCourse',
                     type: 'GET',
-                    data: { deptId: deptId },
+                    data: { CourseId: CourseId },
                     success: function (result) {
                         $('.Content').html(result);
                     },
@@ -141,3 +148,13 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,11 @@
 ﻿
-@model List<Department>
+
+@model List<Course>
 
 @{
-    Layout = "_DepartmentLayout";
+	Layout = "_CourseLayout";
 }
+
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -17,13 +19,14 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        min-height: 250px;
     }
 
         .department-info h3 {
             background: linear-gradient(45deg, #1a2a6c, #b21f1f);
             color: white;
             margin: 0;
-            padding:15px;
+            padding: 15px;
             font-size: 1.2em;
         }
 
@@ -56,19 +59,23 @@
 </style>
 
 <div class="department-info">
-    <h3>Department : @ViewBag.DepartmentInformation.DepartmentName</h3>
+    <h3>Course : @ViewBag.FirstCourseInformation.CourseName</h3>
     <table>
         <tr>
-            <td>Manager</td>
-            <td>@ViewBag.DepartmentInformation.DepartmentManager</td>
+            <td>Instructor</td>
+            <td>@ViewBag.FirstCourseInformation.Instructor</td>
         </tr>
         <tr>
-            <td>Number of Courses</td>
-            <td>@ViewBag.DepartmentInformation.Department_Course_ref.Count</td>
+            <td>Gpa</td>
+            <td>@ViewBag.FirstCourseInformation.Gpa</td>
+        </tr>
+        <tr>
+            <td>Number of Department</td>
+            <td>@ViewBag.FirstCourseInformation.Department_Course_ref.Count</td>
         </tr>
         <tr>
             <td>Number of Students</td>
-            <td>@ViewBag.DepartmentInformation.Students_ref.Count</td>
+            <td>@ViewBag.FirstCourseInformation.Student_Course_ref.Count</td>
         </tr>
         <tr>
             <td>Male Students</td>
@@ -76,7 +83,52 @@
         </tr>
         <tr>
             <td>Female Students</td>
-            <td>@ViewBag.CountOfFemaleStudent</td>
+            <td>@ViewBag.CountOfMaleStudent</td>
         </tr>
     </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <table class="table table-bordered table-hover">
+	<tr>
+		<td></td>
+		<td>Course</td>
+		<td>Instructor</td>
+		<td>Gpa</td>
+	</tr>
+	@{
+		int start = 1;
+	}
+	@foreach (Course course in Model)
+	{
+		<tr>
+			<td>@start</td>
+			<td>@course.CourseName</td>
+			<td>@course.Instructor</td>
+			<td>@course.Gpa</td>
+		</tr>
+	}
+</table> *@
+
+
+
+
+
+
