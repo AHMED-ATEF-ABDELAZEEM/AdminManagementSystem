@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\course\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\student\\addnewstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\student\\addnewstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\student\\updatestudentmark.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\student\\updatestudentmark.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\course\\informationaboutcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\course\\informationaboutcourse.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\course\\getdepartmentthatcourseexistinit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\course\\getdepartmentthatcourseexistinit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\department\\getcoursesatdepartment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\department\\getcoursesatdepartment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\student\\getinformationaboutstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\student\\getinformationaboutstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\Index.cshtml",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Course\\Index.cshtml",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\Index.cshtml",
-              "RelativeToolTip": "AdminManagementSystem\\Views\\Course\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "AddNewStudent.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Student\\AddNewStudent.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAmwBUAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-01T14:04:50.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "getCoursesAtDepartment.cshtml",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Department\\getCoursesAtDepartment.cshtml",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Department\\getCoursesAtDepartment.cshtml",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Department\\getCoursesAtDepartment.cshtml",
-              "RelativeToolTip": "AdminManagementSystem\\Views\\Department\\getCoursesAtDepartment.cshtml",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAmwF4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-01T13:26:41.222Z",
+              "WhenOpened": "2024-11-04T10:04:25.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "getDepartmentThatCourseExistInIt.cshtml",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\getDepartmentThatCourseExistInIt.cshtml",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Course\\getDepartmentThatCourseExistInIt.cshtml",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\getDepartmentThatCourseExistInIt.cshtml",
-              "RelativeToolTip": "AdminManagementSystem\\Views\\Course\\getDepartmentThatCourseExistInIt.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAZAAAA",
+              "Title": "getInformationAboutStudent.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\getInformationAboutStudent.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Student\\getInformationAboutStudent.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\getInformationAboutStudent.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Student\\getInformationAboutStudent.cshtml",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAAAEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-01T13:26:27.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InformationAboutCourse.cshtml",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\InformationAboutCourse.cshtml",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Course\\InformationAboutCourse.cshtml",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Course\\InformationAboutCourse.cshtml",
-              "RelativeToolTip": "AdminManagementSystem\\Views\\Course\\InformationAboutCourse.cshtml",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAqwEsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-01T11:56:07.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAswCQAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T11:25:38.774Z",
+              "WhenOpened": "2024-11-04T09:42:10.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\CourseController.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Controllers\\CourseController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAUwBUAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T11:22:46.015Z",
+              "Title": "UpdateStudentMark.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\UpdateStudentMark.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Student\\UpdateStudentMark.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Student\\UpdateStudentMark.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Student\\UpdateStudentMark.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T09:39:34.493Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Course.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\Course.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Models\\Course.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\Course.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Models\\Course.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA/AAAA",
+              "DocumentIndex": 2,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\StudentController.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T11:20:21.099Z",
+              "WhenOpened": "2024-11-04T09:39:07.211Z",
               "EditorCaption": ""
             }
           ]

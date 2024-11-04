@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldERlcGFydG1lbnRUaGF0Q291cnNlRXhpc3RJbkl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/getFirstStudentAtCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldEZpcnN0U3R1ZGVudEF0Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/getStudentAtCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldFN0dWRlbnRBdENvdXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/getStudentWithMarkAtCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGdldFN0dWRlbnRXaXRoTWFya0F0Q291cnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/Index.cshtml]

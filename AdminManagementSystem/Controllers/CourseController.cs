@@ -1,12 +1,14 @@
 ﻿using AdminManagementSystem.Models;
+using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Controllers
 {
-    public class CourseController : Controller
+	public class CourseController : Controller
     {
         private AppDbContext context = new AppDbContext();
+
         public IActionResult Index()
         {
             // Send All Courses To DropDown Menue That Exist In _CourseLayout
@@ -27,13 +29,13 @@ namespace AdminManagementSystem.Controllers
 
         public IActionResult InformationAboutCourse(int CourseId)
         {
-            var CourseInformation = context.Courses
+            var Course = context.Courses
                 .Include(x => x.Department_Course_ref)
                 .Include(x => x.Student_Course_ref).ThenInclude(x => x.Student_ref)
                 .FirstOrDefault(x => x.CourseId == CourseId);
             //ViewBag.CountOfMaleStudent = CourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
             //ViewBag.CountOfFemaleStudent = CourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
-            return PartialView(CourseInformation);
+            return PartialView(Course);
         }
         public IActionResult getStudentAtCourse(int CourseId)
         {
@@ -49,25 +51,37 @@ namespace AdminManagementSystem.Controllers
         }
         public IActionResult getFirstStudentAtCourse(int CourseId)
         {
-            return PartialView();
+            var FirstStudent = context.Students_Courses
+                .Include(x => x.Student_ref)
+                .Where(x => x.Course_Id == CourseId)
+                .OrderByDescending(x => x.Mark)
+                .Select(x => new FirstStudentWithMarkVM
+                {
+					Name = x.Student_ref.StudentName,
+					gender = x.Student_ref.gender == 'M' ? "Male" : "Female",
+					Age = x.Student_ref.Age,
+					Department = x.Student_ref.Department_ref.DepartmentName,
+                    Image = x.Student_ref.Image != null ? x.Student_ref.Image : x.Student_ref.gender == 'M' ? "Male.jpeg" : "Female.jpeg",
+					Mark = x.Mark,
+				})
+                .First();
+            return PartialView(FirstStudent);
         }
-        public IActionResult getStudentMarkAtCourse(int CourseId)
+        public IActionResult getStudentWithMarkAtCourse(int CourseId)
         {
-            return PartialView();
+            var StudentMark = context.Students_Courses
+                .Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)
+                .Where(x => x.Course_Id == CourseId)
+                .Select(x => new StudentWithMarkInCourseVM
+                {
+					Name = x.Student_ref.StudentName,
+                    gender = x.Student_ref.gender,
+                    Age = x.Student_ref.Age,
+                    Department = x.Student_ref.Department_ref.DepartmentName,
+                    Mark = x.Mark,
+				}).OrderByDescending(x => x.Mark).ToList();
+            return PartialView(StudentMark);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

@@ -1,0 +1,104 @@
+﻿
+
+@model List<StudentWithMarkInCourseVM>
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/AdminManagementSystem.styles.css" asp-append-version="true" />
+
+
+<style>
+    .student-table-container {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .student-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .student-table th,
+        .student-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            border-collapse: collapse; /* Merges borders */
+            border: none; /* Removes outer border */
+        }
+
+        .student-table th {
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            color: white;
+            font-weight: bold;
+        }
+
+
+
+        .student-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .student-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .student-table tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        .student-table td:first-child {
+            font-weight: bold;
+            color: #333;
+            width: 50px;
+        }
+
+        .student-table td:nth-child(3),
+        .student-table td:nth-child(4) {
+            text-align: center;
+        }
+</style>
+
+<div class="student-table-container">
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Age</th>
+                @* <th>Gender</th> *@
+                <th>Department</th>
+                <th>Mark</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int start = 1;
+            }
+            @foreach (StudentWithMarkInCourseVM student in Model)
+            {
+                <tr>
+                    <td>@start</td>
+                    <td>@student.Name</td>
+                    <td>@student.Age</td>
+                    @* <td>@student.gender</td> *@
+                    <td>@student.Department</td>
+                    <td>@student.Mark</td>
+                </tr>
+                start++;
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+

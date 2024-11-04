@@ -54,10 +54,10 @@ namespace AdminManagementSystem.Controllers
                 ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
             }
 
-            if (student.Image != null && StudentLogic.IsImageExistAtAddNewStudent(student.Image))
-            {
-                ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
-            }
+            //if (student.Image != null && StudentLogic.IsImageExistAtAddNewStudent(student.Image))
+            //{
+            //    ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
+            //}
             if (ModelState.IsValid)
             {
                 StudentLogic.SaveNewStudent(student);
@@ -172,10 +172,10 @@ namespace AdminManagementSystem.Controllers
                 ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
             }
 
-            if (student.Image != null && StudentLogic.IsImageExistAtUpdateStudent(student.StudentId,student.Image))
-            {
-                ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
-            }
+            //if (student.Image != null && StudentLogic.IsImageExistAtUpdateStudent(student.StudentId,student.Image))
+            //{
+            //    ModelState.AddModelError("Image", "This Image Is Already Use Please Choose Different Image");
+            //}
         
             if (ModelState.IsValid)
             {

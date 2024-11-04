@@ -5,9 +5,53 @@
 @{
 	SelectList departments = new SelectList(ViewBag.Departments, "DepartmentId", "DepartmentName");
 }
+<style>
+
+	.Form {
+		background-color: white;
+		padding: 20px;
+		border-radius: 10px;
+	}
+
+	.Form div{
+		margin-bottom:5px;
+	}
+
+		.Form div label{
+			margin-bottom: 5px;
+			font-weight:bold;
+		}
+
+	.button {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15px;
+	}
+
+		.button a, .button input {
+			display: block;
+			text-decoration: none;
+			padding: 10px 20px;
+			color: white;
+			font-weight: bold;
+			background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.button input {
+			border: none;
+			outline: none;
+		}
+
+			.button a:hover, .button input:hover {
+				background: linear-gradient(45deg, #2a4c8c, #d12e2e)
+			}
+</style>
 
 
-<form method="post" asp-controller="Student" asp-action="SaveNewStudent">
+
+<form method="post" asp-controller="Student" asp-action="SaveNewStudent" class="Form">
 	<div>
 	    <label asp-for="StudentName"></label>
 		<input asp-for="StudentName" class="form-control"/>
@@ -39,7 +83,10 @@
 		<span asp-validation-for="DeptId" class="text-danger"></span>
 	</div>
 	<br />
-	<input type="submit" value="Next" class="btn btn-success" />
+	<div class="button">
+		<a asp-action="getAllStudent" asp-controller="Student">Back</a>
+		<input type="submit" value="Next" />
+	</div>
 </form>
 
 

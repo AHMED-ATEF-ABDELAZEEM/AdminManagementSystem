@@ -88,7 +88,7 @@ namespace AdminManagementSystem.BussinessLogic
 				gender = s.gender,
 				Age = s.Age,
 				TotalMark = s.Student_Course_ref.Sum(sc => sc.Mark) // Calculate total marks
-			})
+			}).OrderByDescending(x => x.TotalMark)
 			.ToList();
 
 			return StudentsWithTotalMarks;
