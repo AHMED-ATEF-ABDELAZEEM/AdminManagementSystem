@@ -27,12 +27,12 @@
             justify-content:space-between;
         }
 
-        .Sidebar {
+        .LeftSide {
             width:20%;
             min-height:250px;
         }
 
-        .Sidebar a{
+            .LeftSide a {
             text-decoration:none;
             display:block;
             padding:5px;
@@ -44,7 +44,7 @@
             min-width:140px;
         }
 
-            .Sidebar a:hover {
+                .LeftSide a:hover {
                 background: linear-gradient(45deg, #2a4c8c, #d12e2e);
                 color: #fff;
                 font-weight:bold;
@@ -59,6 +59,7 @@
         #departmentSelect {
             min-width:140px;
             padding:4px 2px;
+            margin-top:3px;
         }
 
     </style>
@@ -112,14 +113,20 @@
 
     <div class="Parent">
 
-        <div class="Sidebar">
-            <select id="departmentSelect" asp-items="CourseList" class="form-control"></select>
-            <a id="aboutLink" data-base-url="/Course/InformationAboutCourse">Information</a>
-            <a id="studentLink" data-base-url="/Course/getStudentAtCourse">Students</a>
-            <a id="coursesLink" data-base-url="/Course/getDepartmentThatCourseExistInIt">Departments</a>
-            <a id="firstLink" data-base-url="/Course/getFirstStudentAtCourse">First</a>
-            <a id="MarksLink" data-base-url="/Course/getStudentWithMarkAtCourse">Marks</a>
-        </div>
+       <div class="LeftSide">
+            <div>
+                <a asp-action="AddNewCourse" asp-controller="Course">Add New Course</a>
+                <a asp-action="" asp-controller="">Enroll Course</a>
+            </div>
+            <div class="Sidebar">
+                <select id="departmentSelect" asp-items="CourseList" class="form-control"></select>
+                <a id="aboutLink" data-base-url="/Course/InformationAboutCourse">Information</a>
+                <a id="studentLink" data-base-url="/Course/getStudentAtCourse">Students</a>
+                <a id="coursesLink" data-base-url="/Course/getDepartmentThatCourseExistInIt">Departments</a>
+                <a id="firstLink" data-base-url="/Course/getFirstStudentAtCourse">First</a>
+                <a id="MarksLink" data-base-url="/Course/getStudentWithMarkAtCourse">Marks</a>
+            </div>
+       </div>
 
         <div class="Content">
             @RenderBody()

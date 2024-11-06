@@ -1,4 +1,5 @@
-﻿using AdminManagementSystem.Models;
+﻿using AdminManagementSystem.BussinessLogic;
+using AdminManagementSystem.Models;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace AdminManagementSystem.Controllers
 	public class CourseController : Controller
     {
         private AppDbContext context = new AppDbContext();
+        private CourseBussinessLogic CourseLogic = new CourseBussinessLogic();
 
         public IActionResult Index()
         {
@@ -22,7 +24,7 @@ namespace AdminManagementSystem.Controllers
             ViewBag.FirstCourseInformation = FirstCourseInformation;
 
             ViewBag.CountOfMaleStudent = FirstCourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
-            ViewBag.CountOfFemaleStudent = FirstCourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
+            ViewBag.CountOfFemaleStudent = FirstCourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'F').Count();
 
             return View(courses);
         }
@@ -83,5 +85,68 @@ namespace AdminManagementSystem.Controllers
             return PartialView(StudentMark);
         }
 
+
+
+        public IActionResult AddNewCourse()
+        {
+            return View(new Course());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SaveNewCourse (Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Courses.Add(course);
+                context.SaveChanges();
+                return RedirectToAction("EnrollNewCourseToDepartment",new { CourseId = course.CourseId});
+            }
+            return View("AddNewCourse", course);
+        }
+
+        public IActionResult EnrollNewCourseToDepartment (int CourseId)
+        {
+            ViewBag.CourseId = CourseId;
+            ViewBag.Departments = context.Departments.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		public IActionResult SaveEnrollNewCourseToDepartment (List<Department_Course> Department_Course)
+        {
+            // User Not Choose Any Department
+            if (Department_Course.All(x => x.Department_Id == 0))
+            {
+                ViewBag.CourseId = Department_Course[0].Course_Id;
+                ViewBag.Departments = context.Departments.ToList();
+                ModelState.AddModelError(string.Empty,"Please Choose At Least One Department");
+                return View("EnrollNewCourseToDepartment");             
+            }
+            // Remove Empty Check That DepartmentId = 0
+            Department_Course.RemoveAll(x => x.Department_Id == 0);
+
+            foreach (var item in Department_Course)
+            {
+                CourseLogic.EnrollStudentToNewCourse(item.Course_Id,item.Department_Id);
+            }
+
+            context.Departments_Courses.AddRange(Department_Course);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteCourse(int CourseId)
+        {
+            var course = context.Courses.FirstOrDefault(x => x.CourseId == CourseId);
+            context.Courses.Remove(course);
+            context.SaveChanges();
+            return Content($"Course With Id {CourseId} Is Deleted");
+        }
+
     }
 }
+
+
+

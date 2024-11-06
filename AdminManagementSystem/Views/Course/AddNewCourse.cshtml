@@ -1,0 +1,78 @@
+﻿
+@model Course
+
+<style>
+
+	.Form {
+		background-color: white;
+		padding: 20px;
+		border-radius: 10px;
+	}
+
+		.Form div {
+			margin-bottom: 5px;
+		}
+
+			.Form div label {
+				margin-bottom: 5px;
+				font-weight: bold;
+			}
+
+	.button {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15px;
+	}
+
+		.button a, .button input {
+			display: block;
+			text-decoration: none;
+			padding: 10px 20px;
+			color: white;
+			font-weight: bold;
+			background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.button input {
+			border: none;
+			outline: none;
+		}
+
+			.button a:hover, .button input:hover {
+				background: linear-gradient(45deg, #2a4c8c, #d12e2e)
+			}
+</style>
+
+<form method="post" asp-action="SaveNewCourse" asp-controller="Course" class="Form">
+	<div>
+		<label asp-for="CourseName"></label>
+		<input asp-for="CourseName" class="form-control" />
+		<span asp-validation-for="CourseName" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Instructor"></label>
+		<input asp-for="Instructor" class="form-control" />
+		<span asp-validation-for="Instructor" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Gpa"></label>
+		<input asp-for="Gpa" class="form-control" />
+		<span asp-validation-for="Gpa" class="text-danger"></span>
+	</div>
+    <div class="button">
+		<a asp-action="Index" asp-controller="Course">Back</a>
+		<input type="submit" value="Next" />
+	</div>
+</form>
+
+
+
+
+
+
+
+
+
+

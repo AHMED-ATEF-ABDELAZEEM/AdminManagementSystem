@@ -1,0 +1,28 @@
+﻿
+
+<form action="#" method="post">
+    <label for="options">Choose your options:</label>
+    <select name="options" id="options" multiple size="4">
+        <option value="1" data-extra-info="info1">Option 1</option>
+        <option value="2" data-extra-info="info2">Option 2</option>
+        <option value="3" data-extra-info="info3">Option 3</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    const selectElement = document.getElementById('options');
+    selectElement.addEventListener('change', function () {
+        const selectedOptions = Array.from(selectElement.selectedOptions);
+        selectedOptions.forEach(option => {
+            console.log(option.value); // Main value
+            console.log(option.dataset.extraInfo); // Additional info
+        });
+    });
+</script>
+
+
+
+
+
+
