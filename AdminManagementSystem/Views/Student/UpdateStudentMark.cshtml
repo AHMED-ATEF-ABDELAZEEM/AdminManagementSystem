@@ -3,26 +3,44 @@
 @model List<Student_Course>
 
 <style>
-    .Form {
-        background-color:white;
-        padding:20px;
-        border-radius:10px;
-    }
-    .Dev {
-        margin-bottom:8px;
+    .student-mark-form {
+        min-width: 300px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    .Dev label {
-        border-bottom:5px;
-        font-weight:bold;
+    .course-marks-container {
+        display: grid;
+        gap: 15px;
     }
+
+    .course-mark-item {
+        display: grid;
+        gap: 5px;
+    }
+
+    .course-name {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .mark-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
     .button {
         display: flex;
         justify-content: space-between;
         margin-top: 15px;
     }
 
-        .button a,.button input {
+        .button a, .button input {
             display: block;
             text-decoration: none;
             padding: 10px 20px;
@@ -33,33 +51,40 @@
             cursor: pointer;
         }
 
-            .button input {
-                border:none;
-                outline:none;
-            }
+        .button input {
+            border: none;
+            outline: none;
+        }
 
-            .button a:hover,.button input:hover {
+            .button a:hover, .button input:hover {
                 background: linear-gradient(45deg, #2a4c8c, #d12e2e)
             }
+
+    .validation-error {
+        color: #dc3545;
+        font-size: 0.8em;
+    }
 </style>
 
-<form method="post" asp-controller="Student" asp-action="SaveUpdatedMark" class="Form">
-    @for (int i = 0; i < Model.Count; i++)
-    {
-        <div class="Dev">
-            <input asp-for="@Model[i].Student_Id" hidden />
-            <input asp-for="@Model[i].Course_Id" hidden />
-            <label>@Model[i].Course_ref.CourseName</label>
-            <input asp-for="@Model[i].Mark" class="form-control" class="Input-Mark"/>
-            <span asp-validation-for="@Model[i].Mark" class="text-danger"></span>
-        </div>
-    }
+
+<form method="post" asp-controller="Student" asp-action="SaveUpdatedMark" class="student-mark-form">
+    <div class="course-marks-container">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="course-mark-item">
+                <input asp-for="@Model[i].Student_Id" type="hidden" />
+                <input asp-for="@Model[i].Course_Id" type="hidden" />
+                <label class="course-name">@Model[i].Course_ref.CourseName</label>
+                <input asp-for="@Model[i].Mark" class="mark-input" />
+                <span asp-validation-for="@Model[i].Mark"></span>
+            </div>
+        }
+    </div>
     <div class="button">
-        <a asp-controller="Student" asp-action="getAllStudent">Back</a>
+        <a asp-controller="Student" asp-route-StudentId="@Model[0].Student_Id" asp-action="ShowStudentMark">Back</a>
         <input type="submit" value="Save" class="btn btn-success" />
     </div>
 </form>
-
 
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

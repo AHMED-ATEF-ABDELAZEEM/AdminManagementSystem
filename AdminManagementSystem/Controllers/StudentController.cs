@@ -62,7 +62,7 @@ namespace AdminManagementSystem.Controllers
             {
                 StudentLogic.SaveNewStudent(student);
                 MakeReferenceWithStudentAndCourse(student.StudentId, student.DeptId);
-                return RedirectToAction("UpdateStudentMark", new { id = student.StudentId});
+                return RedirectToAction("UpdateStudentMark", new { StudentId = student.StudentId});
             }
             ViewBag.Departments = DepartmentLogic.getAllDepartment();
             return View("AddNewStudent", student);
@@ -80,7 +80,7 @@ namespace AdminManagementSystem.Controllers
 
                 Student_Course.Student_Id = StudentId;
                 Student_Course.Course_Id = course.CourseId;
-                Student_Course.Mark = 5;
+                Student_Course.Mark = 0;
 
                 student_Courses_List.Add(Student_Course);
 
@@ -92,10 +92,36 @@ namespace AdminManagementSystem.Controllers
 
 
         // Open Form With Current Student Mark
-        public IActionResult UpdateStudentMark(int id)
+
+        public IActionResult ShowStudentMark (int StudentId)
+        {
+
+            var Model = context.Students.Include(x => x.Department_ref)
+                .Select(x => new ShowStudentMarkVM
+                {
+                    StudentId = x.StudentId,
+                    StudentName = x.StudentName,
+                    Department = x.Department_ref.DepartmentName,
+                })
+                .FirstOrDefault(x => x.StudentId ==  StudentId);
+
+            Model.CourseWithMark = context.Students_Courses.Include(x => x.Course_ref)
+	        .Where(x => x.Student_Id == StudentId)
+            .Select(x => new CourseWithMarkVM
+            {
+                CourseName = x.Course_ref.CourseName,
+                StudentMark = x.Mark,
+            })
+            .ToList();
+
+
+			return View(Model);
+		}
+
+        public IActionResult UpdateStudentMark(int StudentId)
         {
             var Marks = context.Students_Courses.Include(x => x.Course_ref)
-                .Where(x => x.Student_Id == id).ToList();
+                .Where(x => x.Student_Id == StudentId).ToList();
             return View(Marks);
         }
 
@@ -107,7 +133,8 @@ namespace AdminManagementSystem.Controllers
             {
                 context.Students_Courses.UpdateRange(Student_Course);
                 context.SaveChanges();
-                return RedirectToAction("getAllStudent");
+                int StudentId = Student_Course[0].Student_Id;
+                return RedirectToAction("ShowStudentMark",new {StudentId = StudentId });
             }
             return View("UpdateStudentMark", Student_Course);
         }
@@ -184,7 +211,22 @@ namespace AdminManagementSystem.Controllers
                 return RedirectToAction("getInformationAboutStudent",new {id = student.StudentId});
             }
             return View("UpdateStudentData", student);
+
         }
+
+        [HttpPost]
+        public  IActionResult UpdateStudentImage(int id, string imageName)
+        {
+            if (imageName != null)
+            {
+                var student =  context.Students.FirstOrDefault(x => x.StudentId == id);
+                student.Image = imageName;
+                context.SaveChanges();
+                return RedirectToAction("getInformationAboutStudent", new { id = id });
+            }
+            return RedirectToAction("getInformationAboutStudent", new { id = id });
+        }
+
 
     }
 }

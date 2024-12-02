@@ -13,7 +13,7 @@ namespace AdminManagementSystem.Models
         public int Course_Id { get; set; }
 
         [Required (ErrorMessage = "The Mark Is Required")]
-        [Range(10,100,ErrorMessage = "The Mark Must Be Between 10 and 100")]
+        [Range(0,100,ErrorMessage = "The Mark Must Be Between 0 and 100")]
         public int Mark {  get; set; }
         public virtual Course? Course_ref { get; set; }
         public virtual Student? Student_ref { get; set; }

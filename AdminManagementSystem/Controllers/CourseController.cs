@@ -24,6 +24,7 @@ namespace AdminManagementSystem.Controllers
             ViewBag.FirstCourseInformation = FirstCourseInformation;
 
             ViewBag.CountOfMaleStudent = FirstCourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
+
             ViewBag.CountOfFemaleStudent = FirstCourseInformation.Student_Course_ref.Where(x => x.Student_ref.gender == 'F').Count();
 
             return View(courses);
@@ -135,6 +136,72 @@ namespace AdminManagementSystem.Controllers
             context.Departments_Courses.AddRange(Department_Course);
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+
+        public IActionResult UpdateStudentMarkInCourse (int CourseId)
+        {
+            var Student_course = context.Students_Courses
+                .Include(x => x.Student_ref)
+                .Where(x => x.Course_Id == CourseId).ToList();
+
+            ViewBag.CourseName = context.Courses.FirstOrDefault(x => x.CourseId == CourseId).CourseName;
+            ViewBag.CourseId = CourseId;
+            return View(Student_course);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SaveUpdateStudentMarkInCourse (int CourseId,List<Student_Course> New_Student_Course)
+        {
+            if (ModelState.IsValid)
+            {
+                var Old_Student_Course = context.Students_Courses.Where(x => x.Course_Id == CourseId).AsNoTracking().ToList();
+    //            int Count = 0;
+    //            for (int i = 0; i < Old_Student_Course.Count; i++)
+    //            {
+				//	//Count Number Of Mark Is Updated
+				//	if (New_Student_Course[i].Mark != Old_Student_Course[i].Mark)
+				//	{
+    //                    Count++;
+				//	}
+    //            }
+
+    //            Old_Student_Course.Clear();
+
+				//context.Students_Courses.UpdateRange(New_Student_Course);
+    //            context.SaveChanges();
+
+                for (int i = 0; i < Old_Student_Course.Count; i++)
+                { 
+                    
+                    // Update If Mark Change
+                    if (New_Student_Course[i].Mark != Old_Student_Course[i].Mark)
+                    {
+                        context.Students_Courses.Update(New_Student_Course[i]);
+                    }
+                }
+
+                int CountOfUpdate = context.SaveChanges();
+
+
+				// No Mark is Updated
+				if (CountOfUpdate == 0)
+                {
+                    return View("NoUpdatedMessage");
+                }
+                else
+                {
+					return View("SuccessMessage", CountOfUpdate);
+				}
+
+			}
+
+            // If Model State Has Error
+            ViewBag.CourseName = context.Courses.FirstOrDefault(x => x.CourseId == CourseId).CourseName;
+            ViewBag.CourseId = CourseId;
+            return View("UpdateStudentMarkInCourse", New_Student_Course);
         }
 
         public IActionResult DeleteCourse(int CourseId)

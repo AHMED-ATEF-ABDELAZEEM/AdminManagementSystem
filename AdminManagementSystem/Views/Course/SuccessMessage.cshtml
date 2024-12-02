@@ -1,0 +1,97 @@
+﻿
+@model int;
+
+<style>
+	.Box {
+		width: 300px;
+		height: 200px;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	}
+
+		.Box h1 {
+			font-size: 1.5rem;
+			font-weight: 600;
+			padding:10px;
+			color: #ff0000;
+			margin: 0;
+		}
+
+		.Box a {
+			display: block;
+			text-decoration: none;
+			padding: 10px 20px;
+			color: white;
+			font-weight: bold;
+			background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+			border-radius: 10px;
+			cursor: pointer;
+			width: 100px;
+			text-align:center;
+			margin-top:20px;
+			transition: background 0.3s ease-in-out;
+		}
+
+			.Box a:hover {
+				background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+			}
+</style>
+
+<div class="Box">
+	<h1>Success</h1>
+	<h1>@Model Mark Updated</h1>
+	<a asp-action="Index" asp-controller="Course">OK</a>
+</div>
+
+
+@* <style>
+	.Box {
+		width:300px;
+		height:200px;
+		padding:10px;
+		background-color:#fff;
+		border-radius:15px;
+	}
+	.Box h1 {
+		text-align:center;
+		margin-bottom:20px;
+		color:red;
+		text-align: center;
+	}
+
+
+	.Box a{
+		display: block;
+		text-decoration: none;
+		padding: 10px 20px;
+		color: white;
+		font-weight: bold;
+		background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+		border-radius: 10px;
+		cursor: pointer;
+		width:100px;
+		margin-top:10px;
+		margin:auto;
+		text-align:center;
+	}
+	.Box a:hover {
+			background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+	}
+</style>
+
+<div class="Box">
+	<h1>Success</h1>
+	<h1>@Model Mark Updated</h1>
+	<a asp-action="Index" asp-controller="Course">OK</a>
+</div> *@
+
+
+
+
+

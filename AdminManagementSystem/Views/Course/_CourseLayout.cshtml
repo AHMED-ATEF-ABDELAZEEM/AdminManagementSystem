@@ -1,7 +1,7 @@
 ﻿
 
 @model List<Course>
-
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
     SelectList CourseList = new(Model, "CourseId", "CourseName");
@@ -32,7 +32,7 @@
             min-height:250px;
         }
 
-            .LeftSide a {
+            .Sidebar a {
             text-decoration:none;
             display:block;
             padding:5px;
@@ -44,11 +44,24 @@
             min-width:140px;
         }
 
-                .LeftSide a:hover {
+                .Sidebar a:hover {
                 background: linear-gradient(45deg, #2a4c8c, #d12e2e);
                 color: #fff;
                 font-weight:bold;
             }
+
+        .Course-Operation a{
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            margin-top: 7px;
+            background-color: lightslategrey;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            min-width: 140px;
+        }
+
 
         .Content {
             width:65%;
@@ -68,7 +81,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var select = document.getElementById('departmentSelect');
-            var links = document.querySelectorAll('.Sidebar a');
+            // var links = document.querySelectorAll('.Sidebar a');
+            var links = document.querySelectorAll('.List');
             var contentDiv = document.querySelector('.Content');
 
             function updateLinks() {
@@ -108,23 +122,66 @@
             });
         });
     </script>
+
+    @* Add Active Class And Remove It *@
+    <script>
+
+        // Add this script block to your existing file
+        document.addEventListener('DOMContentLoaded', function () {
+            var links = document.querySelectorAll('.List');
+
+            // Function to handle link activation
+            function activateLink(clickedLink) {
+                // Remove 'active' class and reset background for all links
+                links.forEach(function (link) {
+                    link.classList.remove('active');
+                    link.style.background = 'linear-gradient(45deg, #1a2a6c, #b21f1f)';
+                });
+
+                // Add 'active' class to clicked link
+                clickedLink.classList.add('active');
+                clickedLink.style.background = 'blue';
+            }
+
+            // Add click event listeners to links
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    activateLink(this);
+                });
+            });
+
+            // Set initial active state based on current URL
+            var currentPath = window.location.pathname;
+            links.forEach(function (link) {
+                if (currentPath.includes(link.getAttribute('data-base-url'))) {
+                    activateLink(link);
+                }
+            });
+        });
+
+    </script>
+
 </head>
 <body>
 
     <div class="Parent">
 
        <div class="LeftSide">
-            <div>
-                <a asp-action="AddNewCourse" asp-controller="Course">Add New Course</a>
-                <a asp-action="" asp-controller="">Enroll Course</a>
-            </div>
             <div class="Sidebar">
                 <select id="departmentSelect" asp-items="CourseList" class="form-control"></select>
-                <a id="aboutLink" data-base-url="/Course/InformationAboutCourse">Information</a>
-                <a id="studentLink" data-base-url="/Course/getStudentAtCourse">Students</a>
-                <a id="coursesLink" data-base-url="/Course/getDepartmentThatCourseExistInIt">Departments</a>
-                <a id="firstLink" data-base-url="/Course/getFirstStudentAtCourse">First</a>
-                <a id="MarksLink" data-base-url="/Course/getStudentWithMarkAtCourse">Marks</a>
+                <a class="List" data-base-url="/Course/InformationAboutCourse">Information</a>
+                <a class="List" data-base-url="/Course/getStudentAtCourse">Students</a>
+                <a class="List" data-base-url="/Course/getDepartmentThatCourseExistInIt">Departments</a>
+                <a class="List" data-base-url="/Course/getFirstStudentAtCourse">First</a>
+                <a class="List" data-base-url="/Course/getStudentWithMarkAtCourse">Marks</a>
+                @* <a id="UpdateLink" data-base-url="/Course/UpdateStudentMarkInCourse">Update Mark</a> *@
+                <a id="UpdateMark" href="#" onclick="UpdateStudentMark()">Update Mark</a>
+
+            </div>
+            <br />
+            <div class="Course-Operation">
+                <a asp-action="AddNewCourse" asp-controller="Course">Add New Course</a>
+                <a asp-action="" asp-controller="">Enroll Course</a>
             </div>
        </div>
 
@@ -151,6 +208,30 @@
                 });
             });
         });
+    </script>
+
+    @* To Make Update Mark Href Is Dynamic And Return New View From His Action *@
+    @*Not Use Ajax Because I Need Full View That Come From Action*@
+    <script>
+        var UpdateMarkButton = document.getElementById('UpdateMark');
+        var SelectCourseDropDown = document.getElementById('departmentSelect');
+
+        function UpdateStudentMark() 
+        { 
+            document.location.href = UpdateMarkButton.href;
+        }
+
+        function UpdateUrl ()
+        {
+            var CourseId = SelectCourseDropDown.value;
+            UpdateMarkButton.href = `/Course/UpdateStudentMarkInCourse?CourseId=${CourseId}`
+        }
+        // To Update Url When Dropdown Change
+        SelectCourseDropDown.addEventListener('change', UpdateUrl);
+
+        // To Update Url When Load Padge
+        UpdateUrl();
+
     </script>
 
 </body>

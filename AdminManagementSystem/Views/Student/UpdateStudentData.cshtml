@@ -180,6 +180,9 @@
         <div>
             <input asp-for="DeptId" class="form-control" hidden />
         </div>
+        <div>
+            <input asp-for="Image" class="form-control" hidden />
+        </div>
 
         <div class="Name">
             <div class="form-group">
@@ -235,21 +238,6 @@
             </div>
             <span asp-validation-for="City" class="text-danger"></span>
         </div>
-
-        <div class="Image">
-            <div class="form-group">
-                <div class="icon-box">
-                    <i class="fas fa-image"></i>
-                </div>
-                <div class="input-group">
-                    <label asp-for="Image"></label>
-                    <input type="file" value="@Model.Image" asp-for="Image" class="form-control" />
-                </div>
-            </div>
-            <span asp-validation-for="Image" class="text-danger"></span>
-        </div>
-
-
 
         <div class="button">
             <a asp-action="getInformationAboutStudent" asp-route-id="@Model.StudentId" asp-controller="Student">Back</a>

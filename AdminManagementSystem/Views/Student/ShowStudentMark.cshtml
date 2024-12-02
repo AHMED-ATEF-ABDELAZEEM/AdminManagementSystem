@@ -1,0 +1,133 @@
+﻿
+
+@* <style>
+     .Dev {
+		 background-color:#fff;
+		 border-radius:20px;
+		 padding:10px;
+         min-width:300px;
+         min-height:200px;
+	 }
+
+     .Item {
+         text-align:center;
+     }
+
+    .button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+
+        .button a{
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            margin: 0px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+            .button a:hover {
+                background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+            }
+</style>
+
+ *@
+
+@* <div class="Dev">
+    
+	@foreach (var item in Model)
+	{
+		<div class="Item">
+			<label>@item.Course_ref.CourseName</label>
+			<h3>@item.Mark</h3>
+		</div>
+	}
+
+	<div class="button">
+		<a asp-action="getAllStudent" asp-controller="Student">Back</a>
+		<a asp-action="UpdateStudentMark" asp-route-StudentId="@ViewBag.StudentId" asp-controller="Student">Update</a>
+	</div>
+</div> *@
+
+
+@model ShowStudentMarkVM
+
+<style>
+    .Container {
+        text-align: center;
+        min-width: 300px;
+        margin: 10px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .StudentInfo h3 {
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .MarkInfo div {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+
+        .button a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            width:80px;
+            color: white;
+            font-weight: bold;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            margin: 0px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+            .button a:hover {
+                background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+            }
+</style>
+
+<div class="Container">
+    <div class="StudentInfo">
+        <h3>@Model.StudentName</h3>
+        <h3>@Model.Department</h3>
+    </div>
+
+    <div class="MarkInfo">
+        @foreach (var item in Model.CourseWithMark)
+        {
+            <div>
+                <p>@item.CourseName</p>
+                <p>@item.StudentMark</p>
+            </div>
+        }
+    </div>
+    <div class="button">
+        <a asp-action="getAllStudent" asp-controller="Student">Back</a>
+        <a asp-action="UpdateStudentMark" asp-route-StudentId="@Model.StudentId" asp-controller="Student">Update</a>
+    </div>
+</div>
+
+
+
+
+

@@ -58,6 +58,32 @@
                 transform: scale(1.1);
             }
 
+        .edit-image-icon {
+            position: absolute;
+            bottom: -10px;
+            right: 50px;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            opacity: 1;
+        }
+
+/*         .profile-image:hover .edit-image-icon {
+            opacity: 1;
+        } */
+
+        .edit-image-icon:hover {
+            background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+            transform: scale(1.1);
+        }
         .card-body {
             padding: 30px;
         }
@@ -143,7 +169,17 @@
     <div class="profile-card">
         <div class="card-header">
             <div class="profile-image">                             
-                    <img src="/Images/StudentImage/@Model.Image" alt="Profile Picture">            
+                    <img src="/Images/StudentImage/@Model.Image" alt="Profile Picture">
+@*                 <a asp-action="UpdateStudentImage" asp-route-id="@Model.Id" asp-controller="Student" class="edit-image-icon">
+                    <i class="fas fa-camera"></i>
+                </a> *@
+                <form id="imageUploadForm" asp-action="UpdateStudentImage" asp-controller="Student" asp-route-id="@Model.Id" method="post">
+                    <input type="file" id="imageInput" name="imageFile" accept="image/*" style="display: none;" onchange="handleImageSelect(event)">
+                    <input type="hidden" id="imageNameInput" name="imageName" />
+                    <label for="imageInput" class="edit-image-icon">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                </form>
             </div>
             <div class="department-badge">
                 <i class="fas fa-laptop-code me-2"></i><span class="department">@Model.Department</span>
@@ -198,6 +234,58 @@
 
         </div>
     </div>
+
+   <script>
+function handleImageSelect(event) {
+    try {
+        // Get the selected file
+        const file = event.target.files[0];
+        
+        if (file) {
+            // Validate file type
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            if (!validImageTypes.includes(file.type)) {
+                alert('Please select a valid image file (JPEG, PNG, or GIF)');
+                event.target.value = '';
+                return;
+            }
+
+            // Get file name and set it in hidden input
+            const fileName = file.name;
+            const imageNameInput = document.getElementById('imageNameInput');
+            if (imageNameInput) {
+                imageNameInput.value = fileName;
+            } else {
+                console.error('imageNameInput not found');
+                return;
+            }
+
+            // Create FileReader for preview
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const form = document.getElementById('imageUploadForm');
+                if (form) {
+                    form.submit();
+                } else {
+                    console.error('imageUploadForm not found');
+                }
+            };
+
+            reader.onerror = function(error) {
+                console.error('Error reading file:', error);
+                alert('Error reading file. Please try again.');
+            };
+
+            // Read the file
+            reader.readAsDataURL(file);
+        }
+    } catch (error) {
+        console.error('Error in handleImageSelect:', error);
+        alert('An error occurred while processing the image. Please try again.');
+    }
+}
+</script>
 </body>
 </html>
 
