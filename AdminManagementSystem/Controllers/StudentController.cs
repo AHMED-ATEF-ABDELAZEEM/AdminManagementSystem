@@ -1,5 +1,6 @@
-﻿using AdminManagementSystem.BussinessLogic;
+﻿
 using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
@@ -11,45 +12,32 @@ namespace AdminManagementSystem.Controllers
 {
     public class StudentController : Controller
     {
-        private AppDbContext context = new AppDbContext();
-        private StudentBussinessLogic StudentLogic = new StudentBussinessLogic();
-        private DepartmentBussinessLogic DepartmentLogic = new DepartmentBussinessLogic();
+        private AppDbContext context;
+        private IStudentRepository StudentRepository;
+        private IDepartmentRepository DepartmentRepository;
+
+        public StudentController(AppDbContext context, IStudentRepository StudentRepository, IDepartmentRepository DepartmentRepository)
+        {
+            this.context = context;
+            this.StudentRepository = StudentRepository;
+            this.DepartmentRepository = DepartmentRepository;
+        }
 
         public IActionResult getAllStudent()
         {
-            return View(StudentLogic.getAllStudent());
+            return View(StudentRepository.getAllStudent());
         }
-
-        //public IActionResult AddMarkForNewStudent(int StudentId, int DeptId)
-        //{
-        //    ViewBag.StudentId = StudentId;
-        //    ViewBag.Courses = context.Departments_Courses
-        //        .Where(x => x.Department_Id == DeptId)
-        //        .Select(x => x.Course_ref).ToList();
-        //    return View(new List<Student_Course>());
-        //}
-
-        //public IActionResult SaveStudentMark(List<Student_Course> Student_Course)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        context.Students_Courses.AddRange(Student_Course);
-        //        context.SaveChanges();
-        //        return RedirectToAction("getAllStudent");
-        //    }
-        //    return RedirectToAction("getAllStudent");
-        //}
 
         public IActionResult AddNewStudent()
         {
-            ViewBag.Departments = DepartmentLogic.getAllDepartment();
+            ViewBag.Departments = DepartmentRepository.getAllDepartment();
 
             return View(new Student());
         }
 
         public IActionResult SaveNewStudent(Student student)
         {
-            if (StudentLogic.IsNameExistAtAddNewStudent(student.StudentName))
+            if (StudentRepository.IsNameExistAtAddNewStudent(student.StudentName))
             {
                 ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
             }
@@ -60,11 +48,11 @@ namespace AdminManagementSystem.Controllers
             //}
             if (ModelState.IsValid)
             {
-                StudentLogic.SaveNewStudent(student);
+                StudentRepository.SaveNewStudent(student);
                 MakeReferenceWithStudentAndCourse(student.StudentId, student.DeptId);
                 return RedirectToAction("UpdateStudentMark", new { StudentId = student.StudentId});
             }
-            ViewBag.Departments = DepartmentLogic.getAllDepartment();
+            ViewBag.Departments = DepartmentRepository.getAllDepartment();
             return View("AddNewStudent", student);
         }
 
@@ -194,7 +182,7 @@ namespace AdminManagementSystem.Controllers
 
         public IActionResult SaveUpdatedData(Student student)
         {
-            if (StudentLogic.IsNameExistAtUpdateStudent(student.StudentId,student.StudentName))
+            if (StudentRepository.IsNameExistAtUpdateStudent(student.StudentId,student.StudentName))
             {
                 ModelState.AddModelError("StudentName", "This Name Is Already Exist Please Enter Different Name");
             }

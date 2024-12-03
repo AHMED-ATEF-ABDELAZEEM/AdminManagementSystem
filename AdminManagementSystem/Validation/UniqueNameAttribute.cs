@@ -7,10 +7,16 @@ namespace AdminManagementSystem.Validation
     {
         public string ErrorMessage { get; set; }
 
+        private AppDbContext context;
+
+        public UniqueNameAttribute(AppDbContext context)
+        {
+            this.context = context;
+        }
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             string Name = value.ToString();
-            AppDbContext context = new AppDbContext();
+            
             var student = context.Students.FirstOrDefault(x => x.StudentName == Name);
 
             // add update

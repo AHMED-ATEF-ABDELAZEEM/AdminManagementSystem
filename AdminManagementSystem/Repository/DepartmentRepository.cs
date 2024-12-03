@@ -1,15 +1,21 @@
 ﻿using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace AdminManagementSystem.BussinessLogic
+namespace AdminManagementSystem.Repository
 {
-    public class DepartmentBussinessLogic
+    public class DepartmentRepository : IDepartmentRepository
     {
-        private AppDbContext _context = new AppDbContext();
+		private AppDbContext _context;
 
-		public Department getDepartment (int deptId)
+        public DepartmentRepository(AppDbContext context)
+        {
+            this._context = context;
+        }
+
+        public Department getDepartment (int deptId)
 		{
 			var Department = _context.Departments.Include(x => x.Students_ref)
 			.Include(x => x.Department_Course_ref)

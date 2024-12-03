@@ -4,17 +4,22 @@ namespace AdminManagementSystem.Models
 {
     public class AppDbContext : DbContext
     {
+
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+            
+        }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Department_Course> Departments_Courses { get; set; }
         public DbSet<Student_Course> Students_Courses { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.;DataBase=AdminManagementSystem;User Id=sa;Password=221037;TrustServerCertificate=true");
-            base.OnConfiguring(optionsBuilder);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=.;DataBase=AdminManagementSystem;User Id=sa;Password=221037;TrustServerCertificate=true");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

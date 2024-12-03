@@ -1,10 +1,16 @@
 ﻿using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
 
-namespace AdminManagementSystem.BussinessLogic
+namespace AdminManagementSystem.Repository
 {
-    public class StudentBussinessLogic
+    public class StudentRepository : IStudentRepository
     {
-        private AppDbContext context = new AppDbContext();
+        private AppDbContext context;
+
+        public StudentRepository(AppDbContext context)
+        {
+            this.context = context;
+        }
 
         public List<Student> getStudentAtDepartment (int deptId)
         {

@@ -1,4 +1,7 @@
+
 using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -15,6 +18,15 @@ namespace AdminManagementSystem
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddScoped<IStudentRepository,StudentRepository>();
+            builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
+            builder.Services.AddScoped<ICourseRepository,CourseRepository>();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer("Server =.; DataBase = AdminManagementSystem; User Id = sa; Password = 221037; TrustServerCertificate = true");
+            });
 
             var app = builder.Build();
 

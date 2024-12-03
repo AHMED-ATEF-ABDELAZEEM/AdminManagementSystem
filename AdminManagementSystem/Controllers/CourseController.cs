@@ -1,5 +1,6 @@
-﻿using AdminManagementSystem.BussinessLogic;
+﻿
 using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
 using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,8 +9,14 @@ namespace AdminManagementSystem.Controllers
 {
 	public class CourseController : Controller
     {
-        private AppDbContext context = new AppDbContext();
-        private CourseBussinessLogic CourseLogic = new CourseBussinessLogic();
+        private AppDbContext context;
+        private ICourseRepository CourseRepository;
+
+        public CourseController(AppDbContext context, ICourseRepository CourseRepository)
+        {
+            this.context = context;
+            this.CourseRepository = CourseRepository;
+        }
 
         public IActionResult Index()
         {
@@ -130,7 +137,7 @@ namespace AdminManagementSystem.Controllers
 
             foreach (var item in Department_Course)
             {
-                CourseLogic.EnrollStudentToNewCourse(item.Course_Id,item.Department_Id);
+                CourseRepository.EnrollStudentToNewCourse(item.Course_Id,item.Department_Id);
             }
 
             context.Departments_Courses.AddRange(Department_Course);

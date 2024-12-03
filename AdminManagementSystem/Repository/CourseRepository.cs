@@ -1,10 +1,16 @@
 ﻿using AdminManagementSystem.Models;
+using AdminManagementSystem.Repository;
 
-namespace AdminManagementSystem.BussinessLogic
+namespace AdminManagementSystem.Repository
 {
-    public class CourseBussinessLogic
+    public class CourseRepository : ICourseRepository
     {
-        private AppDbContext context = new AppDbContext();
+        private AppDbContext context;
+
+        public CourseRepository(AppDbContext context)
+        {
+            this.context = context;
+        }
 
         public List<Course> getAllCourses(int DeptId)
         {
