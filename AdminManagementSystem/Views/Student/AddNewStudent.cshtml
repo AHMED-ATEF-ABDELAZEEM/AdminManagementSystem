@@ -1,9 +1,9 @@
 ﻿
 
-@model Student;
+@model AddNewStudentVM;
 
 @{
-	SelectList departments = new SelectList(ViewBag.Departments, "DepartmentId", "DepartmentName");
+	SelectList departments = new SelectList(Model.Departments, "DepartmentId", "DepartmentName");
 }
 <style>
 
@@ -53,34 +53,34 @@
 
 <form method="post" asp-controller="Student" asp-action="SaveNewStudent" class="Form">
 	<div>
-	    <label asp-for="StudentName"></label>
-		<input asp-for="StudentName" class="form-control"/>
-		<span asp-validation-for="StudentName" class="text-danger"></span>
+	    <label asp-for="Student.StudentName"></label>
+		<input asp-for="Student.StudentName" class="form-control" />
+		<span asp-validation-for="Student.StudentName" class="text-danger"></span>
 	</div>
 	<div>
-		<label asp-for="Age"></label>
-		<input asp-for="Age" class="form-control" />
-		<span asp-validation-for="Age" class="text-danger"></span>
+		<label asp-for="Student.Age"></label>
+		<input asp-for="Student.Age" class="form-control" />
+		<span asp-validation-for="Student.Age" class="text-danger"></span>
 	</div>
 	<div>
-		<label asp-for="gender"></label>
-		<input asp-for="gender" class="form-control" />
-		<span asp-validation-for="gender" class="text-danger"></span>
+		<label asp-for="Student.gender"></label>
+		<input asp-for="Student.gender" class="form-control" />
+		<span asp-validation-for="Student.gender" class="text-danger"></span>
 	</div>
 	<div>
-		<label asp-for="City"></label>
-		<input asp-for="City" class="form-control" />
-		<span asp-validation-for="City" class="text-danger"></span>
+		<label asp-for="Student.City"></label>
+		<input asp-for="Student.City" class="form-control" />
+		<span asp-validation-for="Student.City" class="text-danger"></span>
 	</div>
 	<div>
-		<label asp-for="Image"></label>
-		<input asp-for="Image" type="file" class="form-control" />
-		<span asp-validation-for="Image" class="text-danger"></span>
+		<label asp-for="Student.Image"></label>
+		<input asp-for="Student.Image" type="file" class="form-control" />
+		<span asp-validation-for="Student.Image" class="text-danger"></span>
 	</div>
 	<div>
-		<label asp-for="DeptId"></label>
-		<select asp-for="DeptId" asp-items="departments" class="form-control"></select>
-		<span asp-validation-for="DeptId" class="text-danger"></span>
+		<label asp-for="Student.DeptId"></label>
+		<select asp-for="Student.DeptId" asp-items="departments" class="form-control"></select>
+		<span asp-validation-for="Student.DeptId" class="text-danger"></span>
 	</div>
 	<br />
 	<div class="button">

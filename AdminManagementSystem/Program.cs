@@ -1,6 +1,7 @@
 
 using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
+using AdminManagementSystem.Services;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,8 @@ namespace AdminManagementSystem
             builder.Services.AddScoped<IStudentRepository,StudentRepository>();
             builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
             builder.Services.AddScoped<ICourseRepository,CourseRepository>();
+            builder.Services.AddScoped<IStudentCourseRepository,StudentCourseRepository>();
+            builder.Services.AddScoped<StudentService>();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             {

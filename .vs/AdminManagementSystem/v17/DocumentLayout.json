@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\repository\\courserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\repository\\courserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\repository\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\repository\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\repository\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\repository\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,110 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Services\\StudentService.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Services\\StudentService.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Services\\StudentService.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAA3wFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T13:05:38.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "StudentRepository.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\StudentRepository.cs",
               "RelativeDocumentMoniker": "AdminManagementSystem\\Repository\\StudentRepository.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\StudentRepository.cs",
               "RelativeToolTip": "AdminManagementSystem\\Repository\\StudentRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAkwD4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-03T11:04:50.103Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DepartmentRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T11:04:35.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CourseRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\CourseRepository.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Repository\\CourseRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\CourseRepository.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Repository\\CourseRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T11:04:27.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Models\\AppDbContext.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Models\\AppDbContext.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T11:04:12.934Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CourseController.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\CourseController.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\CourseController.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\CourseController.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Controllers\\CourseController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "IStudentRepository.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\IStudentRepository.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Repository\\IStudentRepository.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\IStudentRepository.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Repository\\IStudentRepository.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAgwA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T11:01:44.535Z",
+              "WhenOpened": "2024-12-03T20:46:19.771Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T11:00:39.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "StudentController.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\StudentController.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\StudentController.cs",
               "RelativeToolTip": "AdminManagementSystem\\Controllers\\StudentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAmwA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T08:49:22.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "AdminManagementSystem\\Program.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Program.cs",
               "RelativeToolTip": "AdminManagementSystem\\Program.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwAAAAAAAAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwBkAAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T21:40:17.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T21:40:17.916Z"
             }
           ]
         }

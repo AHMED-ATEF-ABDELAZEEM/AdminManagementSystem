@@ -1,46 +1,4 @@
-﻿
-@* @model List<Student>
-
-@{
-	Layout = "_MyLayout";
-}
-
-
-<table class="table table-bordered table-hover">
-    <tr>
-        <td></td>
-        <td>Name</td>
-        <td>Age</td>
-        <td>gender</td>
-        <td>City</td>
-        <td>Mark</td>
-        <td>Delete</td>
-    </tr>
-    @{
-        int start = 1;
-    }
-    @foreach (Student student in Model)
-    {
-        <tr>
-            <td>@start</td>
-            <td>@student.StudentName</td>
-            <td>@student.Age</td>
-            <td>@student.gender</td>
-            <td>@student.City</td>
-            <td><a asp-controller="Student" asp-action="UpdateStudentMark" asp-route-id="@student.StudentId" style="text-decoration:none">Update</a></td>
-            <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId" style="text-decoration:none">Delete</a></td>
-        </tr>
-        start++;
-    }
-</table>
-
-
-<a asp-action="AddNewStudent" asp-controller="Student" class="btn btn-success" style="text-decoration:none;display:block">Add New Student</a>
- *@
-
-
-
- @model List<Student>
+﻿ @model List<ShowStudentVM>
 
 @{
     Layout = "_MyLayout";
@@ -141,17 +99,17 @@
             @{
                 int start = 1;
             }
-            @foreach (Student student in Model)
+            @foreach (var student in Model)
             {
                 <tr>
                     <td>@start</td>
-                    <td>@student.StudentName</td>
+                    <td>@student.Name</td>
                     <td>@student.Age</td>
                     <td>@student.gender</td>
                     <td>@student.City</td>
-                    <td><a asp-controller="Student" asp-action="ShowStudentMark" asp-route-StudentId="@student.StudentId"><i class="fas fa-edit"></i></a></td>
-                    <td><a asp-controller="Student" asp-action="getInformationAboutStudent" asp-route-id="@student.StudentId"><i class="fas fa-info-circle fa-lg"></i></a></td>
-                    <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.StudentId" class="DeleteIcon"> <i class="fas fa-trash-alt fa-lg"></i></a></td>
+                    <td><a asp-controller="Student" asp-action="ShowStudentMark" asp-route-StudentId="@student.Id"><i class="fas fa-edit"></i></a></td>
+                    <td><a asp-controller="Student" asp-action="getInformationAboutStudent" asp-route-id="@student.Id"><i class="fas fa-info-circle fa-lg"></i></a></td>
+                    <td><a asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@student.Id" class="DeleteIcon"> <i class="fas fa-trash-alt fa-lg"></i></a></td>
                 </tr>
                 start++;
             }

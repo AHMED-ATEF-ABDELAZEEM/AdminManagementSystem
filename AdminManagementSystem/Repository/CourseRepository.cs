@@ -33,5 +33,13 @@ namespace AdminManagementSystem.Repository
             context.Students_Courses.AddRange(Student_Course_List);
             context.SaveChanges();
         }
+
+        public List<Course> getAllCoursesAtDepartment (int DeptId)
+        {
+			var Courses = context.Departments_Courses
+            .Where(x => x.Department_Id == DeptId)
+            .Select(x => x.Course_ref).ToList();
+            return Courses;
+		}
     }
 }

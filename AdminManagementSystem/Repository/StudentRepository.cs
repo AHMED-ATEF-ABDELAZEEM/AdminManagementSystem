@@ -1,5 +1,7 @@
 ﻿using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
+using AdminManagementSystem.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Repository
 {
@@ -28,30 +30,42 @@ namespace AdminManagementSystem.Repository
             context.SaveChanges();
         }
 
-        public bool IsNameExistAtAddNewStudent (string name)
+        public Student getStudentUsingName (string name)
         {
-            var student = context.Students.FirstOrDefault(x => x.StudentName == name);
-            return student == null ? false : true;
-        }
+			return context.Students.FirstOrDefault(x => x.StudentName.ToLower() == name.ToLower());
+		}
 
-        public bool IsImageExistAtAddNewStudent (string Image)
-        {
-            var student = context.Students.FirstOrDefault(x => x.Image == Image);
-            return student == null ? false : true;
-        }
-
-        public bool IsNameExistAtUpdateStudent (int id,string name)
+        public bool IsNameExistAtUpdateStudent(int id, string name)
         {
             // Check If Name Exist But Not In Current Object
             // return true If Name Exist In Two Element (Current Element,another)
             return context.Students.Any(x => x.StudentName == name && x.StudentId != id);
         }
 
-        public bool IsImageExistAtUpdateStudent (int id, string image)
+		public Student getStudentUsingId(int id)
         {
-            // Check If Image Exist But Not In Current Object
-            // return true If Image Exist In Two Element (Current Element,another)
-            return context.Students.Any(x => x.Image == image && x.StudentId != id);
+			return context.Students.Include(x => x.Department_ref)
+	         .FirstOrDefault(x => x.StudentId == id);
+		}
+
+        public void DeleteStudent (int Id)
+        {
+            var Student = getStudentUsingId (Id);
+            context.Students.Remove(Student);
+            context.SaveChanges();
         }
-    }
+
+		public void UpdateStudent(Student student)
+		{
+			context.Students.Update(student);
+            context.SaveChanges ();
+		}
+
+		public void UpdateStudentImage(int Id, string Image)
+		{
+			var student = getStudentUsingId (Id);
+            student.Image = Image;
+            context.SaveChanges();
+		}
+	}
 }

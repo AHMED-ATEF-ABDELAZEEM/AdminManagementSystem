@@ -9,5 +9,8 @@ namespace AdminManagementSystem.Repository
         // Enroll Student At Department That New Course Added To It
         void EnrollStudentToNewCourse(int CourseId, int DeptId);
 
-    }
+        List<Course> getAllCoursesAtDepartment(int DeptId);
+
+
+	}
 }

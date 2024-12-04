@@ -10,14 +10,20 @@ namespace AdminManagementSystem.Repository
 
         void SaveNewStudent(Student student);
 
-        bool IsNameExistAtAddNewStudent(string name);
-
-        bool IsImageExistAtAddNewStudent(string Image);
-
-
+        
         bool IsNameExistAtUpdateStudent(int id, string name);
 
-        bool IsImageExistAtUpdateStudent(int id, string image);
 
-    }
+        Student getStudentUsingName (string name);
+
+        Student getStudentUsingId (int id);
+
+        void DeleteStudent(int Id);
+
+        void UpdateStudent (Student student);
+
+        void UpdateStudentImage(int Id, string Image);
+
+
+	}
 }
