@@ -18,13 +18,13 @@ namespace AdminManagementSystem
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddScoped<IStudentRepository,StudentRepository>();
             builder.Services.AddScoped<IDepartmentRepository,DepartmentRepository>();
             builder.Services.AddScoped<ICourseRepository,CourseRepository>();
             builder.Services.AddScoped<IStudentCourseRepository,StudentCourseRepository>();
             builder.Services.AddScoped<StudentService>();
+            builder.Services.AddScoped<CourseService>();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             {

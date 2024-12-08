@@ -1,40 +1,38 @@
 ﻿
-
-@model List<Student_Course>
+@model UpdateMarkAtCourseVM;
 
 <style>
     form {
-        padding:20px;
-        max-width:500px;
-        background-color:#fff;
-        border-radius:20px;
+        padding: 20px;
+        max-width: 500px;
+        background-color: #fff;
+        border-radius: 20px;
     }
 
     .Dev {
-        margin-bottom:5px;
+        margin-bottom: 5px;
     }
 
     .Header {
-        padding : 15px 20px;
+        padding: 15px 20px;
         background: linear-gradient(45deg, #1a2a6c, #b21f1f);
-        text-align:center;
-        width:100%;
-        color:#fff;
-        border-radius:20px;
-        font-weight:bold;
-        margin-bottom:10px;
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
     }
-    
+
     .button {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
     }
 
-        .button input
-        {
-            border:none;
-            outline:none;
+        .button input {
+            border: none;
+            outline: none;
         }
 
         .button a, .button input {
@@ -54,16 +52,20 @@
             }
 </style>
 
-<form method="post" asp-action="SaveUpdateStudentMarkInCourse" asp-route-CourseId="@ViewBag.CourseId" asp-controller="Course">
-    <h3 class="Header">@ViewBag.CourseName</h3>
-	@for (int i = 0; i < Model.Count;i++)
+
+<form method="post" asp-action="SaveUpdateStudentMarkInCourse" asp-controller="Course">
+
+	<h3 class="Header">@Model.CourseName</h3>
+	<input asp-for="@Model.CourseId" hidden />
+	<input asp-for="@Model.CourseName" hidden />
+	@for (int i = 0 ; i < Model.StudentMarks.Count; i++)
 	{
 		<div class="Dev">
-			<input asp-for="@Model[i].Student_Id" hidden />
-			<input asp-for="@Model[i].Course_Id" hidden />
-			<label>@Model[i].Student_ref.StudentName</label>
-			<input asp-for="@Model[i].Mark" class="form-control" />
-            <span asp-validation-for="@Model[i].Mark" class="text-danger"></span>
+			<input asp-for="@Model.StudentMarks[i].StudentId" hidden />
+			<input asp-for="@Model.StudentMarks[i].OldMark" hidden />
+			<label>@Model.StudentMarks[i].StudentName</label>
+			<input asp-for="@Model.StudentMarks[i].NewMark" class="form-control" />
+			<span asp-validation-for="@Model.StudentMarks[i].NewMark" class="text-danger"></span>
 		</div>
 	}
 	<div class="button">
@@ -75,8 +77,6 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-
-
 
 
 

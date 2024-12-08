@@ -24,14 +24,32 @@ namespace AdminManagementSystem.Repository
 			context.SaveChanges();
 		}
 
-		public List<Student_Course> getAllMarkWithCourseForStudent(int StudentId)
+        public List<Student_Course> getAllMarkAtCourseWithStudentInformation(int CourseId)
+        {
+            return context.Students_Courses
+                .Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)
+                .Where(x => x.Course_Id == CourseId)
+				.ToList();
+ 
+        }
+
+        public List<Student_Course> getAllMarkWithCourseForStudent(int StudentId)
 		{
 			return context.Students_Courses.Include(x => x.Course_ref)
 			.Where(x => x.Student_Id == StudentId)
 			.ToList();
 		}
 
-		public void UpdateStudentMark(List<Student_Course> Enrollments)
+        public Student_Course getMaxMarkAtCourseWithStudentInformation(int CourseId)
+        {
+            return context.Students_Courses
+					.Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)
+					.Where(x => x.Course_Id == CourseId)
+					.OrderByDescending(x => x.Mark)
+					.First();
+        }
+
+        public void UpdateStudentMark(List<Student_Course> Enrollments)
 		{
 			context.Students_Courses.UpdateRange(Enrollments);
 			context.SaveChanges();

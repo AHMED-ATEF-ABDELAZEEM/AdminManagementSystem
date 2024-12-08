@@ -67,5 +67,21 @@ namespace AdminManagementSystem.Repository
             student.Image = Image;
             context.SaveChanges();
 		}
-	}
+
+        public List<Student> getStudentAtCourse(int CourseId)
+        {
+            return context.Students_Courses.Include(x => x.Student_ref)
+             .Where(x => x.Course_Id == CourseId).Select(x => x.Student_ref).ToList();
+        }
+
+        //public Student getFirstStudentAtCourse(int CourseId)
+        //{
+        //    return context.Students_Courses
+        //        .Include(x => x.Student_ref)
+        //        .Where(x => x.Course_Id == CourseId)
+        //        .OrderByDescending(x => x.Mark)
+        //        .Select(x => x.Student_ref)
+        //        .First();
+        //}
+    }
 }

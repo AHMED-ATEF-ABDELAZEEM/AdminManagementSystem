@@ -35,6 +35,10 @@ namespace AdminManagementSystem.Controllers
             return View(model);
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public IActionResult SaveNewStudent(AddNewStudentVM Newstudent)
         {
             if (StudentService.IsNameExistAtAddNewStudent(Newstudent.Student.StudentName))
@@ -113,7 +117,9 @@ namespace AdminManagementSystem.Controllers
 
 
 
-        public IActionResult SaveUpdatedData(Student student)
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult SaveUpdatedData(Student student)
         {
             if (StudentService.IsNameExistAtUpdateStudent(student.StudentId,student.StudentName))
             {
@@ -131,6 +137,7 @@ namespace AdminManagementSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public  IActionResult UpdateStudentImage(int id, string imageName)
         {
             if (imageName != null)

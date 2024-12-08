@@ -1,6 +1,6 @@
 ﻿
 
-@model Course
+@model CourseInformationVM
 
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -55,31 +55,31 @@
 </style>
 
 <div class="department-info">
-    <h3>Course : @Model.CourseName</h3>
+    <h3>Course : @Model.Course.CourseName</h3>
     <table>
         <tr>
             <td>Instructor</td>
-            <td>@Model.Instructor</td>
+            <td>@Model.Course.Instructor</td>
         </tr>
         <tr>
             <td>Gpa</td>
-            <td>@Model.Gpa</td>
+            <td>@Model.Course.Gpa</td>
         </tr>
         <tr>
             <td>Number of Department</td>
-            <td>@Model.Department_Course_ref.Count</td>
+            <td>@Model.NumberOfDepartment</td>
         </tr>
         <tr>
             <td>Number of Students</td>
-            <td>@Model.Student_Course_ref.Count</td>
+            <td>@Model.NumberOfStudent</td>
         </tr>
         <tr>
             <td>Male Students</td>
-            <td>@Model.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count()</td>
+            <td>@Model.NumberOfMaleStudent</td>
         </tr>
         <tr>
             <td>Female Students</td>
-            <td>@Model.Student_Course_ref.Where(x => x.Student_ref.gender == 'F').Count()</td>
+            <td>@Model.NumberOfFemaleStudent</td>
         </tr>
     </table>
 </div>

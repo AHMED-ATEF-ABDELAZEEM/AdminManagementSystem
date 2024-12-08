@@ -24,6 +24,10 @@ namespace AdminManagementSystem.Repository
 
         void UpdateStudentImage(int Id, string Image);
 
+        List <Student> getStudentAtCourse (int courseId);
+
+        //Student getFirstStudentAtCourse (int CourseId);
+
 
 	}
 }

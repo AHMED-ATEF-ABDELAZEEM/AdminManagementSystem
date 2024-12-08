@@ -8,16 +8,16 @@ namespace AdminManagementSystem.Repository
 {
     public class DepartmentRepository : IDepartmentRepository
     {
-		private AppDbContext _context;
+		private AppDbContext context;
 
         public DepartmentRepository(AppDbContext context)
         {
-            this._context = context;
+            this.context = context;
         }
 
         public Department getDepartment (int deptId)
 		{
-			var Department = _context.Departments.Include(x => x.Students_ref)
+			var Department = context.Departments.Include(x => x.Students_ref)
 			.Include(x => x.Department_Course_ref)
 			.FirstOrDefault(x => x.DepartmentId == deptId);
 
@@ -26,7 +26,7 @@ namespace AdminManagementSystem.Repository
 
 		public Department getFirstDepartment()
 		{
-			var FirstDepartment = _context.Departments.Include(x => x.Students_ref)
+			var FirstDepartment = context.Departments.Include(x => x.Students_ref)
 			.Include(x => x.Department_Course_ref)
 			.First();
 
@@ -35,17 +35,17 @@ namespace AdminManagementSystem.Repository
 
         public List<Department> getAllDepartment ()
         {
-            return _context.Departments.ToList();
+            return context.Departments.ToList();
         }
 
         public List<Student> getStudentsAtDepartment (int deptId)
         {
-			return _context.Students.Where(x => x.DeptId == deptId).ToList();
+			return context.Students.Where(x => x.DeptId == deptId).ToList();
 		}
 
         public List<Course> getCoursesAtDepartment (int deptId)
         {
-			var Courses =  _context.Departments_Courses.Include(x => x.Course_ref)
+			var Courses =  context.Departments_Courses.Include(x => x.Course_ref)
              .Where(x => x.Department_Id == deptId).Select(x => x.Course_ref).ToList();
 
 			return Courses;
@@ -53,7 +53,7 @@ namespace AdminManagementSystem.Repository
 
         public Department getInformationAboutDepartment (int deptId) 
         {
-			var Department = _context.Departments.Include(x => x.Students_ref)
+			var Department = context.Departments.Include(x => x.Students_ref)
             .Include(x => x.Department_Course_ref)
             .FirstOrDefault(x => x.DepartmentId == deptId);
 
@@ -62,7 +62,7 @@ namespace AdminManagementSystem.Repository
 
         public Student getFirstStudentAtDepartment(int deptId)
         {
-			var FirstStudent = _context.Students.Include(x => x.Department_ref)
+			var FirstStudent = context.Students.Include(x => x.Department_ref)
 			.Where(s => s.DeptId == deptId) // Filter students by department ID
 			.Select(s => new
 			{
@@ -86,7 +86,7 @@ namespace AdminManagementSystem.Repository
 
 		public List<StudentWithTotalMark>   getStudentMarkAtDepartment(int deptId)
 		{
-			var StudentsWithTotalMarks = _context.Students.Include(x => x.Department_ref)
+			var StudentsWithTotalMarks = context.Students.Include(x => x.Department_ref)
 			.Where(s => s.DeptId == deptId) // Filter by department
 			.Select(s => new StudentWithTotalMark
 			{
@@ -100,5 +100,11 @@ namespace AdminManagementSystem.Repository
 			return StudentsWithTotalMarks;
 
 		}
-	}
+
+        public List<Department> getDepartmentThatCourseExistInIt(int CourseId)
+        {
+            return context.Departments_Courses.Include(x => x.Department_ref)
+            .Where(x => x.Course_Id == CourseId).Select(x => x.Department_ref).ToList();
+        }
+    }
 }

@@ -11,5 +11,9 @@ namespace AdminManagementSystem.Repository
 		void UpdateStudentMark(List<Student_Course> Enrollments);
 
 		void DeleteStudentMark(int StudentId);
+
+		Student_Course getMaxMarkAtCourseWithStudentInformation(int CourseId);
+
+		List<Student_Course> getAllMarkAtCourseWithStudentInformation (int CourseId);
 	}
 }

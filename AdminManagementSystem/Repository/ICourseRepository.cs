@@ -4,12 +4,28 @@ namespace AdminManagementSystem.Repository
 {
     public interface ICourseRepository
     {
-        public List<Course> getAllCourses(int DeptId);
+        public List<Course> getAllCourses();
 
         // Enroll Student At Department That New Course Added To It
-        void EnrollStudentToNewCourse(int CourseId, int DeptId);
+
+        //void EnrollStudentToNewCourse(int CourseId, int DeptId);
+
+        void SaveEnrollmentStudentToCourse(List<Student_Course> Enrollments);
 
         List<Course> getAllCoursesAtDepartment(int DeptId);
+
+        Course getCourseUsingId(int CourseId);
+
+        Course getFirstCourse();
+
+        void SaveNewCourse(Course course);
+
+        void RegisterCourseToDepartment(List<Department_Course> Department_Course);
+        void RegisterCourseToDepartment(Department_Course DepartmentCourse);
+
+        bool IsCourseExist(string CourseName);
+
+
 
 
 	}

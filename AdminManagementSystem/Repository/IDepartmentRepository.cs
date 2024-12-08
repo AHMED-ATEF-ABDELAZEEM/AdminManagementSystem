@@ -23,5 +23,7 @@ namespace AdminManagementSystem.Repository
         List<StudentWithTotalMark> getStudentMarkAtDepartment(int deptId);
 
 
+        List<Department> getDepartmentThatCourseExistInIt(int CourseId);
+
     }
 }

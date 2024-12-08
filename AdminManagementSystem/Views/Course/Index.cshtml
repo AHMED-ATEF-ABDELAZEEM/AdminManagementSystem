@@ -1,6 +1,6 @@
 ﻿
 
-@model List<Course>
+@model CourseInformationVM
 
 @{
 	Layout = "_CourseLayout";
@@ -59,31 +59,31 @@
 </style>
 
 <div class="department-info">
-    <h3>Course : @ViewBag.FirstCourseInformation.CourseName</h3>
+    <h3>Course : @Model.Course.CourseName</h3>
     <table>
         <tr>
             <td>Instructor</td>
-            <td>@ViewBag.FirstCourseInformation.Instructor</td>
+            <td>@Model.Course.Instructor</td>
         </tr>
         <tr>
             <td>Gpa</td>
-            <td>@ViewBag.FirstCourseInformation.Gpa</td>
+            <td>@Model.Course.Gpa</td>
         </tr>
         <tr>
             <td>Number of Department</td>
-            <td>@ViewBag.FirstCourseInformation.Department_Course_ref.Count</td>
+            <td>@Model.NumberOfDepartment</td>
         </tr>
         <tr>
             <td>Number of Students</td>
-            <td>@ViewBag.FirstCourseInformation.Student_Course_ref.Count</td>
+            <td>@Model.NumberOfStudent</td>
         </tr>
         <tr>
             <td>Male Students</td>
-            <td>@ViewBag.CountOfMaleStudent</td>
+            <td>@Model.NumberOfMaleStudent</td>
         </tr>
         <tr>
             <td>Female Students</td>
-            <td>@ViewBag.CountOfFemaleStudent</td>
+            <td>@Model.NumberOfFemaleStudent</td>
         </tr>
     </table>
 </div>
