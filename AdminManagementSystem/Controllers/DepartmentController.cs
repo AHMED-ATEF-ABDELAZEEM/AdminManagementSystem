@@ -1,6 +1,7 @@
 ﻿
 using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
+using AdminManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,48 +10,53 @@ namespace AdminManagementSystem.Controllers
     public class DepartmentController : Controller
     {
 
-        private IDepartmentRepository DepartmentRepository;
+        private DepartmentService DepartmentService;
 
-        public DepartmentController(IDepartmentRepository DepartmentRepository)
+        public DepartmentController(DepartmentService DepartmentService)
         {
-            this.DepartmentRepository = DepartmentRepository;
+            this.DepartmentService = DepartmentService;
         }
 
         // Make First Department Information As Defualt When Open Department Section
         public IActionResult Index()
         {
-            var Department = DepartmentRepository.getFirstDepartment();
 
-			ViewBag.DepartmentInformation = Department;
-            ViewBag.CountOfMaleStudent = Department.Students_ref.Where(x => x.gender == 'M').Count();
-            ViewBag.CountOfFemaleStudent = Department.Students_ref.Where(x => x.gender == 'F').Count();
+            var DepartmentId = DepartmentService.getIdForFirstDepartment();
 
-            return View(DepartmentRepository.getAllDepartment());
+            var Model = DepartmentService.getDepartmentInformation(DepartmentId);
+
+            // Send All Courses To DropDown Menue That Exist In _CourseLayout
+
+            ViewBag.Departments = DepartmentService.getAllDepartment();
+
+            return View(Model);
         }
 
         public IActionResult getStudentAtDepartment(int DeptId)
         {
-            return PartialView(DepartmentRepository.getStudentsAtDepartment(DeptId));
+            var Model = DepartmentService.getStudentsAtDepartment(DeptId);
+            return PartialView(Model);
         }
 
         public IActionResult getCoursesAtDepartment(int DeptId)
         {
-            return PartialView(DepartmentRepository.getCoursesAtDepartment(DeptId));
+            
+            return PartialView(DepartmentService.getCoursesAtDepartment(DeptId));
         }
 
         public IActionResult InformationAboutDepartment(int DeptId)
         {
-            return PartialView(DepartmentRepository.getInformationAboutDepartment(DeptId));
+            return PartialView(DepartmentService.getInformationAboutDepartment(DeptId));
         }
 
         public IActionResult getFirstStudentAtDepartment(int deptId)
         {
-            return PartialView(DepartmentRepository.getFirstStudentAtDepartment(deptId));
+            return PartialView(DepartmentService.getFirstStudentAtDepartment(deptId));
         }
 
         public IActionResult getStudentMarkAtDepartment (int deptId)
         {
-            return PartialView(DepartmentRepository.getStudentMarkAtDepartment(deptId));    
+            return PartialView(DepartmentService.getStudentMarkAtDepartment(deptId));    
         }
     }
 }

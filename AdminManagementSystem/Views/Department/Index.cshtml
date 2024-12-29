@@ -1,5 +1,5 @@
 ﻿
-@model List<Department>
+@model DepartmentInformationVM;
 
 @{
     Layout = "_DepartmentLayout";
@@ -56,27 +56,27 @@
 </style>
 
 <div class="department-info">
-    <h3>Department : @ViewBag.DepartmentInformation.DepartmentName</h3>
+    <h3>Department : @Model.department.DepartmentName</h3>
     <table>
         <tr>
             <td>Manager</td>
-            <td>@ViewBag.DepartmentInformation.DepartmentManager</td>
+            <td>@Model.department.DepartmentManager</td>
         </tr>
         <tr>
             <td>Number of Courses</td>
-            <td>@ViewBag.DepartmentInformation.Department_Course_ref.Count</td>
+            <td>@Model.NumberOfCourses</td>
         </tr>
         <tr>
             <td>Number of Students</td>
-            <td>@ViewBag.DepartmentInformation.Students_ref.Count</td>
+            <td>@Model.NumberOfStudent</td>
         </tr>
         <tr>
             <td>Male Students</td>
-            <td>@ViewBag.CountOfMaleStudent</td>
+            <td>@Model.NumberOfMaleStudent</td>
         </tr>
         <tr>
             <td>Female Students</td>
-            <td>@ViewBag.CountOfFemaleStudent</td>
+            <td>@Model.NumberOfFemaleStudent</td>
         </tr>
     </table>
 </div>

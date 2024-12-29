@@ -21,7 +21,7 @@ namespace AdminManagementSystem.Services
             this.StudentCourseRepository = StudentCourseRepository;
         }
 
-        public int getFirstCourseId ()
+        public int getIdForFirstCourse ()
         {
             var course = CourseRepository.getFirstCourse();
             return course.CourseId;
@@ -31,16 +31,15 @@ namespace AdminManagementSystem.Services
         {
             var Model = new CourseInformationVM();
             var Course = CourseRepository.getCourseUsingId(CourseId);
+
             Model.Course = Course;
+
             Model.NumberOfDepartment = Course.Department_Course_ref.Count();
 
-            int CountOfStudent = Course.Student_Course_ref.Count();
-            int CountOfMale = Course.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
-            int CountOfFemale = CountOfStudent - CountOfMale;
+            Model.NumberOfStudent = Course.Student_Course_ref.Count();
+            Model.NumberOfMaleStudent = Course.Student_Course_ref.Where(x => x.Student_ref.gender == 'M').Count();
+            Model.NumberOfFemaleStudent= Model.NumberOfStudent - Model.NumberOfMaleStudent;
 
-            Model.NumberOfStudent = CountOfStudent;
-            Model.NumberOfMaleStudent = CountOfMale;
-            Model.NumberOfFemaleStudent = CountOfFemale;
 
             return Model;
 		}

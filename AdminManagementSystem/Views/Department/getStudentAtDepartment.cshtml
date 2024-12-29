@@ -98,29 +98,3 @@
 
 
 
-
-
-
-@* <table class="table table-bordered table-hover">
-    <tr>
-        <td></td>
-        <td>Name</td>
-        <td>Age</td>
-        <td>gender</td>
-        <td>City</td>
-    </tr>
-    @{
-        int start = 1;
-    }
-    @foreach (Student student in Model)
-    {
-        <tr>
-            <td>@start</td>
-            <td>@student.StudentName</td>
-            <td>@student.Age</td>
-            <td>@student.gender</td>
-            <td>@student.City</td>
-        </tr>
-        start++;
-    }
-</table> *@

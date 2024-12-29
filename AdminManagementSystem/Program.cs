@@ -25,6 +25,7 @@ namespace AdminManagementSystem
             builder.Services.AddScoped<IStudentCourseRepository,StudentCourseRepository>();
             builder.Services.AddScoped<StudentService>();
             builder.Services.AddScoped<CourseService>();
+            builder.Services.AddScoped<DepartmentService>();
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             {

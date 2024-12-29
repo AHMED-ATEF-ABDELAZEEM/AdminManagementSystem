@@ -22,7 +22,7 @@ namespace AdminManagementSystem.Controllers
         public IActionResult Index()
         {
 
-            int CourseId = CourseService.getFirstCourseId();
+            int CourseId = CourseService.getIdForFirstCourse();
 
             var Model = CourseService.getCourseInformation(CourseId);
 
