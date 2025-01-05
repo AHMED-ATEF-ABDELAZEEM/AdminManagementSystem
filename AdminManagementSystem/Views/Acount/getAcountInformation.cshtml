@@ -1,0 +1,66 @@
+﻿@model ShowUserInformationVM
+
+
+<style>
+    /* Overall container for user information */
+    .user-info-container {
+        min-width: 450px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Title of the section */
+    .user-info-title {
+        font-size: 1em;
+        text-align: center;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight:bold;
+    }
+
+    /* Each individual item block */
+    .user-info-item {
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Label for each information field */
+    .user-info-label {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    /* Value of each information field */
+    .user-info-value {
+        font-size: 1em;
+        color: #555;
+    }
+</style>
+
+
+<div class="user-info-container">
+	<h3 class="user-info-title">User Information</h3>
+
+	<div class="user-info-item">
+		<p class="user-info-label">User Name</p>
+		<h3 class="user-info-value">@Model.Name</h3>
+	</div>
+	<div class="user-info-item">
+		<p class="user-info-label">Email</p>
+		<h3 class="user-info-value">@Model.Email</h3>
+	</div>
+	<div class="user-info-item">
+		<p class="user-info-label">Permission</p>
+		<h3 class="user-info-value">@Model.Type</h3>
+	</div>
+    <div>
+        <a asp-action="ChangePassword" asp-route-Id="@Model.Id" asp-controller="Acount" class="btn btn-success">Change Password</a>
+    </div>
+</div>

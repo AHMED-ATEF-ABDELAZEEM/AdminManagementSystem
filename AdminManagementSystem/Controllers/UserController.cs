@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Controllers
 {
-	[Authorize(Roles = "Super Admin")]
+	//[Authorize(Roles = "Super Admin")]
 	public class UserController : Controller
     {
 		private UserManager<ApplicationUser> UserManager;
@@ -116,12 +116,6 @@ namespace AdminManagementSystem.Controllers
 			return RedirectToAction("getAllUser");
 		}
 
-		public async Task<IActionResult> getUserInformation (string UserName)
-		{
-			var user = await UserManager.FindByNameAsync(UserName);
-			string RoleId = context.UserRoles.FirstOrDefault(x => x.UserId == user.Id).RoleId;
-			string RoleName = context.Roles.FirstOrDefault(x => x.Id == RoleId).Name;
-			return View();
-		}
+
 	}
 }

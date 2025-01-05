@@ -3,11 +3,14 @@ using AdminManagementSystem.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System.Data;
 
 namespace AdminManagementSystem.Controllers
 {
+    
     public class AcountController : Controller
     {
         private UserManager<ApplicationUser> UserManager;
@@ -59,12 +62,69 @@ namespace AdminManagementSystem.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> Logout ()
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("LogIn");
         }
 
+        [Authorize]
+        public async Task<IActionResult> getAcountInformation()
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            var role = await UserManager.GetRolesAsync(user);
+            var model = new ShowUserInformationVM();
+            model.Id = user.Id;
+            model.Name = user.UserName;
+            model.Email = user.Email;
+            model.Type = role.First();
+            return View(model);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult ChangePassword (string Id)
+        {
+            var model = new ChangePasswordVM();
+            model.UserId = Id;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> ChangePassword(ChangePasswordVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByIdAsync(model.UserId);
+                var result = await UserManager.CheckPasswordAsync(user, model.CurrentPassword);
+                if (result)
+                {
+                   var change = await UserManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+                   if (change.Succeeded)
+                   {
+                        return View("ChangePasswordSuccess");
+                   }
+                   else
+                   {
+                        foreach (var error in change.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                   }
+                }
+                else
+                {
+                    ModelState.AddModelError("CurrentPassword", "The Password Is Not Correct");
+                }
+            }
+            var newModel = new ChangePasswordVM();
+            newModel.UserId = model.UserId;
+            return View(newModel);
+        }
 
     }
 
