@@ -3,8 +3,10 @@ using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
 using AdminManagementSystem.Services;
 using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace AdminManagementSystem
 {
@@ -32,6 +34,17 @@ namespace AdminManagementSystem
                 options.UseSqlServer("Server =.; DataBase = AdminManagementSystem; User Id = sa; Password = 221037; TrustServerCertificate = true");
             });
 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = false; // No requirement for numeric characters
+                options.Password.RequireLowercase = false; // No requirement for lowercase letters
+                options.Password.RequireUppercase = false; // No requirement for uppercase letters
+                options.Password.RequiredLength = 5; // Minimum length of 1
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredUniqueChars = 0; // No requirement for unique characters
+            }).AddEntityFrameworkStores<AppDbContext>();
+               
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -46,12 +59,12 @@ namespace AdminManagementSystem
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+			app.UseAuthentication();
+			app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Acount}/{action=LogIn}/{id?}");
 
             app.Run();
         }

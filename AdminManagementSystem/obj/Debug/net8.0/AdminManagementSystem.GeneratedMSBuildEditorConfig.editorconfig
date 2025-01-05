@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AdminManagementSystem
 build_property.RootNamespace = AdminManagementSystem
@@ -17,6 +25,14 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = F:\programming\Back End\Project\AdminManagementSystem\AdminManagementSystem
 build_property._RazorSourceGeneratorDebug = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XENyZWF0ZVJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/AddNewCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEFkZE5ld0NvdXJzZS5jc2h0bWw=
@@ -98,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Role/getAllRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxnZXRBbGxSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -140,6 +160,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Student/UpdateStudentMark.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVcGRhdGVTdHVkZW50TWFyay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/User/getAllUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxnZXRBbGxVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/_ViewImports.cshtml]

@@ -1,0 +1,35 @@
+﻿
+@model List<ShowRoleVM>
+
+
+<div>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<td></td>
+			<td>User Type</td>
+			<td>Number Of User</td>
+		</tr>
+		@{
+			int start = 1;
+		}
+		@foreach (var role in Model)
+		{
+			<tr>
+				<td>@start</td>
+				<td>@role.RoleName</td>
+				<td>@role.UserCount</td>
+			</tr>
+			start++;
+		}
+	</table>
+	<br />
+	<a asp-action="getAllUser" asp-controller="User" class="btn btn-success">Back</a>
+</div>
+
+
+
+
+
+
+
+

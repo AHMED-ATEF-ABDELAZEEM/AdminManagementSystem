@@ -1,0 +1,62 @@
+﻿
+@model List<ShowUserVM>
+
+<div class="box">
+
+	<table class="table table-bordered table-hover">
+		<tr>
+			<td></td>
+			<td>Name</td>
+			<td>Email</td>
+			<td>Type</td>
+			<td>Is Blocked</td>
+			<td>Operation</td>
+		</tr>
+		@{
+			int start = 1;
+		}
+		@foreach (var user in Model)
+		{
+			<tr>
+				<td>@start</td>
+				<td>@user.UserName</td>
+				<td>@user.UserEmail</td>
+				<td>@user.UserType</td>
+				<td>@user.IsBlocked</td>
+				@if (user.IsBlocked)
+				{
+					<td><a asp-action="UnBlockAcount" asp-route-UserId="@user.UserId" asp-controller="User">UnBlock</a></td>
+				}
+				else
+				{
+					<td><a asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="User">Block</a></td>
+				}
+			</tr>
+			start++;
+		}
+	</table>
+	<div>
+		<a class="btn btn-success" asp-action="Register" asp-controller="User">Create New User</a>
+		<a class="btn btn-success" asp-action="getAllRoles" asp-controller="Role">Information</a>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

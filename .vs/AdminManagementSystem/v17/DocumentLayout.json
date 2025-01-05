@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\services\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\viewmodel\\applicationuserregistervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\viewmodel\\applicationuserregistervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\repository\\departmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\shared\\_mylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\role\\getallroles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\role\\getallroles.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\views\\user\\getalluser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +37,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|f:\\programming\\back end\\project\\adminmanagementsystem\\adminmanagementsystem\\controllers\\acountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E01A4B-467B-465D-A973-7339BF5F91E4}|AdminManagementSystem\\AdminManagementSystem.csproj|solutionrelative:adminmanagementsystem\\controllers\\acountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,72 +50,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DepartmentService.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Services\\DepartmentService.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Services\\DepartmentService.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Services\\DepartmentService.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Services\\DepartmentService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEcAAAAAAAAA",
+              "Title": "ApplicationUserRegisterVM.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\ViewModel\\ApplicationUserRegisterVM.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\ViewModel\\ApplicationUserRegisterVM.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\ViewModel\\ApplicationUserRegisterVM.cs",
+              "RelativeToolTip": "AdminManagementSystem\\ViewModel\\ApplicationUserRegisterVM.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T20:26:13.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T16:34:19.6Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DepartmentRepository.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Repository\\DepartmentRepository.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAA4wFYAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T20:26:09.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "AdminManagementSystem\\Controllers\\DepartmentController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAADcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T20:25:48.305Z",
-              "EditorCaption": ""
+              "Title": "_MyLayout.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Shared\\_MyLayout.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAFsAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T16:09:12.418Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\User\\Register.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\User\\Register.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T14:51:19.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "getAllRoles.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Role\\getAllRoles.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\Role\\getAllRoles.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\Role\\getAllRoles.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\Role\\getAllRoles.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAmwBcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T14:40:06.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "getAllUser.cshtml",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\User\\getAllUser.cshtml",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Views\\User\\getAllUser.cshtml",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Views\\User\\getAllUser.cshtml",
+              "RelativeToolTip": "AdminManagementSystem\\Views\\User\\getAllUser.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T14:37:34.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\RoleController.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Controllers\\RoleController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T12:53:51.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\UserController.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\UserController.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwHoAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T12:53:03.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AcountController.cs",
+              "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\AcountController.cs",
+              "RelativeDocumentMoniker": "AdminManagementSystem\\Controllers\\AcountController.cs",
+              "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Controllers\\AcountController.cs",
+              "RelativeToolTip": "AdminManagementSystem\\Controllers\\AcountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T20:51:38.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\AppDbContext.cs",
               "RelativeDocumentMoniker": "AdminManagementSystem\\Models\\AppDbContext.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Models\\AppDbContext.cs",
               "RelativeToolTip": "AdminManagementSystem\\Models\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T12:15:14.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-21T12:15:14.101Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "AdminManagementSystem\\Program.cs",
               "ToolTip": "F:\\programming\\Back End\\Project\\AdminManagementSystem\\AdminManagementSystem\\Program.cs",
               "RelativeToolTip": "AdminManagementSystem\\Program.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAgwDMAAAAiAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowD0AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T21:40:17.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T21:40:17.916Z"
             }
           ]
         }

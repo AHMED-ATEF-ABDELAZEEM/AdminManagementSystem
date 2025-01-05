@@ -1,0 +1,57 @@
+﻿
+@model ApplicationUserRegisterVM
+
+@{
+    SelectList RolesList = new SelectList(Model.Roles, "RoleId", "RoleName");
+}
+<div class="Box">
+    <h3>Create New User</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Register" asp-controller="User">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RoleId">Choose Permission Of New User</label>
+                    <select asp-for="RoleId" asp-items="RolesList" class="form-control">
+                        <option value="0">-- Choose --</option>
+                        <span asp-validation-for="RoleId" class="text-danger"></span>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="getAllUser" asp-controller="User" class="btn btn-success">Back</a>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

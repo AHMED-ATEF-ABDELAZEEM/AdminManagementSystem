@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public AppDbContext(DbContextOptions options) : base(options)
@@ -15,11 +16,7 @@ namespace AdminManagementSystem.Models
         public DbSet<Department_Course> Departments_Courses { get; set; }
         public DbSet<Student_Course> Students_Courses { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Server=.;DataBase=AdminManagementSystem;User Id=sa;Password=221037;TrustServerCertificate=true");
-        //    base.OnConfiguring(optionsBuilder);
-        //}
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -80,14 +80,21 @@
 <body>
     <header>
         <h1>Admin Management System</h1>
-        <nav>
-            <ul>
-                <li><a asp-action="Index" asp-controller="Home">Home</a></li>
-                @*<li><a href="#department">Department</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#student">Student</a></li> *@
-            </ul>
-        </nav>
+        @if(User.Identity.IsAuthenticated)
+        {
+            <nav>
+                <ul>
+                    <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    @if(User.IsInRole("Super Admin"))
+                    {
+                       <li><a asp-action="getAllUser" asp-controller="User">Management</a></li>
+                    }
+                    <li><a asp-action="getUserInformation" asp-route-UserId="@User.Identity.Name" asp-controller="User">@User.Identity.Name</a></li>
+                    <li><a asp-action="Logout" asp-controller="Acount">Logout</a></li>
+                </ul>
+            </nav>
+        }
+
     </header>
     <main>
         @RenderBody()
