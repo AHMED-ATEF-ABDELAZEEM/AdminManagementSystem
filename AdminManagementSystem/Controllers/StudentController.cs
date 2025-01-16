@@ -3,6 +3,7 @@ using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
 using AdminManagementSystem.Services;
 using AdminManagementSystem.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -11,6 +12,7 @@ using System.Linq;
 
 namespace AdminManagementSystem.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
 
@@ -27,6 +29,7 @@ namespace AdminManagementSystem.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult AddNewStudent()
         {
 
@@ -38,7 +41,7 @@ namespace AdminManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult SaveNewStudent(AddNewStudentVM Newstudent)
         {
             if (StudentService.IsNameExistAtAddNewStudent(Newstudent.Student.StudentName))
@@ -64,6 +67,7 @@ namespace AdminManagementSystem.Controllers
 			return View(model);
 		}
 
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult UpdateStudentMark(int StudentId)
         {
             var Marks = StudentService.getAllStudentMark(StudentId);
@@ -72,7 +76,7 @@ namespace AdminManagementSystem.Controllers
         }
 
 
- 
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult SaveUpdatedMark(List<Student_Course> Student_Course)
         {
             if (ModelState.IsValid)
@@ -85,14 +89,14 @@ namespace AdminManagementSystem.Controllers
         }
 
 
-       
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult DeleteStudent(int id)
         {
             var DeleteStudent = StudentService.getDeleteStudent(id);
 
             return View(DeleteStudent);
         }
-
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult ConfirmDelete (int StudentId)
         {
             // Delete Student And Delete Related Courses With Mark
@@ -109,6 +113,7 @@ namespace AdminManagementSystem.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult UpdateStudentData (int id)
         {
             var model = StudentService.getStudentUsingId(id);
@@ -119,7 +124,8 @@ namespace AdminManagementSystem.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public IActionResult SaveUpdatedData(Student student)
+        [Authorize(Roles = "Super Admin,Admin")]
+        public IActionResult SaveUpdatedData(Student student)
         {
             if (StudentService.IsNameExistAtUpdateStudent(student.StudentId,student.StudentName))
             {
@@ -138,6 +144,7 @@ namespace AdminManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Super Admin,Admin")]
         public  IActionResult UpdateStudentImage(int id, string imageName)
         {
             if (imageName != null)

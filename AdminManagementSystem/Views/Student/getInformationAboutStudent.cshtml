@@ -169,17 +169,20 @@
     <div class="profile-card">
         <div class="card-header">
             <div class="profile-image">                             
-                    <img src="/Images/StudentImage/@Model.Image" alt="Profile Picture">
-@*                 <a asp-action="UpdateStudentImage" asp-route-id="@Model.Id" asp-controller="Student" class="edit-image-icon">
-                    <i class="fas fa-camera"></i>
-                </a> *@
-                <form id="imageUploadForm" asp-action="UpdateStudentImage" asp-controller="Student" asp-route-id="@Model.Id" method="post">
-                    <input type="file" id="imageInput" name="imageFile" accept="image/*" style="display: none;" onchange="handleImageSelect(event)">
-                    <input type="hidden" id="imageNameInput" name="imageName" />
-                    <label for="imageInput" class="edit-image-icon">
-                        <i class="fas fa-camera"></i>
-                    </label>
-                </form>
+                <img src="/Images/StudentImage/@Model.Image" alt="Profile Picture">
+
+                @if (!User.IsInRole("Viewer"))
+                {
+                    <form id="imageUploadForm" asp-action="UpdateStudentImage" asp-controller="Student" asp-route-id="@Model.Id" method="post">
+                        <input type="file" id="imageInput" name="imageFile" accept="image/*" style="display: none;" onchange="handleImageSelect(event)">
+                        <input type="hidden" id="imageNameInput" name="imageName" />
+                        <label for="imageInput" class="edit-image-icon">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                    </form>
+                }
+
+
             </div>
             <div class="department-badge">
                 <i class="fas fa-laptop-code me-2"></i><span class="department">@Model.Department</span>
@@ -229,7 +232,10 @@
 
             <div class="button">
                 <a asp-action="getAllStudent" asp-controller="Student">Back</a>
-                <a asp-action="UpdateStudentData" asp-route-id="@Model.Id" asp-controller="Student">Edit</a>
+                @if (!User.IsInRole("Viewer"))
+                {
+                    <a asp-action="UpdateStudentData" asp-route-id="@Model.Id" asp-controller="Student">Edit</a>
+                }
             </div>
 
         </div>

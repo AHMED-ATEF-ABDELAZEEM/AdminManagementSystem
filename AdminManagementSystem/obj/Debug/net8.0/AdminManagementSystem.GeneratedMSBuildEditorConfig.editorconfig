@@ -42,8 +42,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XGdldEFjb3VudEluZm9ybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/getAllAcounts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XGdldEFsbEFjb3VudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/SuccessMessageCreatedAcount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XFN1Y2Nlc3NNZXNzYWdlQ3JlYXRlZEFjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Course/AddNewCourse.cshtml]
@@ -172,14 +184,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Student/UpdateStudentMark.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVcGRhdGVTdHVkZW50TWFyay5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/User/getAllUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxnZXRBbGxVc2VyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/User/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/_ViewImports.cshtml]

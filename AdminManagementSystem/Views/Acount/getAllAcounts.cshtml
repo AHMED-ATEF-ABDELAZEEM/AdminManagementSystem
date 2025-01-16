@@ -25,18 +25,18 @@
 				<td>@user.IsBlocked</td>
 				@if (user.IsBlocked)
 				{
-					<td><a asp-action="UnBlockAcount" asp-route-UserId="@user.UserId" asp-controller="User">UnBlock</a></td>
+					<td><a asp-action="UnBlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">UnBlock</a></td>
 				}
 				else
 				{
-					<td><a asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="User">Block</a></td>
+					<td><a asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">Block</a></td>
 				}
 			</tr>
 			start++;
 		}
 	</table>
 	<div>
-		<a class="btn btn-success" asp-action="Register" asp-controller="User">Create New User</a>
+		<a class="btn btn-success" asp-action="Register" asp-controller="Acount">Create New User</a>
 		<a class="btn btn-success" asp-action="getAllRoles" asp-controller="Role">Information</a>
 	</div>
 

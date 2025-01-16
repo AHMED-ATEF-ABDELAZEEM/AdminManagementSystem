@@ -67,7 +67,10 @@
     </div>
     <div class="button">
         <a asp-action="getAllStudent" asp-controller="Student">Back</a>
-        <a asp-action="UpdateStudentMark" asp-route-StudentId="@Model.StudentInfo.StudentId" asp-controller="Student">Update</a>
+        @if (!User.IsInRole("Viewer"))
+        {
+            <a asp-action="UpdateStudentMark" asp-route-StudentId="@Model.StudentInfo.StudentId" asp-controller="Student">Update</a>
+        }
     </div>
 </div>
 

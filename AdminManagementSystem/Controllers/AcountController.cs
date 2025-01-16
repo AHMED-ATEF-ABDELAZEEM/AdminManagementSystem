@@ -14,12 +14,16 @@ namespace AdminManagementSystem.Controllers
     public class AcountController : Controller
     {
         private UserManager<ApplicationUser> UserManager;
+        private RoleManager<IdentityRole> RoleManager;
         private SignInManager<ApplicationUser> signInManager;
+        private AppDbContext context;
 
-        public AcountController(UserManager<ApplicationUser> UserManager, SignInManager<ApplicationUser> signInManager, AppDbContext context)
+        public AcountController(UserManager<ApplicationUser> UserManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> RoleManager, AppDbContext context)
         {
             this.UserManager = UserManager;
             this.signInManager = signInManager;
+            this.context = context;
+            this.RoleManager = RoleManager;
         }
 
         public IActionResult Login ()
@@ -61,6 +65,69 @@ namespace AdminManagementSystem.Controllers
             }
             return View();
         }
+
+
+        [Authorize(Roles = "Super Admin")]
+        public IActionResult Register()
+        {
+            ApplicationUserRegisterVM UserRegister = new ApplicationUserRegisterVM();
+            UserRegister.Roles = context.Roles.Select(x => new ShowRoleVM
+            {
+                RoleId = x.Id,
+                RoleName = x.Name,
+            }).ToList();
+
+            return View(UserRegister);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Super Admin")]
+        public async Task<IActionResult> Register(ApplicationUserRegisterVM NewUserVM)
+        {
+            if (NewUserVM.RoleId == "0")
+            {
+                ModelState.AddModelError("RoleId", "Please Choose Type Of User");
+            }
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser();
+                user.UserName = NewUserVM.Name;
+                user.Email = NewUserVM.Email;
+                user.PasswordHash = NewUserVM.Password;
+                user.IsAcountBlocked = false;
+                var result = await UserManager.CreateAsync(user, NewUserVM.Password);
+
+                if (result.Succeeded)
+                {
+                    //var role = await context.Roles.FirstOrDefaultAsync(x => x.Id == NewUserVM.RoleId);
+
+                    var role = await RoleManager.FindByIdAsync(NewUserVM.RoleId);
+
+                    if (role != null)
+                    {
+                        // Assign Role To User
+                        await UserManager.AddToRoleAsync(user, role.Name);
+                        return View("SuccessMessageCreatedAcount");
+                    }
+
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            NewUserVM.Roles = context.Roles.Select(x => new ShowRoleVM
+            {
+                RoleId = x.Id,
+                RoleName = x.Name,
+            }).ToList();
+            return View(NewUserVM);
+        }
+
 
         [Authorize]
         public async Task<IActionResult> Logout ()
@@ -124,6 +191,45 @@ namespace AdminManagementSystem.Controllers
             var newModel = new ChangePasswordVM();
             newModel.UserId = model.UserId;
             return View(newModel);
+        }
+
+        [Authorize(Roles = "Super Admin")]
+        public async Task<IActionResult> BlockAcount(string UserId)
+        {
+            var user = await UserManager.FindByIdAsync(UserId);
+            user.IsAcountBlocked = true;
+            await UserManager.UpdateAsync(user);
+            return RedirectToAction("getAllAcounts");
+        }
+        [Authorize(Roles = "Super Admin")]
+        public async Task<IActionResult> UnBlockAcount(string UserId)
+        {
+            var user = await UserManager.FindByIdAsync(UserId);
+            user.IsAcountBlocked = false;
+            await UserManager.UpdateAsync(user);
+            return RedirectToAction("getAllAcounts");
+        }
+
+        [Authorize(Roles = "Super Admin")]
+        public IActionResult getAllAcounts()
+        {
+            var Users = context.Users
+                .Select(x => new ShowUserVM
+                {
+                    UserId = x.Id,
+                    UserName = x.UserName,
+                    UserEmail = x.Email,
+                    IsBlocked = x.IsAcountBlocked,
+                    UserType = context.UserRoles
+                        .Where(ur => ur.UserId == x.Id)
+                        .Join(context.Roles,
+                            ur => ur.RoleId,
+                            r => r.Id,
+                            (ur, r) => r.Name) // Get the role name
+                        .FirstOrDefault() // Select the first role (if a user has multiple roles, adjust logic as needed)
+                })
+                .ToList();
+            return View(Users);
         }
 
     }
