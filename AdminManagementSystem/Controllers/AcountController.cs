@@ -232,6 +232,16 @@ namespace AdminManagementSystem.Controllers
             return View(Users);
         }
 
+
+        //[HttpGet]
+        //[Authorize(Roles = "Super Admin")]
+        //public IActionResult ChangePermission (string UserId)
+        //{
+        //    var model = new ChangePermissionVM();
+        //    model.Roles = context.Roles.Where(x => x.)
+        //    return View();
+        //}
+
     }
 
 

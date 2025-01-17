@@ -1,6 +1,173 @@
 ﻿
 @model List<ShowUserVM>
 
+
+
+
+
+<style>
+	.box {
+		padding: 1.5rem;
+		background: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+		margin: 1rem;
+	}
+
+	.user-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 1.5rem;
+		background: white;
+	}
+
+	.table-header {
+		background: #f8f9fa;
+		font-weight: bold;
+		color: #333;
+	}
+
+	.user-table th,
+	.user-table td {
+		padding: 0.75rem;
+		border: 1px solid #dee2e6;
+		text-align: left;
+	}
+	.type {
+		min-width:105px;
+	}
+
+	.table-row:hover {
+		background-color: #f5f5f5;
+	}
+
+	.action-link {
+		text-decoration: none;
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+		font-size: 0.9rem;
+		transition: all 0.2s;
+	}
+
+	.block-link {
+		color: white;
+		background: #dc3545;
+	}
+
+	.block-link:hover {
+		background: #c82333;
+	}
+
+	.unblock-link {
+		color: white;
+		background: #28a745;
+	}
+
+	.unblock-link:hover {
+		background: #218838;
+	}
+
+	.change-link {
+		color: white;
+		background: #007bff;
+	}
+
+	.change-link:hover {
+		color:black;
+		background: #0056b3;
+	}
+
+	.buttons-container {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+		justify-content: flex-start; /* Aligns buttons to the left */
+		align-items: center;
+	}
+
+	.btn {
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		text-decoration: none;
+		font-size: 0.9rem;
+		transition: background-color 0.2s;
+		display: inline-block; /* Ensures buttons stay on same line */
+	}
+
+	.btn-success {
+		background: #28a745;
+		color: white;
+	}
+
+	.btn-success:hover {
+		background: #218838;
+	}
+
+</style>
+
+
+<div class="box">
+	<table class="user-table">
+		<tr class="table-header">
+			<td class="header-cell"></td>
+			<td class="header-cell">Name</td>
+			<td class="header-cell">Email</td>
+			<td class="type" class="header-cell">Type</td>
+			<td class="header-cell">Block</td>
+			<td class="header-cell">Permission</td>
+		</tr>
+		@{
+			int start = 1;
+		}
+		@foreach (var user in Model)
+		{
+			<tr class="table-row">
+				<td class="table-cell">@start</td>
+				<td class="table-cell">@user.UserName</td>
+				<td class="table-cell">@user.UserEmail</td>
+				<td class="type" class="table-cell">@user.UserType</td>
+				@* To Cant Block Acount Or Change Permission For Super Admin *@
+				@if(user.UserType != "Super Admin")
+				{
+					@if (user.IsBlocked)
+					{
+						<td class="table-cell"><a class="action-link unblock-link" asp-action="UnBlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">UnBlock</a></td>
+					}
+					else
+					{
+						<td class="table-cell"><a class="action-link block-link" asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">Block</a></td>
+					}
+					<td class="table-cell"><a class="action-link change-link" asp-action="" asp-route-UserId="@user.UserId" asp-controller="">Change</a></td>
+				}
+				else
+				{
+					<td></td>
+					<td></td>
+				}
+
+			</tr>
+			start++;
+		}
+	</table>
+	<div class="buttons-container">
+		<a class="btn btn-success" asp-action="Register" asp-controller="Acount">Create New User</a>
+		<a class="btn btn-success" asp-action="getAllRoles" asp-controller="Role">Information</a>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@* 
 <div class="box">
 
 	<table class="table table-bordered table-hover">
@@ -9,8 +176,8 @@
 			<td>Name</td>
 			<td>Email</td>
 			<td>Type</td>
-			<td>Is Blocked</td>
-			<td>Operation</td>
+			<td>Block</td>
+			<td>Change Role</td>
 		</tr>
 		@{
 			int start = 1;
@@ -22,7 +189,6 @@
 				<td>@user.UserName</td>
 				<td>@user.UserEmail</td>
 				<td>@user.UserType</td>
-				<td>@user.IsBlocked</td>
 				@if (user.IsBlocked)
 				{
 					<td><a asp-action="UnBlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">UnBlock</a></td>
@@ -31,6 +197,7 @@
 				{
 					<td><a asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">Block</a></td>
 				}
+				<td><a asp-action="" asp-route-UserId="@user.UserId" asp-controller="">Change</a></td>
 			</tr>
 			start++;
 		}
@@ -44,7 +211,7 @@
 
 
 
-
+ *@
 
 
 

@@ -2,25 +2,97 @@
 
 @model LogInUserVM
 
-<div class="box">
-    <h2>Login</h2>
-    <hr />
+
+<style>
+.login-container {
+    min-width: 250px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.text-danger {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 6px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #357ABD;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+</style>
+
+<div class="login-container">
+    <h2 class="login-title">Login</h2>
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Login">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-input" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" class="form-control" />
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-input" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="LogIn" class="btn btn-primary" />
+                    <input type="submit" value="Log In" class="submit-btn" />
                 </div>
             </form>
         </div>
