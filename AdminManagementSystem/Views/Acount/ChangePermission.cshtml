@@ -6,6 +6,119 @@
 	SelectList RoleList = new SelectList(Model.Roles,"Id","Name");
 }
 
+<style>
+	.box {
+    min-width: 300px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    color: #2d3748;
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.box hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: .5rem 0;
+}
+
+.Element {
+    margin-bottom: .5rem;
+}
+
+.Element label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #4a5568;
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-control[readonly] {
+    background-color: #f7fafc;
+    cursor: not-allowed;
+}
+
+select.form-control {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-success {
+    background-color: #48bb78;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #38a169;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(72, 187, 120, 0.2);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+}
+
+.button {
+    display:flex;
+    justify-content:space-between;
+}
+.Back {
+        display: block;
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        background-color: #38a169;
+        color:white;
+}
+</style>
+
+
 <div class="box">
 	<h2>Change Permission</h2>
 	<hr />
@@ -29,8 +142,10 @@
 			<label>Choose New Permission</label>
 			<select asp-for="NewRoleId" asp-items="RoleList" class="form-control"></select>
 		</div>
-
-		<input type="submit" class="btn btn-success" />
+        <div class="button">
+            <a asp-action="getAllAcounts" class="Back" asp-controller="Acount">Back</a>
+            <input type="submit" class="btn btn-success" />
+        </div>
 	</form>
 </div>
 

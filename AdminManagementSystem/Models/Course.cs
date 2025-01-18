@@ -4,7 +4,7 @@ namespace AdminManagementSystem.Models
 {
     public class Course
     {
-        public string CourseId { get; set; }
+        public string? CourseId { get; set; }
         [Required]
         [MinLength(5)]
         [MaxLength(30)]

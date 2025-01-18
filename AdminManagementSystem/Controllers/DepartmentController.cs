@@ -2,11 +2,14 @@
 using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
 using AdminManagementSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Controllers
 {
+
+    [Authorize]
     public class DepartmentController : Controller
     {
 
@@ -20,8 +23,9 @@ namespace AdminManagementSystem.Controllers
         // Make First Department Information As Defualt When Open Department Section
         public IActionResult Index()
         {
+            var Departments = DepartmentService.getAllDepartment();
 
-            var CountOfDepartment = DepartmentService.getAllDepartment().Count();
+            var CountOfDepartment = Departments.Count();
 
             if (CountOfDepartment == 0)
             {
@@ -35,11 +39,12 @@ namespace AdminManagementSystem.Controllers
 
             // Send All Courses To DropDown Menue That Exist In _CourseLayout
 
-            ViewBag.Departments = DepartmentService.getAllDepartment();
+            ViewBag.Departments = Departments;
 
             return View(Model);
         }
 
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult AddNewDepartment ()
         {
             return View();
@@ -48,7 +53,8 @@ namespace AdminManagementSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-		public IActionResult SaveNewDepartment (Department department)
+        [Authorize(Roles = "Super Admin,Admin")]
+        public IActionResult SaveNewDepartment (Department department)
         {
             if (ModelState.IsValid)
             {

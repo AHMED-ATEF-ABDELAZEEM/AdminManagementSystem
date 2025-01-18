@@ -1,37 +1,130 @@
 ﻿@model AdminManagementSystem.Models.Department
 
+<style>
+    .box {
+        width: 250px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 20px auto;
+    }
 
+    h2 {
+        color: #333;
+        font-size: 1rem;
+        margin: 0;
+        text-align:center;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #eee;
+        margin: 4px 0;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
+    .control-label {
+        display: block;
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 2px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 4px 6px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        height: 24px;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.7rem;
+        margin-top: 2px;
+        display: block;
+    }
+
+    /* Button group styling */
+    .button-group {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 0;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        height: 24px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    /* Back link styling */
+    a {
+        color: #666;
+        text-decoration: none;
+        font-size: 0.8rem;
+        padding: 3px 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+        a:hover {
+            background-color: #f8f9fa;
+        }
+
+    .col-md-4 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .row {
+        margin: 0;
+    }
+</style>
 
 
 <div class="box">
-    <h1>Add New Department</h1>
-
-
+    <h2>Add New Department</h2>
     <hr />
     <div class="row">
         <div class="col-md-4">
             <form asp-action="SaveNewDepartment" asp-controller="Department">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="DepartmentName" class="control-label"></label>
+                    <label asp-for="DepartmentName" class="control-label">Department Name</label>
                     <input asp-for="DepartmentName" class="form-control" />
                     <span asp-validation-for="DepartmentName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DepartmentManager" class="control-label"></label>
+                    <label asp-for="DepartmentManager" class="control-label">Department Manager</label>
                     <input asp-for="DepartmentManager" class="form-control" />
                     <span asp-validation-for="DepartmentManager" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group button-group">
+                    <a asp-action="Index" asp-controller="Department">Back</a>
                     <input type="submit" value="Create" class="btn btn-primary" />
+
                 </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <a asp-action="Index" asp-controller="Department">Back</a>
-    </div>
 </div>
 
 

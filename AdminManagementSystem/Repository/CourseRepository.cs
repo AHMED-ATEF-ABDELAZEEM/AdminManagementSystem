@@ -41,7 +41,10 @@ namespace AdminManagementSystem.Repository
 
         public void SaveNewCourse(Course course)
         {
-            course.CourseId = Guid.NewGuid().ToString();
+            if (course.CourseId == null)
+            {
+                course.CourseId = Guid.NewGuid().ToString();
+            }
             context.Courses.Add(course);     
             context.SaveChanges();
         }

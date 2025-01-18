@@ -4,6 +4,123 @@
 @{
     SelectList RolesList = new SelectList(Model.Roles, "RoleId", "RoleName");
 }
+
+
+<style>
+    .Box {
+        width: 300px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 20px auto;
+    }
+
+    h3 {
+        color: #333;
+        font-size: 1.1rem;
+        margin: 0;
+        text-align:center;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #eee;
+        margin: 4px;
+    }
+
+    .form-group {
+        margin-bottom: 5px;
+    }
+
+    .control-label {
+        display: block;
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 3px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 5px 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        height: 28px;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+        }
+
+    select.form-control {
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.75rem;
+        margin-top: 2px;
+        display: block;
+    }
+
+    /* Button styling */
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border: none;
+        margin:0px 10px;
+        transition: background-color 0.2s;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+    /* Fix for responsive layout */
+    .col-md-4 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .row {
+        margin: 0;
+    }
+
+    /* Validation summary styling */
+    div[asp-validation-summary="All"] {
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+    }
+</style>
+
 <div class="Box">
     <h3>Create New User</h3>
     <hr />
@@ -38,16 +155,14 @@
                         <span asp-validation-for="RoleId" class="text-danger"></span>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group buttons">
+                    <a asp-action="getAllAcounts" asp-controller="Acount" class="btn btn-success">Back</a>
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <a asp-action="getAllAcounts" asp-controller="Acount" class="btn btn-success">Back</a>
-    </div>
 </div>
 
 

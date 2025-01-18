@@ -64,10 +64,26 @@
         color: #dc3545;
         font-size: 0.8em;
     }
+
+    .Header {
+        padding:10px;
+        text-align:center;
+    }
 </style>
 
 
+
+
 <form method="post" asp-controller="Student" asp-action="SaveUpdatedMark" class="student-mark-form">
+    @if (ViewBag.State == "Add")
+    {
+        <h3 class="Header">Add Student Mark</h3>
+    }
+    else
+    {
+        <h3 class="Header">Update Student Mark</h3>
+    }
+    <hr />
     <div class="course-marks-container">
         @for (int i = 0; i < Model.Count; i++)
         {

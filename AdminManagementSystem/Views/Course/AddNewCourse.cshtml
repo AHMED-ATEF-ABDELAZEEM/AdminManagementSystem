@@ -1,10 +1,94 @@
 ﻿@model AddCourseAndAssignToDepartmentVM
 
+<style>
+    .Container {
+        width: 250px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background-color: white;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin: 0 0 12px 0;
+        color: #333;
+        text-align:center;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
+    .control-label {
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 2px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        height: 24px;
+    }
+
+    .form-check {
+        margin: 3px 0;
+    }
+
+    .form-check-label {
+        font-size: 0.8rem;
+        margin-left: 4px;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.7rem;
+        display: block;
+        margin-top: 2px;
+    }
+
+    .button {
+        margin-top: 12px;
+        display: flex;
+        gap: 8px;
+    }
+
+        .button a {
+            padding: 4px 8px;
+            text-decoration: none;
+            color: #666;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+
 
 <form asp-action="SaveNewCourse" method="post" class="Container">
 
     <h2>Add New Course</h2>
-
+    <hr />
     <!-- Course Name -->
     <div class="form-group">
         <label asp-for="NewCourse.CourseName" class="control-label"></label>

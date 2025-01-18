@@ -6,7 +6,7 @@ namespace AdminManagementSystem.Models
 {
     public class Student
     {
-        public string StudentId { get; set; }
+        public string? StudentId { get; set; }
         [Required(ErrorMessage = "Student Name Is Required")]
         [MinLength(10,ErrorMessage = "The Name Must Be More Than 9 Char")]
         [MaxLength(20,ErrorMessage = "The Name Must Be Less Than 25 Char")]

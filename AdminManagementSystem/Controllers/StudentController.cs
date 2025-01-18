@@ -17,10 +17,12 @@ namespace AdminManagementSystem.Controllers
     {
 
         private StudentService StudentService;
+        private DepartmentService DepartmentService;
 
-        public StudentController(StudentService StudentService)
+        public StudentController(StudentService StudentService, DepartmentService DepartmentService)
         {
             this.StudentService = StudentService;
+            this.DepartmentService = DepartmentService;
         }
 
         public IActionResult getAllStudent()
@@ -52,7 +54,15 @@ namespace AdminManagementSystem.Controllers
             if (ModelState.IsValid)
             {
                 StudentService.SaveNewStudent(Newstudent);
-                return RedirectToAction("UpdateStudentMark", new { StudentId = Newstudent.Student.StudentId});
+                int NumberOfCourseAtDepartment = DepartmentService.getCoursesAtDepartment(Newstudent.Student.DeptId).Count();
+                if (NumberOfCourseAtDepartment == 0)
+                {
+                    return RedirectToAction("getAllStudent");
+                }
+                else
+                {
+                    return RedirectToAction("UpdateStudentMark", new { StudentId = Newstudent.Student.StudentId });
+                }
             }
             Newstudent.Departments = StudentService.getAllDepartment();
             return View("AddNewStudent", Newstudent);
@@ -71,6 +81,13 @@ namespace AdminManagementSystem.Controllers
         public IActionResult UpdateStudentMark(string StudentId)
         {
             var Marks = StudentService.getAllStudentMark(StudentId);
+            int TotalMark = Marks.Sum(x => x.Mark);
+
+            string State = "";
+            if (TotalMark == 0) State = "Add";
+            else State = "Update";
+            
+            ViewBag.State = State;
             
             return View(Marks);
         }

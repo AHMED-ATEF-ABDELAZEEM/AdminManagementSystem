@@ -128,9 +128,13 @@
                 <a id="firstLink" data-base-url="/Department/getFirstStudentAtDepartment">First</a>
                 <a id="MarksLink" data-base-url="/Department/getStudentMarkAtDepartment">Marks</a>
             </div>
-            <div>
-                <a class="Add" asp-action="AddNewDepartment" asp-controller="Department">New Department</a>
-            </div>
+            @if(!User.IsInRole("Viewer"))
+            {
+                <div>
+                    <a class="Add" asp-action="AddNewDepartment" asp-controller="Department">New Department</a>
+                </div>
+            }
+
         </div>
 
 

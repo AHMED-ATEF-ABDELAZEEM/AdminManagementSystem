@@ -3,11 +3,13 @@ using AdminManagementSystem.Models;
 using AdminManagementSystem.Repository;
 using AdminManagementSystem.Services;
 using AdminManagementSystem.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdminManagementSystem.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private CourseService CourseService;
@@ -21,13 +23,22 @@ namespace AdminManagementSystem.Controllers
         // Show Information About First Course
         public IActionResult Index()
         {
+            var Courses = CourseService.getAllCourses();
 
-			string CourseId = CourseService.getIdForFirstCourse();
+            int CountOfCourses = Courses.Count();
+
+            if (CountOfCourses == 0)
+            {
+                return RedirectToAction("AddNewCourse");
+            }
+
+
+            string CourseId = CourseService.getIdForFirstCourse();
 
             var Model = CourseService.getCourseInformation(CourseId);
 
             // Send All Courses To DropDown Menue That Exist In _CourseLayout
-            ViewBag.Courses = CourseService.getAllCourses();
+            ViewBag.Courses = Courses;
 
 
             return View(Model);
@@ -72,6 +83,8 @@ namespace AdminManagementSystem.Controllers
             return PartialView(Model);
         }
 
+
+        [Authorize(Roles = "Super Admin,Admin")]
         public IActionResult AddNewCourse()
         {
             var Model = new AddCourseAndAssignToDepartmentVM();
@@ -79,10 +92,13 @@ namespace AdminManagementSystem.Controllers
             return View(Model);
         }
 
-        public IActionResult SaveNewCourse(AddCourseAndAssignToDepartmentVM Model)
+		[Authorize(Roles = "Super Admin,Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		public IActionResult SaveNewCourse(AddCourseAndAssignToDepartmentVM Model)
         {
             // User Doesnt Choose Any Department
-            if (Model.AssignToDepartment == null)
+            if (Model.AssignToDepartment.Count == 0)
             {
                 ModelState.AddModelError("Model.AssignToDepartment", "Please Choose At Least One Department");
             }
@@ -95,7 +111,7 @@ namespace AdminManagementSystem.Controllers
             if (ModelState.IsValid)
             {
                 CourseService.SaveCourseAndRegisterToDepartmentAndEnrollmentStudent(Model);
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             Model.Departments = CourseService.GetAllDepartment();
             return View("AddNewCourse", Model);
@@ -103,8 +119,8 @@ namespace AdminManagementSystem.Controllers
 
 
 
-
-        public IActionResult UpdateStudentMarkInCourse(string CourseId)
+		[Authorize(Roles = "Super Admin,Admin")]
+		public IActionResult UpdateStudentMarkInCourse(string CourseId)
         {
             var Model = new UpdateMarkAtCourseVM();
             Model.CourseId = CourseId;
@@ -114,7 +130,10 @@ namespace AdminManagementSystem.Controllers
             return View(Model);
         }
 
-        public IActionResult SaveUpdateStudentMarkInCourse(UpdateMarkAtCourseVM Model)
+		[Authorize(Roles = "Super Admin,Admin")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult SaveUpdateStudentMarkInCourse(UpdateMarkAtCourseVM Model)
         {
             if (ModelState.IsValid)
             {

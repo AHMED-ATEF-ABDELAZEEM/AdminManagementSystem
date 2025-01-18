@@ -2,7 +2,117 @@
 @model List<ShowRoleVM>
 
 
-<div>
+<style>
+	.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f8fafc;
+    border-radius: 12px;
+}
+
+.data-grid {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.grid-header {
+    background-color: #334155;
+}
+
+.header-item {
+    padding: 1rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.025em;
+}
+
+.grid-row {
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.grid-row:last-child {
+    border-bottom: none;
+}
+
+.grid-row:hover {
+    background-color: #f1f5f9;
+}
+
+.grid-cell {
+    padding: 1rem 1.5rem;
+    color: #475569;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    background-color: #0ea5e9;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+}
+
+.action-button:hover {
+    background-color: #0284c7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(14, 165, 233, 0.25);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+</style>
+
+
+<div class="dashboard-container">
+    <table class="data-grid">
+        <tr class="grid-header">
+            <td class="header-item"></td>
+            <td class="header-item">Permission</td>
+            <td class="header-item">Number Of User</td>
+        </tr>
+        @{
+            int start = 1;
+        }
+        @foreach (var role in Model)
+        {
+            <tr class="grid-row">
+                <td class="grid-cell">@start</td>
+                <td class="grid-cell">@role.RoleName</td>
+                <td class="grid-cell">@role.UserCount</td>
+            </tr>
+            start++;
+        }
+    </table>
+    <br />
+    <a asp-action="getAllAcounts" asp-controller="Acount" class="action-button">Back</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@* <div>
 	<table class="table table-bordered table-hover">
 		<tr>
 			<td></td>
@@ -24,7 +134,7 @@
 	</table>
 	<br />
 	<a asp-action="getAllAcounts" asp-controller="Acount" class="btn btn-success">Back</a>
-</div>
+</div> *@
 
 
 
