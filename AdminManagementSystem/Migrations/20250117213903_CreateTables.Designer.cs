@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdminManagementSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241229210044_ApplyIdentity")]
-    partial class ApplyIdentity
+    [Migration("20250117213903_CreateTables")]
+    partial class CreateTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,33 @@ namespace AdminManagementSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AdminManagementSystem.Models.ApplicationRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
 
             modelBuilder.Entity("AdminManagementSystem.Models.ApplicationUser", b =>
                 {
@@ -93,13 +120,35 @@ namespace AdminManagementSystem.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("AdminManagementSystem.Models.ApplicationUserRole", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Role_refId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("User_refId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("Role_refId");
+
+                    b.HasIndex("User_refId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
             modelBuilder.Entity("AdminManagementSystem.Models.Course", b =>
                 {
-                    b.Property<int>("CourseId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"));
+                    b.Property<string>("CourseId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CourseName")
                         .IsRequired()
@@ -121,11 +170,8 @@ namespace AdminManagementSystem.Migrations
 
             modelBuilder.Entity("AdminManagementSystem.Models.Department", b =>
                 {
-                    b.Property<int>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
+                    b.Property<string>("DepartmentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DepartmentManager")
                         .IsRequired()
@@ -142,11 +188,11 @@ namespace AdminManagementSystem.Migrations
 
             modelBuilder.Entity("AdminManagementSystem.Models.Department_Course", b =>
                 {
-                    b.Property<int>("Course_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Course_Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Department_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Department_Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Course_Id", "Department_Id");
 
@@ -157,11 +203,8 @@ namespace AdminManagementSystem.Migrations
 
             modelBuilder.Entity("AdminManagementSystem.Models.Student", b =>
                 {
-                    b.Property<int>("StudentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -170,8 +213,9 @@ namespace AdminManagementSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DeptId")
-                        .HasColumnType("int");
+                    b.Property<string>("DeptId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -194,11 +238,11 @@ namespace AdminManagementSystem.Migrations
 
             modelBuilder.Entity("AdminManagementSystem.Models.Student_Course", b =>
                 {
-                    b.Property<int>("Student_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Student_Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Course_Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Course_Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Mark")
                         .HasColumnType("int");
@@ -208,33 +252,6 @@ namespace AdminManagementSystem.Migrations
                     b.HasIndex("Course_Id");
 
                     b.ToTable("Students_Courses");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -309,21 +326,6 @@ namespace AdminManagementSystem.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
@@ -341,6 +343,33 @@ namespace AdminManagementSystem.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("AdminManagementSystem.Models.ApplicationUserRole", b =>
+                {
+                    b.HasOne("AdminManagementSystem.Models.ApplicationRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdminManagementSystem.Models.ApplicationRole", "Role_ref")
+                        .WithMany("User_Roles_ref")
+                        .HasForeignKey("Role_refId");
+
+                    b.HasOne("AdminManagementSystem.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdminManagementSystem.Models.ApplicationUser", "User_ref")
+                        .WithMany("User_Roles_ref")
+                        .HasForeignKey("User_refId");
+
+                    b.Navigation("Role_ref");
+
+                    b.Navigation("User_ref");
                 });
 
             modelBuilder.Entity("AdminManagementSystem.Models.Department_Course", b =>
@@ -394,7 +423,7 @@ namespace AdminManagementSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("AdminManagementSystem.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -419,21 +448,6 @@ namespace AdminManagementSystem.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AdminManagementSystem.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("AdminManagementSystem.Models.ApplicationUser", null)
@@ -441,6 +455,16 @@ namespace AdminManagementSystem.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AdminManagementSystem.Models.ApplicationRole", b =>
+                {
+                    b.Navigation("User_Roles_ref");
+                });
+
+            modelBuilder.Entity("AdminManagementSystem.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("User_Roles_ref");
                 });
 
             modelBuilder.Entity("AdminManagementSystem.Models.Course", b =>

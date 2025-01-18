@@ -15,7 +15,7 @@ namespace AdminManagementSystem.Repository
             this.context = context;
         }
 
-        public Department getDepartment (int deptId)
+        public Department getDepartment (string deptId)
 		{
 			var Department = context.Departments.Include(x => x.Students_ref)
 			.Include(x => x.Department_Course_ref)
@@ -38,12 +38,19 @@ namespace AdminManagementSystem.Repository
             return context.Departments.ToList();
         }
 
-        public List<Student> getStudentsAtDepartment (int deptId)
+        public List<Student> getStudentsAtDepartment (string deptId)
         {
 			return context.Students.Where(x => x.DeptId == deptId).ToList();
 		}
 
-        public List<Course> getCoursesAtDepartment (int deptId)
+		public void SaveNewDepartment (Department department)
+		{
+			department.DepartmentId = Guid.NewGuid().ToString();
+			context.Departments.Add(department);
+			context.SaveChanges();
+		}
+
+        public List<Course> getCoursesAtDepartment (string deptId)
         {
 			var Courses =  context.Departments_Courses.Include(x => x.Course_ref)
              .Where(x => x.Department_Id == deptId).Select(x => x.Course_ref).ToList();
@@ -51,7 +58,7 @@ namespace AdminManagementSystem.Repository
 			return Courses;
         }
 
-        public Department getInformationAboutDepartment (int deptId) 
+        public Department getInformationAboutDepartment (string deptId) 
         {
 			var Department = context.Departments.Include(x => x.Students_ref)
             .Include(x => x.Department_Course_ref)
@@ -60,7 +67,7 @@ namespace AdminManagementSystem.Repository
 			return Department;
 		}
 
-        public Student getFirstStudentAtDepartment(int deptId)
+        public Student getFirstStudentAtDepartment(string deptId)
         {
 			var FirstStudent = context.Students.Include(x => x.Department_ref)
 			.Where(s => s.DeptId == deptId) // Filter students by department ID
@@ -84,7 +91,7 @@ namespace AdminManagementSystem.Repository
 			return FirstStudent;
 		}
 
-		public List<StudentWithTotalMark>   getStudentMarkAtDepartment(int deptId)
+		public List<StudentWithTotalMark>   getStudentMarkAtDepartment(string deptId)
 		{
 			var StudentsWithTotalMarks = context.Students.Include(x => x.Department_ref)
 			.Where(s => s.DeptId == deptId) // Filter by department
@@ -101,7 +108,7 @@ namespace AdminManagementSystem.Repository
 
 		}
 
-        public List<Department> getDepartmentThatCourseExistInIt(int CourseId)
+        public List<Department> getDepartmentThatCourseExistInIt(string CourseId)
         {
             return context.Departments_Courses.Include(x => x.Department_ref)
             .Where(x => x.Course_Id == CourseId).Select(x => x.Department_ref).ToList();

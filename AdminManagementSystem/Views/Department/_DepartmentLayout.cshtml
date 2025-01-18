@@ -25,8 +25,8 @@
             justify-content:space-between;
         }
 
-        .Sidebar {
-            width:20%;
+        .Side {
+            width:22%;
             min-height:250px;
         }
 
@@ -51,6 +51,21 @@
             width:70%;
             min-height:250px;
             display:flex;
+        }
+        .Add {
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            margin-top: 7px;
+            background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .Add:hover{
+                background: linear-gradient(45deg, #2a4c8c, #d12e2e);
+                color: #fff;
+                font-weight: bold;
         }
 
     </style>
@@ -104,14 +119,21 @@
 
     <div class="Parent">
 
-        <div class="Sidebar">
-            <select id="departmentSelect" asp-items="DepartmentList" class="form-control"></select>
-            <a id="aboutLink" data-base-url="/Department/InformationAboutDepartment">Information</a>
-            <a id="studentLink" data-base-url="/Department/getStudentAtDepartment">Students</a>
-            <a id="coursesLink" data-base-url="/Department/getCoursesAtDepartment">Courses</a>
-            <a id="firstLink" data-base-url="/Department/getFirstStudentAtDepartment">First</a>
-            <a id="MarksLink" data-base-url="/Department/getStudentMarkAtDepartment">Marks</a>
+        <div class="Side">
+            <div class="Sidebar">
+                <select id="departmentSelect" asp-items="DepartmentList" class="form-control"></select>
+                <a id="aboutLink" data-base-url="/Department/InformationAboutDepartment">Information</a>
+                <a id="studentLink" data-base-url="/Department/getStudentAtDepartment">Students</a>
+                <a id="coursesLink" data-base-url="/Department/getCoursesAtDepartment">Courses</a>
+                <a id="firstLink" data-base-url="/Department/getFirstStudentAtDepartment">First</a>
+                <a id="MarksLink" data-base-url="/Department/getStudentMarkAtDepartment">Marks</a>
+            </div>
+            <div>
+                <a class="Add" asp-action="AddNewDepartment" asp-controller="Department">New Department</a>
+            </div>
         </div>
+
+
 
         <div class="Content">
             @RenderBody()

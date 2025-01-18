@@ -14,7 +14,7 @@ namespace AdminManagementSystem.Repository
             this.context = context;
         }
 
-        public List<Student> getStudentAtDepartment (int deptId)
+        public List<Student> getStudentAtDepartment (string deptId)
         {
             return context.Students.Where(x => x.DeptId == deptId).ToList();
         }
@@ -26,6 +26,7 @@ namespace AdminManagementSystem.Repository
 
         public void SaveNewStudent (Student student)
         {
+            student.StudentId = Guid.NewGuid().ToString();
             context.Students.Add(student);
             context.SaveChanges();
         }
@@ -35,20 +36,20 @@ namespace AdminManagementSystem.Repository
 			return context.Students.FirstOrDefault(x => x.StudentName.ToLower() == name.ToLower());
 		}
 
-        public bool IsNameExistAtUpdateStudent(int id, string name)
+        public bool IsNameExistAtUpdateStudent(string id, string name)
         {
             // Check If Name Exist But Not In Current Object
             // return true If Name Exist In Two Element (Current Element,another)
             return context.Students.Any(x => x.StudentName == name && x.StudentId != id);
         }
 
-		public Student getStudentUsingId(int id)
+		public Student getStudentUsingId(string id)
         {
 			return context.Students.Include(x => x.Department_ref)
 	         .FirstOrDefault(x => x.StudentId == id);
 		}
 
-        public void DeleteStudent (int Id)
+        public void DeleteStudent (string Id)
         {
             var Student = getStudentUsingId (Id);
             context.Students.Remove(Student);
@@ -61,27 +62,17 @@ namespace AdminManagementSystem.Repository
             context.SaveChanges ();
 		}
 
-		public void UpdateStudentImage(int Id, string Image)
+		public void UpdateStudentImage(string Id, string Image)
 		{
 			var student = getStudentUsingId (Id);
             student.Image = Image;
             context.SaveChanges();
 		}
 
-        public List<Student> getStudentAtCourse(int CourseId)
+        public List<Student> getStudentAtCourse(string CourseId)
         {
             return context.Students_Courses.Include(x => x.Student_ref)
              .Where(x => x.Course_Id == CourseId).Select(x => x.Student_ref).ToList();
         }
-
-        //public Student getFirstStudentAtCourse(int CourseId)
-        //{
-        //    return context.Students_Courses
-        //        .Include(x => x.Student_ref)
-        //        .Where(x => x.Course_Id == CourseId)
-        //        .OrderByDescending(x => x.Mark)
-        //        .Select(x => x.Student_ref)
-        //        .First();
-        //}
     }
 }

@@ -1,0 +1,46 @@
+﻿
+
+@model ChangePermissionVM
+
+@{
+	SelectList RoleList = new SelectList(Model.Roles,"Id","Name");
+}
+
+<div class="box">
+	<h2>Change Permission</h2>
+	<hr />
+	<form asp-action="ChangePermission" asp-controller="Acount">
+		<div class="Element">
+			<input asp-for="UserId" hidden class="form-control" />
+		</div>
+		<div class="Element">
+			<label>Name</label>
+			<input asp-for="Name" readonly class="form-control" />
+		</div>
+		<div class="Element">
+			<label>Email</label>
+			<input asp-for="Email" readonly class="form-control" />
+		</div>
+		<div class="Element">
+			<label>Current Permission</label>
+			<input asp-for="CurrentRole" readonly class="form-control" />
+		</div>
+		<div class="Element">
+			<label>Choose New Permission</label>
+			<select asp-for="NewRoleId" asp-items="RoleList" class="form-control"></select>
+		</div>
+
+		<input type="submit" class="btn btn-success" />
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+

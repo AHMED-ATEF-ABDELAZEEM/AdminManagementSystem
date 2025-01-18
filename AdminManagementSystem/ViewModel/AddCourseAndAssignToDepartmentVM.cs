@@ -9,7 +9,7 @@ namespace AdminManagementSystem.ViewModel
 
         // Store Id Of Department That You Want To Assign Course To It
         [Required(ErrorMessage = "You Must Choose At Least One Department")]
-        public List<int> AssignToDepartment { get; set; }
+        public List<string> AssignToDepartment { get; set; }
 
         public List<Department>? Departments { get; set; }
     }

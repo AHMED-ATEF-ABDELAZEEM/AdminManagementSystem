@@ -21,13 +21,13 @@ namespace AdminManagementSystem.Services
             this.StudentCourseRepository = StudentCourseRepository;
         }
 
-        public int getIdForFirstCourse ()
+        public string getIdForFirstCourse ()
         {
             var course = CourseRepository.getFirstCourse();
             return course.CourseId;
         }
 
-        public CourseInformationVM getCourseInformation(int CourseId)
+        public CourseInformationVM getCourseInformation(string CourseId)
         {
             var Model = new CourseInformationVM();
             var Course = CourseRepository.getCourseUsingId(CourseId);
@@ -49,17 +49,17 @@ namespace AdminManagementSystem.Services
             return CourseRepository.getAllCourses();
         }
 
-        public List<Student> getStudentAtCourse (int CourseId)
+        public List<Student> getStudentAtCourse (string CourseId)
         {
             return StudentRepository.getStudentAtCourse(CourseId);
         }
 
-        public List<Department> getDepartmentThatCourseExistInIt (int CourseId)
+        public List<Department> getDepartmentThatCourseExistInIt (string CourseId)
         {
             return DepartmentRepository.getDepartmentThatCourseExistInIt(CourseId);
         }
 
-        public FirstStudentWithMarkVM getFirstStudentAtCourse(int CourseId)
+        public FirstStudentWithMarkVM getFirstStudentAtCourse(string CourseId)
         {
             var MaxMarkWithStudent = StudentCourseRepository.getMaxMarkAtCourseWithStudentInformation(CourseId);
 
@@ -68,7 +68,7 @@ namespace AdminManagementSystem.Services
 
 
 
-        public List<StudentWithMarkInCourseVM> getAllStudentWithMarkAtCourse (int CourseId)
+        public List<StudentWithMarkInCourseVM> getAllStudentWithMarkAtCourse (string CourseId)
         {
             var MarkWithStudent = StudentCourseRepository.getAllMarkAtCourseWithStudentInformation(CourseId);
 
@@ -83,7 +83,7 @@ namespace AdminManagementSystem.Services
             return DepartmentRepository.getAllDepartment();
         }
 
-        private void EnrollStudentToNewCourse(int CourseId, int DeptId)
+        private void EnrollStudentToNewCourse(string CourseId, string DeptId)
         {
             
             var Students = StudentRepository.getStudentAtDepartment(DeptId);
@@ -93,7 +93,7 @@ namespace AdminManagementSystem.Services
             CourseRepository.SaveEnrollmentStudentToCourse(Student_Course_List);
         }
 
-        private void RegisterCourseToDepartment(int CourseId, int DeptId)
+        private void RegisterCourseToDepartment(string CourseId, string DeptId)
         {
             var DepartmentCourse = new Department_Course();
             DepartmentCourse.Course_Id = CourseId;
@@ -104,7 +104,7 @@ namespace AdminManagementSystem.Services
         public void SaveCourseAndRegisterToDepartmentAndEnrollmentStudent(AddCourseAndAssignToDepartmentVM Model)
         {  
             CourseRepository.SaveNewCourse(Model.NewCourse);
-            int CourseId = Model.NewCourse.CourseId;
+			string CourseId = Model.NewCourse.CourseId;
             foreach (var deptId in Model.AssignToDepartment)
             {
                 RegisterCourseToDepartment(CourseId, deptId);
@@ -119,12 +119,12 @@ namespace AdminManagementSystem.Services
 
 
 
-        public string GetCourseName(int CourseId)
+        public string GetCourseName(string CourseId)
         {
             return CourseRepository.getCourseUsingId(CourseId).CourseName;
         }
 
-        public List<StudentMarkVM> getStudentMarkAtCourse (int CourseId)
+        public List<StudentMarkVM> getStudentMarkAtCourse (string CourseId)
         {
             var Student_Course = StudentCourseRepository.getAllMarkAtCourseWithStudentInformation(CourseId);
 

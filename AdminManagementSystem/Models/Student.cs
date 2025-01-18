@@ -6,12 +6,12 @@ namespace AdminManagementSystem.Models
 {
     public class Student
     {
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
         [Required(ErrorMessage = "Student Name Is Required")]
         [MinLength(10,ErrorMessage = "The Name Must Be More Than 9 Char")]
         [MaxLength(20,ErrorMessage = "The Name Must Be Less Than 25 Char")]
         [Display(Name = "Student Name")]
-        //[UniqueName(ErrorMessage = "This Name Is Already Exist Please Enter Diffrent Name")]
+
         public string StudentName { get; set; }
 
 
@@ -33,7 +33,7 @@ namespace AdminManagementSystem.Models
 
         [ForeignKey(nameof(Department_ref))]
         [Display(Name = "Department")]
-        public int DeptId { get; set; }
+        public string DeptId { get; set; }
 
         public virtual Department? Department_ref { get; set; }
         public virtual List<Student_Course>? Student_Course_ref {  get; set; }

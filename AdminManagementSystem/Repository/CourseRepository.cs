@@ -18,7 +18,7 @@ namespace AdminManagementSystem.Repository
             return context.Courses.ToList();
         }
 
-        public List<Course> getAllCoursesAtDepartment (int DeptId)
+        public List<Course> getAllCoursesAtDepartment (string DeptId)
         {
 			var Courses = context.Departments_Courses
             .Where(x => x.Department_Id == DeptId)
@@ -26,7 +26,7 @@ namespace AdminManagementSystem.Repository
             return Courses;
 		}
 
-		public Course getCourseUsingId(int CourseId)
+		public Course getCourseUsingId(string CourseId)
 		{
             return context.Courses
                    .Include(x => x.Department_Course_ref)
@@ -41,6 +41,7 @@ namespace AdminManagementSystem.Repository
 
         public void SaveNewCourse(Course course)
         {
+            course.CourseId = Guid.NewGuid().ToString();
             context.Courses.Add(course);     
             context.SaveChanges();
         }

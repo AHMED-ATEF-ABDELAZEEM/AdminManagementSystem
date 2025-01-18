@@ -17,7 +17,7 @@ namespace AdminManagementSystem.Extension
             }).ToList();
         }
 
-        public static List<Student_Course> MapToStudent_Course(this List<StudentMarkVM> StudentMark,int CourseId)
+        public static List<Student_Course> MapToStudent_Course(this List<StudentMarkVM> StudentMark, string CourseId)
         {
             return StudentMark.Select(x => new Student_Course
             {
@@ -39,7 +39,7 @@ namespace AdminManagementSystem.Extension
             }).ToList();
         }
 
-        public static List<Student_Course> MapToStudent_Course(this List<Student> Students,int CourseId)
+        public static List<Student_Course> MapToStudent_Course(this List<Student> Students, string CourseId)
         {
             return Students.Select(x => new Student_Course
             {

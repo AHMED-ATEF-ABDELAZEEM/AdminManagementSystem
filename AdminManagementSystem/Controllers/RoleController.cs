@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AdminManagementSystem.Controllers
 {
-	[Authorize(Roles = "Super Admin")]
-	public class RoleController : Controller
+    [Authorize(Roles = "Super Admin")]
+    public class RoleController : Controller
     {
 
         private RoleManager<IdentityRole> roleManager;
@@ -29,7 +29,7 @@ namespace AdminManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityRole role = new IdentityRole();
+                var role = new IdentityRole();
                 role.Name = NewRoleVM.RoleName;
                 var result = await roleManager.CreateAsync(role);
 
@@ -56,6 +56,7 @@ namespace AdminManagementSystem.Controllers
                 RoleName = x.Name,
                 UserCount = context.UserRoles.Where(y => y.RoleId == x.Id).Count(),
             }).ToList();
+            
             return View(Roles);
         }
     }

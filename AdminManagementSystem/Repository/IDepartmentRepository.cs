@@ -6,24 +6,27 @@ namespace AdminManagementSystem.Repository
 {
     public interface IDepartmentRepository
     {
-        Department getDepartment(int deptId);
+        Department getDepartment(string deptId);
 
         Department getFirstDepartment();
 
-        List<Department> getAllDepartment();
-
-        List<Student> getStudentsAtDepartment(int deptId);
-
-        List<Course> getCoursesAtDepartment(int deptId);
-
-        Department getInformationAboutDepartment(int deptId);
-
-        Student getFirstStudentAtDepartment(int deptId);
-
-        List<StudentWithTotalMark> getStudentMarkAtDepartment(int deptId);
+        void SaveNewDepartment(Department department);
 
 
-        List<Department> getDepartmentThatCourseExistInIt(int CourseId);
+		List<Department> getAllDepartment();
+
+        List<Student> getStudentsAtDepartment(string deptId);
+
+        List<Course> getCoursesAtDepartment(string deptId);
+
+        Department getInformationAboutDepartment(string deptId);
+
+        Student getFirstStudentAtDepartment(string deptId);
+
+        List<StudentWithTotalMark> getStudentMarkAtDepartment(string deptId);
+
+
+        List<Department> getDepartmentThatCourseExistInIt(string CourseId);
 
     }
 }

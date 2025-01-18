@@ -4,29 +4,27 @@ namespace AdminManagementSystem.Repository
 {
     public interface IStudentRepository
     {
-        List<Student> getStudentAtDepartment(int deptId);
+        List<Student> getStudentAtDepartment(string deptId);
 
         List<Student> getAllStudent();
 
         void SaveNewStudent(Student student);
 
         
-        bool IsNameExistAtUpdateStudent(int id, string name);
+        bool IsNameExistAtUpdateStudent(string id, string name);
 
 
         Student getStudentUsingName (string name);
 
-        Student getStudentUsingId (int id);
+        Student getStudentUsingId (string id);
 
-        void DeleteStudent(int Id);
+        void DeleteStudent(string Id);
 
         void UpdateStudent (Student student);
 
-        void UpdateStudentImage(int Id, string Image);
+        void UpdateStudentImage(string Id, string Image);
 
-        List <Student> getStudentAtCourse (int courseId);
-
-        //Student getFirstStudentAtCourse (int CourseId);
+        List <Student> getStudentAtCourse (string courseId);
 
 
 	}

@@ -21,7 +21,15 @@ namespace AdminManagementSystem.Controllers
         public IActionResult Index()
         {
 
-            var DepartmentId = DepartmentService.getIdForFirstDepartment();
+            var CountOfDepartment = DepartmentService.getAllDepartment().Count();
+
+            if (CountOfDepartment == 0)
+            {
+                return RedirectToAction("AddNewDepartment");
+            }
+
+
+			var DepartmentId = DepartmentService.getIdForFirstDepartment();
 
             var Model = DepartmentService.getDepartmentInformation(DepartmentId);
 
@@ -32,29 +40,47 @@ namespace AdminManagementSystem.Controllers
             return View(Model);
         }
 
-        public IActionResult getStudentAtDepartment(int DeptId)
+        public IActionResult AddNewDepartment ()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+		public IActionResult SaveNewDepartment (Department department)
+        {
+            if (ModelState.IsValid)
+            {
+                DepartmentService.SaveNewDepartment(department);
+                return RedirectToAction("Index");
+            }
+            return View("AddNewDepartment");
+        }
+
+		public IActionResult getStudentAtDepartment(string DeptId)
         {
             var Model = DepartmentService.getStudentsAtDepartment(DeptId);
             return PartialView(Model);
         }
 
-        public IActionResult getCoursesAtDepartment(int DeptId)
+        public IActionResult getCoursesAtDepartment(string DeptId)
         {
             
             return PartialView(DepartmentService.getCoursesAtDepartment(DeptId));
         }
 
-        public IActionResult InformationAboutDepartment(int DeptId)
+        public IActionResult InformationAboutDepartment(string DeptId)
         {
             return PartialView(DepartmentService.getInformationAboutDepartment(DeptId));
         }
 
-        public IActionResult getFirstStudentAtDepartment(int deptId)
+        public IActionResult getFirstStudentAtDepartment(string deptId)
         {
             return PartialView(DepartmentService.getFirstStudentAtDepartment(deptId));
         }
 
-        public IActionResult getStudentMarkAtDepartment (int deptId)
+        public IActionResult getStudentMarkAtDepartment (string deptId)
         {
             return PartialView(DepartmentService.getStudentMarkAtDepartment(deptId));    
         }

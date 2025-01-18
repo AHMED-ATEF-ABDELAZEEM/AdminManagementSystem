@@ -22,7 +22,7 @@ namespace AdminManagementSystem.Controllers
         public IActionResult Index()
         {
 
-            int CourseId = CourseService.getIdForFirstCourse();
+			string CourseId = CourseService.getIdForFirstCourse();
 
             var Model = CourseService.getCourseInformation(CourseId);
 
@@ -33,29 +33,29 @@ namespace AdminManagementSystem.Controllers
             return View(Model);
         }
 
-        public IActionResult InformationAboutCourse(int CourseId)
+        public IActionResult InformationAboutCourse(string CourseId)
         {
             var Model = CourseService.getCourseInformation(CourseId);
 
             return PartialView(Model);
         }
-        public IActionResult getStudentAtCourse(int CourseId)
+        public IActionResult getStudentAtCourse(string CourseId)
         {
             var Students = CourseService.getStudentAtCourse(CourseId);
 
             return PartialView(Students);
         }
-        public IActionResult getDepartmentThatCourseExistInIt(int CourseId)
+        public IActionResult getDepartmentThatCourseExistInIt(string CourseId)
         {
             var Departments = CourseService.getDepartmentThatCourseExistInIt(CourseId);
             return PartialView(Departments);
         }
-        public IActionResult getFirstStudentAtCourse(int CourseId)
+        public IActionResult getFirstStudentAtCourse(string CourseId)
         {
             var FirstStudent = CourseService.getFirstStudentAtCourse(CourseId);
             return PartialView(FirstStudent);
         }
-        public IActionResult getStudentWithMarkAtCourse(int CourseId)
+        public IActionResult getStudentWithMarkAtCourse(string CourseId)
         {
             //        var StudentMark = context.Students_Courses
             //            .Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)
@@ -104,7 +104,7 @@ namespace AdminManagementSystem.Controllers
 
 
 
-        public IActionResult UpdateStudentMarkInCourse(int CourseId)
+        public IActionResult UpdateStudentMarkInCourse(string CourseId)
         {
             var Model = new UpdateMarkAtCourseVM();
             Model.CourseId = CourseId;

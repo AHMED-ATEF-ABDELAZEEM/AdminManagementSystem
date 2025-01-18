@@ -76,7 +76,7 @@ namespace AdminManagementSystem.Controllers
                 RoleId = x.Id,
                 RoleName = x.Name,
             }).ToList();
-
+          
             return View(UserRegister);
         }
 
@@ -233,16 +233,55 @@ namespace AdminManagementSystem.Controllers
         }
 
 
-        //[HttpGet]
-        //[Authorize(Roles = "Super Admin")]
-        //public IActionResult ChangePermission (string UserId)
-        //{
-        //    var model = new ChangePermissionVM();
-        //    model.Roles = context.Roles.Where(x => x.)
-        //    return View();
-        //}
+        [HttpGet]
+        [Authorize(Roles = "Super Admin")]
+        public async Task<IActionResult> ChangePermission(string UserId)
+        {
+            var model = new ChangePermissionVM();
 
-    }
+            var ApplicationUser = await UserManager.FindByIdAsync(UserId);
+
+            model.UserId = ApplicationUser.Id;
+            model.Name = ApplicationUser.UserName;
+            model.Email = ApplicationUser.Email;
+
+            var Roles = await UserManager.GetRolesAsync(ApplicationUser);
+            var UserRole = Roles[0];
+            model.CurrentRole = UserRole;
+
+            model.Roles = context.Roles.Where(x => x.Name != UserRole).ToList();
+
+			return View(model);
+        }
+
+
+		[Authorize(Roles = "Super Admin")]
+		[HttpPost]
+        [ValidateAntiForgeryToken]
+		public async Task<IActionResult> ChangePermission (ChangePermissionVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Remove User From Current Role
+                var User = await UserManager.FindByIdAsync (model.UserId);
+                await UserManager.RemoveFromRoleAsync(User, model.CurrentRole);
+                // Add User To New Role
+                var NewRole = await RoleManager.FindByIdAsync(model.NewRoleId);
+                await UserManager.AddToRoleAsync(User,NewRole.Name);
+                return RedirectToAction("getAllAcounts");              
+            }
+            return View(model);
+        }
+
+        public async  Task<IActionResult> DeleteAcount (string UserId)
+        {
+            var User = await UserManager.FindByIdAsync(UserId);
+            await UserManager.DeleteAsync(User);
+            return RedirectToAction("getAllAcounts");
+        }
+
+
+	}
 
 
 }

@@ -6,14 +6,14 @@ namespace AdminManagementSystem.Repository
 	{
 		void AddStudentMark(List<Student_Course> Enrollments);
 
-		List<Student_Course> getAllMarkWithCourseForStudent(int StudentId);
+		List<Student_Course> getAllMarkWithCourseForStudent(string StudentId);
 
 		void UpdateStudentMark(List<Student_Course> Enrollments);
 
-		void DeleteStudentMark(int StudentId);
+		void DeleteStudentMark(string StudentId);
 
-		Student_Course getMaxMarkAtCourseWithStudentInformation(int CourseId);
+		Student_Course getMaxMarkAtCourseWithStudentInformation(string CourseId);
 
-		List<Student_Course> getAllMarkAtCourseWithStudentInformation (int CourseId);
+		List<Student_Course> getAllMarkAtCourseWithStudentInformation (string CourseId);
 	}
 }

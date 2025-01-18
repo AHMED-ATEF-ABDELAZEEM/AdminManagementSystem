@@ -6,15 +6,11 @@ namespace AdminManagementSystem.Repository
     {
         public List<Course> getAllCourses();
 
-        // Enroll Student At Department That New Course Added To It
-
-        //void EnrollStudentToNewCourse(int CourseId, int DeptId);
-
         void SaveEnrollmentStudentToCourse(List<Student_Course> Enrollments);
 
-        List<Course> getAllCoursesAtDepartment(int DeptId);
+        List<Course> getAllCoursesAtDepartment(string DeptId);
 
-        Course getCourseUsingId(int CourseId);
+        Course getCourseUsingId(string CourseId);
 
         Course getFirstCourse();
 

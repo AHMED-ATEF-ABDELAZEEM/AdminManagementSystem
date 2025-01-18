@@ -59,7 +59,7 @@ namespace AdminManagementSystem.Controllers
         }
 
 
-        public IActionResult ShowStudentMark (int StudentId)
+        public IActionResult ShowStudentMark (string StudentId)
         {
 
             var model = StudentService.getStudentMarkWithInformation(StudentId);
@@ -68,7 +68,7 @@ namespace AdminManagementSystem.Controllers
 		}
 
         [Authorize(Roles = "Super Admin,Admin")]
-        public IActionResult UpdateStudentMark(int StudentId)
+        public IActionResult UpdateStudentMark(string StudentId)
         {
             var Marks = StudentService.getAllStudentMark(StudentId);
             
@@ -82,7 +82,7 @@ namespace AdminManagementSystem.Controllers
             if (ModelState.IsValid)
             {
                 StudentService.UpdateStudentMark(Student_Course);
-                int StudentId = Student_Course[0].Student_Id;
+				string StudentId = Student_Course[0].Student_Id;
                 return RedirectToAction("ShowStudentMark",new {StudentId = StudentId });
             }
             return View("UpdateStudentMark", Student_Course);
@@ -90,14 +90,14 @@ namespace AdminManagementSystem.Controllers
 
 
         [Authorize(Roles = "Super Admin,Admin")]
-        public IActionResult DeleteStudent(int id)
+        public IActionResult DeleteStudent(string id)
         {
             var DeleteStudent = StudentService.getDeleteStudent(id);
 
             return View(DeleteStudent);
         }
         [Authorize(Roles = "Super Admin,Admin")]
-        public IActionResult ConfirmDelete (int StudentId)
+        public IActionResult ConfirmDelete (string StudentId)
         {
             // Delete Student And Delete Related Courses With Mark
 
@@ -107,14 +107,14 @@ namespace AdminManagementSystem.Controllers
         }
 
 
-        public IActionResult getInformationAboutStudent (int id)
+        public IActionResult getInformationAboutStudent (string id)
         {
             var model = StudentService.getAllStudentInformation(id);
             return View(model);
         }
 
         [Authorize(Roles = "Super Admin,Admin")]
-        public IActionResult UpdateStudentData (int id)
+        public IActionResult UpdateStudentData (string id)
         {
             var model = StudentService.getStudentUsingId(id);
             return View(model);
@@ -145,7 +145,7 @@ namespace AdminManagementSystem.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Super Admin,Admin")]
-        public  IActionResult UpdateStudentImage(int id, string imageName)
+        public  IActionResult UpdateStudentImage(string id, string imageName)
         {
             if (imageName != null)
             {

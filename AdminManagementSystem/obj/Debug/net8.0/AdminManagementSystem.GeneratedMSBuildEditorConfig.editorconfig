@@ -34,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XENoYW5nZVBhc3N3b3JkU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/ChangePermission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XENoYW5nZVBlcm1pc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Acount/CreateRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNvdW50XENyZWF0ZVJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,6 +106,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXF9Db3Vyc2VMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Department/AddNewDepartment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxBZGROZXdEZXBhcnRtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Department/getCoursesAtDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxnZXRDb3Vyc2VzQXREZXBhcnRtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -136,6 +144,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Role/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGVSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/programming/Back End/Project/AdminManagementSystem/AdminManagementSystem/Views/Role/getAllRoles.cshtml]

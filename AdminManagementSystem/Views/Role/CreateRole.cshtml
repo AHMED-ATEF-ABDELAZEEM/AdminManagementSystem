@@ -1,0 +1,14 @@
+﻿
+
+@model CreateRoleVM
+
+<form asp-action="CreateRole" asp-controller="Role">
+	<input asp-for="RoleName" class="form-control"/>
+	<span asp-validation-for="RoleName"></span>
+
+	<input type="submit" class="btn btn-success" />
+</form>
+
+
+
+

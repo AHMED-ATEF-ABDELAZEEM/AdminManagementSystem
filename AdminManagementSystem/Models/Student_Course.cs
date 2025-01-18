@@ -7,10 +7,10 @@ namespace AdminManagementSystem.Models
     {
 
         [ForeignKey(nameof(Student_ref))]
-        public int Student_Id { get; set; }
+        public string Student_Id { get; set; }
 
         [ForeignKey(nameof(Course_ref))]
-        public int Course_Id { get; set; }
+        public string Course_Id { get; set; }
 
         [Required (ErrorMessage = "The Mark Is Required")]
         [Range(0,100,ErrorMessage = "The Mark Must Be Between 0 and 100")]

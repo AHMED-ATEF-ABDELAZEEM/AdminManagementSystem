@@ -20,7 +20,7 @@ namespace AdminManagementSystem.Services
             this.StudentCourseRepository = StudentCourseRepository;
         }
 
-		private void AddDefualtMarkForNewStudent (int StudentId, int DeptId)
+		private void AddDefualtMarkForNewStudent (string StudentId, string DeptId)
 		{
 			var Courses = CourseRepository.getAllCoursesAtDepartment(DeptId);
 				
@@ -67,7 +67,7 @@ namespace AdminManagementSystem.Services
 			AddDefualtMarkForNewStudent(NewStudent.Student.StudentId, NewStudent.Student.DeptId);
 		}
 
-        private StudentInfoVM getStudentInformationToShowWithMark (int StudentId)
+        private StudentInfoVM getStudentInformationToShowWithMark (string StudentId)
         {
             var student = StudentRepository.getStudentUsingId(StudentId);
             var model = new StudentInfoVM();
@@ -78,7 +78,7 @@ namespace AdminManagementSystem.Services
             return model;
         }
 
-        private List<CourseWithMarkVM> getCourseWithMark (int StudentId)
+        private List<CourseWithMarkVM> getCourseWithMark (string StudentId)
         {
             var courseWithMark = StudentCourseRepository.getAllMarkWithCourseForStudent(StudentId);
             return courseWithMark.Select(x => new CourseWithMarkVM
@@ -89,7 +89,7 @@ namespace AdminManagementSystem.Services
 
 		}
 
-        public ShowStudentMarkVM getStudentMarkWithInformation (int StudentId)
+        public ShowStudentMarkVM getStudentMarkWithInformation (string StudentId)
         {
             var model = new ShowStudentMarkVM();
             model.StudentInfo = getStudentInformationToShowWithMark (StudentId);
@@ -97,7 +97,7 @@ namespace AdminManagementSystem.Services
             return model;
         }
 
-        public List <Student_Course> getAllStudentMark (int StudentId)
+        public List <Student_Course> getAllStudentMark (string StudentId)
         {
             return StudentCourseRepository.getAllMarkWithCourseForStudent (StudentId);
         }
@@ -107,7 +107,7 @@ namespace AdminManagementSystem.Services
 			StudentCourseRepository.UpdateStudentMark (student_course);
         }
 
-        public DeleteStudentVM getDeleteStudent (int Id)
+        public DeleteStudentVM getDeleteStudent (string Id)
         {
             var student = StudentRepository.getStudentUsingId (Id);
             var model = new DeleteStudentVM();
@@ -116,7 +116,7 @@ namespace AdminManagementSystem.Services
             return model;
         }
 
-        public void DeleteStudent (int Id)
+        public void DeleteStudent (string Id)
         {
             // Delete Student
             StudentRepository.DeleteStudent(Id);
@@ -124,7 +124,7 @@ namespace AdminManagementSystem.Services
             StudentCourseRepository.DeleteStudentMark (Id);
 		}
 
-        public StudentInformationVM getAllStudentInformation (int Id)
+        public StudentInformationVM getAllStudentInformation (string Id)
         {
             var student = StudentRepository.getStudentUsingId(Id);
             var model = new StudentInformationVM();
@@ -140,7 +140,7 @@ namespace AdminManagementSystem.Services
             return model;
         }
 
-        public Student getStudentUsingId (int Id)
+        public Student getStudentUsingId (string Id)
         {
             return StudentRepository.getStudentUsingId (Id);
         }
@@ -153,7 +153,7 @@ namespace AdminManagementSystem.Services
              
 		}
 
-		public bool IsNameExistAtUpdateStudent (int Id,string name)
+		public bool IsNameExistAtUpdateStudent (string Id,string name)
         {
             bool exist = StudentRepository.IsNameExistAtUpdateStudent(Id,name);
             return exist;
@@ -164,7 +164,7 @@ namespace AdminManagementSystem.Services
             StudentRepository.UpdateStudent (student);
         }
 
-        public void UpdateStudentImage (int Id,string Image)
+        public void UpdateStudentImage (string Id,string Image)
         {
             StudentRepository.UpdateStudentImage (Id, Image);
         }

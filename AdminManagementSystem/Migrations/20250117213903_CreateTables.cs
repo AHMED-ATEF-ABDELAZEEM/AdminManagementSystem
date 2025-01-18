@@ -6,38 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AdminManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class ApplyIdentity : Migration
+    public partial class CreateTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "StudentName",
-                table: "Students",
-                type: "nvarchar(20)",
-                maxLength: 20,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Instructor",
-                table: "Courses",
-                type: "nvarchar(20)",
-                maxLength: 20,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "CourseName",
-                table: "Courses",
-                type: "nvarchar(30)",
-                maxLength: 30,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -76,6 +49,33 @@ namespace AdminManagementSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Courses",
+                columns: table => new
+                {
+                    CourseId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CourseName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Instructor = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Gpa = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Courses", x => x.CourseId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    DepartmentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DepartmentManager = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -145,7 +145,9 @@ namespace AdminManagementSystem.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    User_refId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Role_refId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -157,11 +159,21 @@ namespace AdminManagementSystem.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_Role_refId",
+                        column: x => x.Role_refId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_User_refId",
+                        column: x => x.User_refId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -181,6 +193,78 @@ namespace AdminManagementSystem.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Departments_Courses",
+                columns: table => new
+                {
+                    Department_Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Course_Id = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments_Courses", x => new { x.Course_Id, x.Department_Id });
+                    table.ForeignKey(
+                        name: "FK_Departments_Courses_Courses_Course_Id",
+                        column: x => x.Course_Id,
+                        principalTable: "Courses",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Departments_Courses_Departments_Department_Id",
+                        column: x => x.Department_Id,
+                        principalTable: "Departments",
+                        principalColumn: "DepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Students",
+                columns: table => new
+                {
+                    StudentId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StudentName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    gender = table.Column<string>(type: "nvarchar(1)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeptId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students", x => x.StudentId);
+                    table.ForeignKey(
+                        name: "FK_Students_Departments_DeptId",
+                        column: x => x.DeptId,
+                        principalTable: "Departments",
+                        principalColumn: "DepartmentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Students_Courses",
+                columns: table => new
+                {
+                    Student_Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Course_Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Mark = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Students_Courses", x => new { x.Student_Id, x.Course_Id });
+                    table.ForeignKey(
+                        name: "FK_Students_Courses_Courses_Course_Id",
+                        column: x => x.Course_Id,
+                        principalTable: "Courses",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Students_Courses_Students_Student_Id",
+                        column: x => x.Student_Id,
+                        principalTable: "Students",
+                        principalColumn: "StudentId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -207,9 +291,19 @@ namespace AdminManagementSystem.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_Role_refId",
+                table: "AspNetUserRoles",
+                column: "Role_refId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_User_refId",
+                table: "AspNetUserRoles",
+                column: "User_refId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -222,6 +316,21 @@ namespace AdminManagementSystem.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Departments_Courses_Department_Id",
+                table: "Departments_Courses",
+                column: "Department_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_DeptId",
+                table: "Students",
+                column: "DeptId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_Courses_Course_Id",
+                table: "Students_Courses",
+                column: "Course_Id");
         }
 
         /// <inheritdoc />
@@ -243,37 +352,25 @@ namespace AdminManagementSystem.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Departments_Courses");
+
+            migrationBuilder.DropTable(
+                name: "Students_Courses");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "StudentName",
-                table: "Students",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
-                oldMaxLength: 20);
+            migrationBuilder.DropTable(
+                name: "Courses");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Instructor",
-                table: "Courses",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(20)",
-                oldMaxLength: 20);
+            migrationBuilder.DropTable(
+                name: "Students");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "CourseName",
-                table: "Courses",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(30)",
-                oldMaxLength: 30);
+            migrationBuilder.DropTable(
+                name: "Departments");
         }
     }
 }

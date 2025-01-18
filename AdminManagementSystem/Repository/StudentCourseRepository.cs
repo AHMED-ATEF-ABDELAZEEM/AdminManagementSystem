@@ -17,14 +17,14 @@ namespace AdminManagementSystem.Repository
 			context.SaveChanges();
 		}
 
-		public void DeleteStudentMark(int StudentId)
+		public void DeleteStudentMark(string StudentId)
 		{
 			var studentMark = getAllMarkWithCourseForStudent(StudentId);
 			context.Students_Courses.RemoveRange(studentMark);
 			context.SaveChanges();
 		}
 
-        public List<Student_Course> getAllMarkAtCourseWithStudentInformation(int CourseId)
+        public List<Student_Course> getAllMarkAtCourseWithStudentInformation(string CourseId)
         {
             return context.Students_Courses
                 .Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)
@@ -33,14 +33,14 @@ namespace AdminManagementSystem.Repository
  
         }
 
-        public List<Student_Course> getAllMarkWithCourseForStudent(int StudentId)
+        public List<Student_Course> getAllMarkWithCourseForStudent(string StudentId)
 		{
 			return context.Students_Courses.Include(x => x.Course_ref)
 			.Where(x => x.Student_Id == StudentId)
 			.ToList();
 		}
 
-        public Student_Course getMaxMarkAtCourseWithStudentInformation(int CourseId)
+        public Student_Course getMaxMarkAtCourseWithStudentInformation(string CourseId)
         {
             return context.Students_Courses
 					.Include(x => x.Student_ref).ThenInclude(x => x.Department_ref)

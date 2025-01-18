@@ -29,7 +29,7 @@
 
 	.user-table th,
 	.user-table td {
-		padding: 0.75rem;
+		padding: 6px;
 		border: 1px solid #dee2e6;
 		text-align: left;
 	}
@@ -117,6 +117,8 @@
 			<td class="type" class="header-cell">Type</td>
 			<td class="header-cell">Block</td>
 			<td class="header-cell">Permission</td>
+			<td class="header-cell">Delete</td>
+
 		</tr>
 		@{
 			int start = 1;
@@ -139,10 +141,12 @@
 					{
 						<td class="table-cell"><a class="action-link block-link" asp-action="BlockAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">Block</a></td>
 					}
-					<td class="table-cell"><a class="action-link change-link" asp-action="" asp-route-UserId="@user.UserId" asp-controller="">Change</a></td>
+					<td class="table-cell"><a class="action-link change-link" asp-action="ChangePermission" asp-route-UserId="@user.UserId" asp-controller="Acount">Change</a></td>
+					<td class="table-cell"><a class="action-link change-link" asp-action="DeleteAcount" asp-route-UserId="@user.UserId" asp-controller="Acount">Delete</a></td>
 				}
 				else
 				{
+					<td></td>
 					<td></td>
 					<td></td>
 				}

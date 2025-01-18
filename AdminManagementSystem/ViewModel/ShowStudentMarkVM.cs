@@ -14,7 +14,7 @@
 
     public class StudentInfoVM
     {
-		public int StudentId { get; set; }
+		public string StudentId { get; set; }
 		public string StudentName { get; set; }
 		public string Department { get; set; }
 	}
